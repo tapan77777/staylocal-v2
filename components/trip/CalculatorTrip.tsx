@@ -186,7 +186,7 @@ export default function CalculatorTrip({ trip }: Props) {
           </div>
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <a
-              href={`https://wa.me/919999999999?text=${encodeURIComponent(`Hi! I'm interested in ${trip.title}`)}`}
+              href={`https://wa.me/919178628894?text=${encodeURIComponent(`Hi! I'm interested in ${trip.title}`)}`}
               target="_blank" rel="noopener noreferrer"
               style={{ background: '#25D366', color: '#fff', padding: '11px 20px', borderRadius: 999, textDecoration: 'none', fontWeight: 600, fontSize: 14 }}
             >

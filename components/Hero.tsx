@@ -7,12 +7,12 @@ export default function Hero() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=80')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'blur(3px)',
-          transform: 'scale(1.05)',
-          opacity: 0.12,
+          backgroundPosition: 'center 30%',
+          filter: 'blur(8px)',
+          transform: 'scale(1.08)',
+          opacity: 0.18,
         }}
       />
 

@@ -84,7 +84,7 @@ export default function EnquiryTrip({ trip }: Props) {
       <div style={{ background: 'var(--green)', borderRadius: 20, padding: '28px 24px', textAlign: 'center', color: '#fff', marginBottom: 28 }}>
         <h3 style={{ fontFamily: 'var(--font-playfair)', fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Interested? Let&apos;s talk!</h3>
         <p style={{ fontSize: 14, opacity: 0.85, marginBottom: 20 }}>WhatsApp us for availability, pricing and customisation</p>
-        <a href={`https://wa.me/919999999999?text=${encodeURIComponent(`Hi! I'm interested in ${trip.title}`)}`} target="_blank" rel="noopener noreferrer" style={{ background: '#fff', color: 'var(--green)', padding: '12px 28px', borderRadius: 999, textDecoration: 'none', fontWeight: 700, fontSize: 15 }}>
+        <a href={`https://wa.me/919178628894?text=${encodeURIComponent(`Hi! I'm interested in ${trip.title}`)}`} target="_blank" rel="noopener noreferrer" style={{ background: '#fff', color: 'var(--green)', padding: '12px 28px', borderRadius: 999, textDecoration: 'none', fontWeight: 700, fontSize: 15 }}>
           WhatsApp now →
         </a>
       </div>

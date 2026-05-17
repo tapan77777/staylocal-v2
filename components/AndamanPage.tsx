@@ -349,7 +349,7 @@ export default function AndamanPage({ trip }: { trip: TripRaw }) {
           We&apos;ll confirm availability and send booking details within 2 hours
         </p>
         <div className="flex flex-col gap-2.5">
-          <a href={`https://wa.me/919999999999?text=${waMsg}`} target="_blank" rel="noopener noreferrer"
+          <a href={`https://wa.me/919178628894?text=${waMsg}`} target="_blank" rel="noopener noreferrer"
             className="bg-white text-[#1D9E75] py-3 rounded-full font-bold text-[15px] text-center flex items-center justify-center gap-2 no-underline">
             <WASvg />
             WhatsApp us now

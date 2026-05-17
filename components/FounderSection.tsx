@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 interface Experience {
   id: number
   slug: string
@@ -10,6 +12,18 @@ interface Experience {
 
 interface Props {
   experiences: Experience[]
+}
+
+function categoryEmoji(category: string): string {
+  switch (category) {
+    case 'Mountains': return '⛰️'
+    case 'Islands': return '🏝️'
+    case 'Hills': return '🌿'
+    case 'Wildlife': return '🐘'
+    case 'Beach': return '🏖️'
+    case 'Trek': return '🥾'
+    default: return '🗺️'
+  }
 }
 
 export default function FounderSection({ experiences }: Props) {
@@ -41,17 +55,20 @@ export default function FounderSection({ experiences }: Props) {
           <p style={{ color: 'var(--text-muted)', fontSize: 14 }}>No experiences added yet.</p>
         )}
         {experiences.map(exp => (
-          <div key={exp.id} style={{
-            flexShrink: 0, width: 180, background: 'var(--bg-muted)',
-            borderRadius: 14, padding: '18px 16px', border: '1px solid var(--border-light)'
-          }}>
-            <div style={{ fontSize: 28, marginBottom: 10 }}>🏔️</div>
-            <p style={{ fontSize: 13, fontWeight: 700, marginBottom: 4, lineHeight: 1.3 }}>{exp.title}</p>
-            <p style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 10 }}>{exp.location}</p>
-            <span style={{ fontSize: 10, fontWeight: 700, background: 'var(--green-light)', color: 'var(--green)', padding: '3px 8px', borderRadius: 999 }}>
-              Been there ✓
-            </span>
-          </div>
+          <Link key={exp.id} href={`/trip/${exp.slug}`} style={{ textDecoration: 'none', color: 'inherit', flexShrink: 0 }}>
+            <div style={{
+              width: 180, background: 'var(--bg-muted)',
+              borderRadius: 14, padding: '18px 16px', border: '1px solid var(--border-light)',
+              cursor: 'pointer',
+            }}>
+              <div style={{ fontSize: 28, marginBottom: 10 }}>{categoryEmoji(exp.category)}</div>
+              <p style={{ fontSize: 13, fontWeight: 700, marginBottom: 4, lineHeight: 1.3 }}>{exp.title}</p>
+              <p style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 10 }}>{exp.location}</p>
+              <span style={{ fontSize: 10, fontWeight: 700, background: 'var(--green-light)', color: 'var(--green)', padding: '3px 8px', borderRadius: 999 }}>
+                Been there ✓
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
     </section>

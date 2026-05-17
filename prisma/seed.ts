@@ -205,6 +205,81 @@ async function main() {
     }
   })
 
+  await prisma.experience.upsert({
+    where: { slug: 'jibhi' },
+    update: {},
+    create: {
+      slug: 'jibhi',
+      title: 'Jibhi Valley',
+      location: 'Jibhi, Himachal Pradesh',
+      category: 'Mountains',
+      description: 'Pine forests and mountain silence',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80',
+      visited: true,
+      status: 'published'
+    }
+  })
+
+  await prisma.experience.upsert({
+    where: { slug: 'andaman' },
+    update: {},
+    create: {
+      slug: 'andaman',
+      title: 'Andaman Islands',
+      location: 'Port Blair, Andaman',
+      category: 'Islands',
+      description: 'Turquoise water and empty beaches',
+      image: 'https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=400&q=80',
+      visited: true,
+      status: 'published'
+    }
+  })
+
+  await prisma.experience.upsert({
+    where: { slug: 'darjeeling' },
+    update: {},
+    create: {
+      slug: 'darjeeling',
+      title: 'Darjeeling',
+      location: 'Darjeeling, West Bengal',
+      category: 'Hills',
+      description: 'Tea gardens and Kanchenjunga views',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&q=80',
+      visited: true,
+      status: 'published'
+    }
+  })
+
+  await prisma.experience.upsert({
+    where: { slug: 'simlipal' },
+    update: {},
+    create: {
+      slug: 'simlipal',
+      title: 'Simlipal',
+      location: 'Mayurbhanj, Odisha',
+      category: 'Wildlife',
+      description: 'Ancient forest and wild elephants',
+      image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80',
+      visited: true,
+      status: 'published'
+    }
+  })
+
+  await prisma.experience.upsert({
+    where: { slug: 'rishikesh' },
+    update: {},
+    create: {
+      slug: 'rishikesh',
+      title: 'Rishikesh',
+      location: 'Rishikesh, Uttarakhand',
+      category: 'Mountains',
+      description: 'River rafting and yoga capital',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80',
+      visited: true,
+      status: 'published'
+    }
+  })
+
   console.log('Seeded successfully')
 }
 

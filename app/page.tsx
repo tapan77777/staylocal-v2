@@ -43,7 +43,7 @@ export default async function Home() {
           <span>Stay</span><span style={{ color: 'var(--green)' }}>Local</span>
         </div>
         <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 10 }}>Slow travel · Real places</p>
-        <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--green)', textDecoration: 'none' }}>
+        <a href="https://wa.me/919178628894" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--green)', textDecoration: 'none' }}>
           WhatsApp us
         </a>
         <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 16 }}>© 2026 StayLocal. All rights reserved.</p>

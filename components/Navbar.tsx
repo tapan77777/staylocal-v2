@@ -7,7 +7,7 @@ export default function Navbar() {
           <span style={{ fontFamily: 'var(--font-playfair)', fontSize: 22, fontWeight: 700, color: 'var(--green)' }}>Local</span>
         </a>
         <a
-          href="https://wa.me/919999999999"
+          href="https://wa.me/919178628894"
           target="_blank"
           rel="noopener noreferrer"
           style={{

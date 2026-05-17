@@ -28,7 +28,7 @@ export default function BookingModal({ tripSlug, tripTitle, onClose }: Props) {
         body: JSON.stringify({ ...form, tripSlug })
       })
       const msg = encodeURIComponent(`Hi StayLocal! I want to book *${tripTitle}*.\nName: ${form.name}\nPhone: ${form.phone}\nPeople: ${form.people}\nMonth: ${form.month}\n${form.message}`)
-      window.open(`https://wa.me/919999999999?text=${msg}`, '_blank')
+      window.open(`https://wa.me/919178628894?text=${msg}`, '_blank')
       onClose()
     } finally {
       setLoading(false)
