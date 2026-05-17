@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./staylocal.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("editor")
+  createdAt DateTime @default(now())
+}
+
+model Trip {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  title       String
+  subtitle    String   @default("")
+  location    String
+  category    String
+  duration    String
+  difficulty  String   @default("Easy")
+  price       Int
+  status      String   @default("draft")
+  image       String   @default("")
+  gallery     String   @default("[]")
+  route       String   @default("")
+  highlights  String   @default("[]")
+  included    String   @default("[]")
+  notIncluded String   @default("[]")
+  faqs        String   @default("[]")
+  type        String   @default("calculator")
+  pricing     String   @default("[]")
+  itinerary   String   @default("[]")
+  tierDetails String   @default("[]")
+  durLabels    String   @default("[]")
+  durSubLabels String   @default("[]")
+  createdAt    DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Experience {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  title       String
+  location    String
+  category    String
+  description String   @default("")
+  image       String   @default("")
+  visited     Boolean  @default(true)
+  status      String   @default("published")
+  createdAt   DateTime @default(now())
+}
+
+model Booking {
+  id       Int      @id @default(autoincrement())
+  name     String
+  phone    String
+  email    String   @default("")
+  tripSlug String
+  people   Int      @default(2)
+  month    String   @default("")
+  message  String   @default("")
+  status   String   @default("pending")
+  createdAt DateTime @default(now())
+}
