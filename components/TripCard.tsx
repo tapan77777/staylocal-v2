@@ -146,7 +146,7 @@ export default function TripCard({ trip }: Props) {
           <div>
             <p className="text-[9px] text-[#BBB] uppercase tracking-wider mb-0.5">Starting from</p>
             <p
-              style={{ fontFamily: 'var(--font-playfair)' }}
+              style={{ fontFamily: 'var(--font-dm-sans)' }}
               className="text-[22px] font-medium text-[#1a1a1a] leading-none"
             >
               ₹{trip.price.toLocaleString('en-IN')}

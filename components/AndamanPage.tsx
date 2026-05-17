@@ -196,7 +196,7 @@ export default function AndamanPage({ trip }: { trip: TripRaw }) {
                 {/* Price */}
                 <p className="text-[12px] text-[#CCC] line-through leading-none">{fmtINR(tier.bufferPrice[durIdx])}</p>
                 <div className="flex items-baseline gap-1 mb-2">
-                  <span style={{ fontFamily: 'var(--font-playfair)' }} className={`text-[22px] font-bold ${active ? 'text-[#1D9E75]' : 'text-[#1a1a1a]'}`}>{fmtINR(displayPrice)}</span>
+                  <span style={{ fontFamily: 'var(--font-dm-sans)' }} className={`text-[22px] font-bold ${active ? 'text-[#1D9E75]' : 'text-[#1a1a1a]'}`}>{fmtINR(displayPrice)}</span>
                   <span className="text-[11px] text-[#AAA]">/person</span>
                 </div>
                 {/* Meals badge */}
@@ -336,7 +336,7 @@ export default function AndamanPage({ trip }: { trip: TripRaw }) {
             <p className="text-[10px] text-[#AAA] uppercase tracking-wider">Total estimate</p>
             <p className="text-xs text-[#888] mt-0.5">{fmtINR(finalPerPerson)} per person</p>
           </div>
-          <p style={{ fontFamily: 'var(--font-playfair)' }} className="text-3xl font-medium text-[#1a1a1a]">
+          <p style={{ fontFamily: 'var(--font-dm-sans)' }} className="text-3xl font-medium text-[#1a1a1a]">
             {fmtINR(finalTotal)}
           </p>
         </div>
@@ -414,9 +414,13 @@ export default function AndamanPage({ trip }: { trip: TripRaw }) {
 
           {/* Trust strip */}
           <div className="grid grid-cols-3 bg-white border-b border-[#EAE8E4]">
-            {([['50+', 'Happy groups'], ['9+', 'Years experience'], ['Private', 'AC ferries']] as [string, string][]).map(([big, small], i) => (
+            {([
+              ['Private Ferries', 'Makruzz & Nautika'],
+              ['Small Groups', 'Max 8 per trip'],
+              ['Real Support', 'WhatsApp 24/7'],
+            ] as [string, string][]).map(([big, small], i) => (
               <div key={i} className={`py-3.5 text-center ${i < 2 ? 'border-r border-[#EAE8E4]' : ''}`}>
-                <p style={{ fontFamily: 'var(--font-playfair)' }} className="text-[18px] font-bold text-[#1a1a1a]">{big}</p>
+                <p className="text-[13px] font-bold text-[#1a1a1a]">{big}</p>
                 <p className="text-[10px] text-[#888] mt-0.5">{small}</p>
               </div>
             ))}

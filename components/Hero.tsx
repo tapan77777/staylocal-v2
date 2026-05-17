@@ -1,7 +1,30 @@
 export default function Hero() {
   return (
-    <section style={{ background: '#fff', padding: '28px 20px 28px', textAlign: 'center' }}>
-      <div style={{ maxWidth: 640, margin: '0 auto' }}>
+    <section style={{ position: 'relative', overflow: 'hidden', padding: '28px 20px 28px', textAlign: 'center' }}>
+
+      {/* Background image — blurry */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(3px)',
+          transform: 'scale(1.05)',
+          opacity: 0.12,
+        }}
+      />
+
+      {/* Gradient overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(to bottom, rgba(250,250,248,0.85) 0%, rgba(250,250,248,0.95) 100%)',
+      }} />
+
+      {/* Hero content */}
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 640, margin: '0 auto' }}>
         <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: 16 }}>
           Slow travel · Real places
         </p>
