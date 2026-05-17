@@ -71,6 +71,7 @@ export default function EnquiryForm({ trips }: Props) {
           <input
             type="number"
             min={1}
+            max={20}
             placeholder="Number of people"
             value={form.people}
             onChange={e => set('people', parseInt(e.target.value))}

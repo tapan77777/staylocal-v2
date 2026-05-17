@@ -24,7 +24,7 @@ interface Props {
   trip: TripData
 }
 
-const TRUST = ['Handpicked stays', 'Small groups', 'Local guides', 'No hidden fees']
+const TRUST = ['Handpicked stays', 'Any group size', 'Local guides', 'No hidden fees']
 
 export default function EnquiryTrip({ trip }: Props) {
   const [durIdx, setDurIdx] = useState(0)

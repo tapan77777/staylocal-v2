@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "StayLocal — Slow Travel, Real Places",
-  description: "Small groups. Real homestays. Places most tourists never find.",
+  description: "Real homestays. Places most tourists never find.",
 };
 
 export default function RootLayout({

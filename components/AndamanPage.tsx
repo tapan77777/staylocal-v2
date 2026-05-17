@@ -416,7 +416,7 @@ export default function AndamanPage({ trip }: { trip: TripRaw }) {
           <div className="grid grid-cols-3 bg-white border-b border-[#EAE8E4]">
             {([
               ['Private Ferries', 'Makruzz & Nautika'],
-              ['Small Groups', 'Max 8 per trip'],
+              ['Flexible groups', 'Solo to large groups welcome'],
               ['Real Support', 'WhatsApp 24/7'],
             ] as [string, string][]).map(([big, small], i) => (
               <div key={i} className={`py-3.5 text-center ${i < 2 ? 'border-r border-[#EAE8E4]' : ''}`}>

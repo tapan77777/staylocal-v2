@@ -32,7 +32,7 @@ export default function Hero() {
           Travel that feels <em style={{ fontStyle: 'italic' }}>alive.</em>
         </h1>
         <p style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 32 }}>
-          Small groups. Real homestays. Places most tourists never find.
+          Real homestays. Places most tourists never find.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 40 }}>
           <a href="#trips" style={{ background: 'var(--green)', color: '#fff', padding: '13px 28px', borderRadius: 999, textDecoration: 'none', fontWeight: 600, fontSize: 15 }}>
