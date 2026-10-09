@@ -1,12 +1,16 @@
 import { prisma } from '@/lib/prisma'
 import BookingActions from '@/components/admin/BookingActions'
+import { requireAdmin } from '@/lib/requireAdmin'
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminBookings({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
+  await requireAdmin()
   const { status } = await searchParams
+  const allowed = ['pending', 'confirmed', 'cancelled']
+  const safeStatus = status && allowed.includes(status) ? status : undefined
   const bookings = await prisma.booking.findMany({
-    where: status ? { status } : {},
+    where: safeStatus ? { status: safeStatus } : {},
     orderBy: { createdAt: 'desc' }
   })
 

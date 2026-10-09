@@ -20,9 +20,10 @@ interface Trip {
 
 interface Props {
   trip: Trip
+  size?: 'default' | 'wide'
 }
 
-export default function TripCard({ trip }: Props) {
+export default function TripCard({ trip, size = 'default' }: Props) {
   const images: string[] = (() => {
     try {
       const parsed = JSON.parse(trip.gallery)
@@ -33,7 +34,6 @@ export default function TripCard({ trip }: Props) {
   })()
 
   const [imgIdx, setImgIdx] = useState(0)
-
   const prev = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -45,119 +45,244 @@ export default function TripCard({ trip }: Props) {
     setImgIdx(i => (i + 1) % images.length)
   }
 
+  const minWidth = size === 'wide' ? 300 : 272
+  const maxWidth = size === 'wide' ? 320 : 288
+
   return (
     <Link
       href={`/trip/${trip.slug}`}
-      style={{ textDecoration: 'none', color: 'inherit', display: 'block', minWidth: 270, maxWidth: 270 }}
-      className="flex-shrink-0 bg-white rounded-2xl border border-[#EAE8E4] overflow-hidden cursor-pointer"
+      className="group lift"
+      aria-label={`${trip.title} — ${trip.duration}, from ₹${trip.price.toLocaleString('en-IN')} per person`}
+      style={{
+        textDecoration: 'none',
+        color: 'inherit',
+        display: 'block',
+        minWidth,
+        maxWidth,
+        background: '#fff',
+        borderRadius: 20,
+        border: '1px solid var(--border)',
+        overflow: 'hidden',
+        boxShadow: 'var(--shadow-sm)',
+      }}
     >
-      {/* Image with carousel */}
-      <div className="relative h-[170px] overflow-hidden">
+      {/* Image */}
+      <div
+        style={{
+          position: 'relative',
+          aspectRatio: '4 / 3',
+          overflow: 'hidden',
+          background: '#f0ede8',
+        }}
+      >
         {images[imgIdx] ? (
           <img
             src={images[imgIdx]}
-            alt={trip.title}
-            className="w-full h-full object-cover"
+            alt=""
+            className="card-img"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         ) : (
-          <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg,#c8ddd5,#a8c5b8)' }} />
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(135deg,#c8ddd5,#a8c5b8)',
+            }}
+          />
         )}
 
-        {/* Category badge */}
-        <div className="absolute top-3 left-3 bg-black/50 text-white text-[10px] font-medium px-2.5 py-1 rounded-full">
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.3) 100%)',
+          }}
+        />
+
+        {/* Category chip */}
+        <span
+          style={{
+            position: 'absolute',
+            top: 12,
+            left: 12,
+            background: 'rgba(255,255,255,0.95)',
+            color: '#1a1a1a',
+            fontSize: 10,
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            padding: '5px 10px',
+            borderRadius: 999,
+          }}
+        >
           {trip.category}
-        </div>
+        </span>
 
-        {/* New badge */}
-        <div className="absolute top-3 right-3 bg-[#1D9E75] text-white text-[10px] font-medium px-2.5 py-1 rounded-full">
-          New
-        </div>
-
-        {/* Arrow buttons — only when multiple images */}
         {images.length > 1 && (
           <>
             <button
+              type="button"
               onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 rounded-full flex items-center justify-center border-none cursor-pointer"
-              style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.15)' }}
+              aria-label="Previous image"
+              style={navBtn('left')}
             >
-              <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
-                <path d="M5.5 1.5L2.5 4.5l3 3" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M6.2 1.5 3 5l3.2 3.5" stroke="#1a1a1a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
+              type="button"
               onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 rounded-full flex items-center justify-center border-none cursor-pointer"
-              style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.15)' }}
+              aria-label="Next image"
+              style={navBtn('right')}
             >
-              <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
-                <path d="M3.5 1.5l3 3-3 3" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M3.8 1.5 7 5l-3.2 3.5" stroke="#1a1a1a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+            <div
+              style={{
+                position: 'absolute',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                bottom: 10,
+                display: 'flex',
+                gap: 4,
+              }}
+            >
+              {images.map((_, i) => (
+                <span
+                  key={i}
+                  style={{
+                    width: i === imgIdx ? 14 : 5,
+                    height: 5,
+                    borderRadius: 999,
+                    background: i === imgIdx ? '#fff' : 'rgba(255,255,255,0.55)',
+                    transition: 'width 0.25s',
+                  }}
+                />
+              ))}
+            </div>
           </>
-        )}
-
-        {/* Dot indicators */}
-        {images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-            {images.map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  width: i === imgIdx ? 14 : 5,
-                  height: 5,
-                  borderRadius: 999,
-                  background: i === imgIdx ? '#fff' : 'rgba(255,255,255,0.5)',
-                  transition: 'width 0.2s',
-                }}
-              />
-            ))}
-          </div>
         )}
       </div>
 
-      {/* Card body */}
-      <div className="p-4">
-        {/* Route */}
-        {trip.route && (
-          <p className="text-[11px] text-[#AAA] mb-1.5 truncate">{trip.route}</p>
-        )}
-
-        {/* Title */}
+      {/* Body */}
+      <div style={{ padding: '16px 18px 18px' }}>
+        <p
+          style={{
+            fontSize: 11,
+            color: 'var(--text-muted)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            marginBottom: 6,
+          }}
+        >
+          {trip.location || trip.route || trip.category}
+        </p>
         <h3
-          style={{ fontFamily: 'var(--font-playfair)' }}
-          className="text-[17px] font-medium text-[#1a1a1a] mb-2 leading-snug"
+          style={{
+            fontFamily: 'var(--font-playfair)',
+            fontSize: 20,
+            fontWeight: 700,
+            lineHeight: 1.2,
+            color: '#121212',
+            marginBottom: 10,
+            letterSpacing: '-0.005em',
+          }}
         >
           {trip.title}
         </h3>
 
-        {/* Tags — duration + difficulty only, no group size */}
-        <div className="flex gap-1.5 mb-3">
-          <span className="text-[10px] bg-[#F5F3F0] text-[#888] px-2.5 py-1 rounded-full border border-[#EAE8E4]">
-            {trip.duration}
-          </span>
-          <span className="text-[10px] bg-[#F5F3F0] text-[#888] px-2.5 py-1 rounded-full border border-[#EAE8E4]">
-            {trip.difficulty}
-          </span>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
+          <span style={tag}>{trip.duration}</span>
+          {trip.difficulty && <span style={tag}>{trip.difficulty}</span>}
         </div>
 
-        {/* Price + View row */}
-        <div className="flex items-end justify-between">
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'baseline',
+            justifyContent: 'space-between',
+            gap: 10,
+            paddingTop: 14,
+            borderTop: '1px solid var(--border-light)',
+          }}
+        >
           <div>
-            <p className="text-[9px] text-[#BBB] uppercase tracking-wider mb-0.5">Starting from</p>
             <p
-              style={{ fontFamily: 'var(--font-dm-sans)' }}
-              className="text-[22px] font-medium text-[#1a1a1a] leading-none"
+              style={{
+                fontSize: 10,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'var(--text-muted)',
+              }}
+            >
+              Starting from
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-playfair)',
+                fontSize: 22,
+                fontWeight: 700,
+                lineHeight: 1.1,
+                color: '#121212',
+                marginTop: 2,
+              }}
             >
               ₹{trip.price.toLocaleString('en-IN')}
+              <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 11, fontWeight: 500, color: 'var(--text-muted)', marginLeft: 6 }}>
+                / person
+              </span>
             </p>
-            <p className="text-[10px] text-[#BBB] mt-0.5">per person</p>
           </div>
-          <div className="bg-[#1a1a1a] text-white text-[12px] font-medium px-4 py-2.5 rounded-full">
-            View →
-          </div>
+          <span
+            style={{
+              background: '#121212',
+              color: '#fff',
+              padding: '9px 14px',
+              borderRadius: 999,
+              fontSize: 12,
+              fontWeight: 600,
+            }}
+          >
+            Explore trip →
+          </span>
         </div>
       </div>
     </Link>
   )
+}
+
+const tag: React.CSSProperties = {
+  fontSize: 11,
+  background: 'var(--bg-muted)',
+  color: 'var(--text-secondary)',
+  padding: '4px 10px',
+  borderRadius: 999,
+  border: '1px solid var(--border)',
+  fontWeight: 500,
+}
+
+function navBtn(side: 'left' | 'right'): React.CSSProperties {
+  return {
+    position: 'absolute',
+    top: '50%',
+    left: side === 'left' ? 10 : undefined,
+    right: side === 'right' ? 10 : undefined,
+    transform: 'translateY(-50%)',
+    width: 30,
+    height: 30,
+    borderRadius: 999,
+    background: 'rgba(255,255,255,0.95)',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
+  }
 }

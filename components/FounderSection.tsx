@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Reveal from './Reveal'
 
 interface Experience {
   id: number
@@ -28,49 +29,161 @@ function categoryEmoji(category: string): string {
 
 export default function FounderSection({ experiences }: Props) {
   return (
-    <section style={{ background: '#fff', padding: '56px 0' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto', paddingLeft: 20, paddingRight: 20 }}>
-        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green)', display: 'block', marginBottom: 12 }}>
-          From the founder
-        </span>
-        <h2 style={{ fontFamily: 'var(--font-playfair)', fontSize: 28, fontWeight: 700, color: '#1a1a1a', marginBottom: 24 }}>
-          Places I&apos;ve been
-        </h2>
+    <section
+      style={{
+        background: '#fff',
+        padding: 'clamp(56px, 9vh, 96px) 0',
+        borderTop: '1px solid var(--border-light)',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1100,
+          margin: '0 auto',
+          padding: '0 20px',
+        }}
+      >
+        <div
+          className="founder-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1fr)',
+            gap: 32,
+            alignItems: 'start',
+          }}
+        >
+          <Reveal>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: 10 }}>From the founder</p>
+              <h2
+                className="section-title"
+                style={{ marginBottom: 14 }}
+              >
+                Places I&apos;ve actually been.
+              </h2>
+              <p
+                style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: 'clamp(14px, 1.4vw, 16px)',
+                  lineHeight: 1.65,
+                  marginBottom: 18,
+                  maxWidth: 480,
+                }}
+              >
+                Every trip here is somewhere I&apos;ve travelled, eaten, taken the local bus, or
+                slept in the guesthouse I now recommend. If I haven&apos;t been, we don&apos;t sell it.
+              </p>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 14,
+                  background: 'var(--bg)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 14,
+                  padding: '12px 16px',
+                }}
+              >
+                <div
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: '50%',
+                    background: 'var(--green)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    fontSize: 18,
+                    fontWeight: 700,
+                    flexShrink: 0,
+                    fontFamily: 'var(--font-playfair)',
+                  }}
+                >
+                  T
+                </div>
+                <div>
+                  <p style={{ fontWeight: 700, fontSize: 14 }}>Tapan Naik</p>
+                  <p style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
+                    Founder · StayLocal
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
 
-        {/* Founder card */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 32, background: 'var(--bg-muted)', borderRadius: 14, padding: '16px 20px', maxWidth: 340 }}>
-          <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 20, fontWeight: 700, flexShrink: 0 }}>
-            T
-          </div>
-          <div>
-            <p style={{ fontWeight: 700, fontSize: 15 }}>Tapan Naik</p>
-            <p style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Founder · StayLocal</p>
-          </div>
+          <Reveal delay={120}>
+            <div
+              className="hide-scrollbar"
+              style={{
+                display: 'flex',
+                gap: 12,
+                overflowX: 'auto',
+                paddingBottom: 4,
+              }}
+            >
+              {experiences.length === 0 && (
+                <p style={{ color: 'var(--text-muted)', fontSize: 14 }}>
+                  Experiences list coming soon.
+                </p>
+              )}
+              {experiences.map(exp => (
+                <Link
+                  key={exp.id}
+                  href={`/trip/${exp.slug}`}
+                  className="lift"
+                  style={{
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    flexShrink: 0,
+                    width: 200,
+                    background: 'var(--bg)',
+                    borderRadius: 16,
+                    padding: '20px 18px',
+                    border: '1px solid var(--border)',
+                  }}
+                >
+                  <div style={{ fontSize: 28, marginBottom: 12 }}>
+                    {categoryEmoji(exp.category)}
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-playfair)',
+                      fontSize: 15,
+                      fontWeight: 700,
+                      marginBottom: 4,
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    {exp.title}
+                  </p>
+                  <p style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 10 }}>
+                    {exp.location}
+                  </p>
+                  <span
+                    style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      background: 'var(--green-light)',
+                      color: 'var(--green)',
+                      padding: '3px 8px',
+                      borderRadius: 999,
+                    }}
+                  >
+                    Been there ✓
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </div>
 
-      {/* Horizontal scroll */}
-      <div className="hide-scrollbar" style={{ display: 'flex', gap: 14, overflowX: 'auto', paddingLeft: 20, paddingRight: 20, paddingBottom: 4 }}>
-        {experiences.length === 0 && (
-          <p style={{ color: 'var(--text-muted)', fontSize: 14 }}>No experiences added yet.</p>
-        )}
-        {experiences.map(exp => (
-          <Link key={exp.id} href={`/trip/${exp.slug}`} style={{ textDecoration: 'none', color: 'inherit', flexShrink: 0 }}>
-            <div style={{
-              width: 180, background: 'var(--bg-muted)',
-              borderRadius: 14, padding: '18px 16px', border: '1px solid var(--border-light)',
-              cursor: 'pointer',
-            }}>
-              <div style={{ fontSize: 28, marginBottom: 10 }}>{categoryEmoji(exp.category)}</div>
-              <p style={{ fontSize: 13, fontWeight: 700, marginBottom: 4, lineHeight: 1.3 }}>{exp.title}</p>
-              <p style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 10 }}>{exp.location}</p>
-              <span style={{ fontSize: 10, fontWeight: 700, background: 'var(--green-light)', color: 'var(--green)', padding: '3px 8px', borderRadius: 999 }}>
-                Been there ✓
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <style>{`
+        @media (min-width: 820px) {
+          .founder-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) !important; gap: 48px !important; }
+        }
+      `}</style>
     </section>
   )
 }

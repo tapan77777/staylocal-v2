@@ -42,6 +42,33 @@ model Trip {
   durSubLabels String   @default("[]")
   createdAt    DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  packages    TripPackage[]
+}
+
+model TripPackage {
+  id            Int      @id @default(autoincrement())
+  tripId        Int
+  trip          Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  slug          String
+  label         String
+  days          Int
+  nights        Int
+  priceAdult    Int
+  priceBasis    String   @default("per adult, twin sharing")
+  priceOnRequest Boolean @default(false)
+  image         String   @default("")
+  sortOrder     Int      @default(0)
+  status        String   @default("draft")
+  itinerary     String   @default("[]")
+  accommodation String   @default("")
+  inclusions    String   @default("[]")
+  exclusions    String   @default("[]")
+  notes         String   @default("")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([tripId, slug])
+  @@index([tripId, sortOrder])
 }
 
 model Experience {
@@ -58,14 +85,17 @@ model Experience {
 }
 
 model Booking {
-  id       Int      @id @default(autoincrement())
-  name     String
-  phone    String
-  email    String   @default("")
-  tripSlug String
-  people   Int      @default(2)
-  month    String   @default("")
-  message  String   @default("")
-  status   String   @default("pending")
-  createdAt DateTime @default(now())
+  id             Int      @id @default(autoincrement())
+  name           String
+  phone          String
+  email          String   @default("")
+  tripSlug       String
+  people         Int      @default(2)
+  month          String   @default("")
+  message        String   @default("")
+  status         String   @default("pending")
+  packageId      Int?
+  packageLabel   String   @default("")
+  estimatedPrice Int?
+  createdAt      DateTime @default(now())
 }

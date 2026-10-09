@@ -1,9 +1,11 @@
 import { prisma } from '@/lib/prisma'
 import AddExperience from '@/components/admin/AddExperience'
+import { requireAdmin } from '@/lib/requireAdmin'
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminExperiences() {
+  await requireAdmin()
   const experiences = await prisma.experience.findMany({ orderBy: { createdAt: 'desc' } })
 
   return (

@@ -1,9 +1,11 @@
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
+import { requireAdmin } from '@/lib/requireAdmin'
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboard() {
+  await requireAdmin()
   const [totalTrips, publishedTrips, totalBookings, pendingBookings, recentBookings] = await Promise.all([
     prisma.trip.count(),
     prisma.trip.count({ where: { status: 'published' } }),

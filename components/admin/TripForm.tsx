@@ -1,6 +1,26 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import PackagesEditor, { type PackageDraft } from './PackagesEditor'
+
+interface Package {
+  id?: number
+  slug: string
+  label: string
+  days: number
+  nights: number
+  priceAdult: number
+  priceBasis?: string
+  priceOnRequest?: boolean
+  image?: string
+  sortOrder?: number
+  status?: string
+  itinerary?: string
+  accommodation?: string
+  inclusions?: string
+  exclusions?: string
+  notes?: string
+}
 
 interface Trip {
   id: number
@@ -25,15 +45,39 @@ interface Trip {
   itinerary: string
   tierDetails: string
   durLabels: string
+  packages?: Package[]
 }
 
 interface Props {
   trip?: Trip
 }
 
+function hydratePackages(pkgs: Package[] | undefined): PackageDraft[] {
+  if (!pkgs || pkgs.length === 0) return []
+  return pkgs.map((p, i) => ({
+    id: p.id,
+    slug: p.slug,
+    label: p.label,
+    days: p.days,
+    nights: p.nights,
+    priceAdult: p.priceAdult,
+    priceBasis: p.priceBasis ?? 'per adult, twin sharing',
+    priceOnRequest: p.priceOnRequest ?? false,
+    image: p.image ?? '',
+    sortOrder: p.sortOrder ?? i,
+    status: p.status ?? 'draft',
+    itinerary: p.itinerary ?? '[]',
+    accommodation: p.accommodation ?? '',
+    inclusions: p.inclusions ?? '[]',
+    exclusions: p.exclusions ?? '[]',
+    notes: p.notes ?? '',
+  }))
+}
+
 export default function TripForm({ trip }: Props) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [form, setForm] = useState({
     slug: trip?.slug ?? '',
     title: trip?.title ?? '',
@@ -57,21 +101,27 @@ export default function TripForm({ trip }: Props) {
     tierDetails: trip?.tierDetails ?? '[]',
     durLabels: trip?.durLabels ?? '[]',
   })
+  const [packages, setPackages] = useState<PackageDraft[]>(hydratePackages(trip?.packages))
 
   const set = (k: string, v: string | number) => setForm(f => ({ ...f, [k]: v }))
 
   const save = async (status: string) => {
     setLoading(true)
+    setError(null)
     try {
       const url = trip ? `/api/admin/trips/${trip.id}` : '/api/admin/trips'
       const method = trip ? 'PUT' : 'POST'
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, price: Number(form.price), status })
+        body: JSON.stringify({ ...form, price: Number(form.price), status, packages }),
       })
-      if (res.ok) router.push('/admin/trips')
-      else alert('Failed to save')
+      if (res.ok) {
+        router.push('/admin/trips')
+      } else {
+        const body = await res.json().catch(() => ({}))
+        setError(body.error || 'Failed to save.')
+      }
     } finally {
       setLoading(false)
     }
@@ -88,16 +138,16 @@ export default function TripForm({ trip }: Props) {
           <label style={lbl}>Location<input style={inp} value={form.location} onChange={e => set('location', e.target.value)} /></label>
           <label style={lbl}>Category
             <select style={inp} value={form.category} onChange={e => set('category', e.target.value)}>
-              {['Mountains','Islands','Wildlife','Trek','Beach','Other'].map(c => <option key={c}>{c}</option>)}
+              {['Mountains','Islands','Wildlife','Trek','Beach','Hills','Other'].map(c => <option key={c}>{c}</option>)}
             </select>
           </label>
-          <label style={lbl}>Duration (e.g. 9D · 8N)<input style={inp} value={form.duration} onChange={e => set('duration', e.target.value)} /></label>
+          <label style={lbl}>Duration label (e.g. 3D–5D)<input style={inp} value={form.duration} onChange={e => set('duration', e.target.value)} /></label>
           <label style={lbl}>Difficulty
             <select style={inp} value={form.difficulty} onChange={e => set('difficulty', e.target.value)}>
               {['Easy','Moderate','Hard'].map(d => <option key={d}>{d}</option>)}
             </select>
           </label>
-          <label style={lbl}>Base Price (₹)<input style={inp} type="number" value={form.price} onChange={e => set('price', e.target.value)} /></label>
+          <label style={lbl}>Base Price (₹) — fallback<input style={inp} type="number" value={form.price} onChange={e => set('price', e.target.value)} /></label>
           <label style={lbl}>Route<input style={inp} value={form.route} onChange={e => set('route', e.target.value)} /></label>
           <label style={{ ...lbl, gridColumn: '1 / -1' }}>Subtitle<input style={inp} value={form.subtitle} onChange={e => set('subtitle', e.target.value)} /></label>
         </div>
@@ -126,20 +176,40 @@ export default function TripForm({ trip }: Props) {
       <div style={card}>
         <h2 style={cardTitle}>Content</h2>
         <label style={lbl}>Highlights (JSON array of strings)<textarea style={{ ...inp, height: 80 }} value={form.highlights} onChange={e => set('highlights', e.target.value)} /></label>
-        <label style={lbl}>Included (JSON array)<textarea style={{ ...inp, height: 80 }} value={form.included} onChange={e => set('included', e.target.value)} /></label>
-        <label style={lbl}>Not Included (JSON array)<textarea style={{ ...inp, height: 80 }} value={form.notIncluded} onChange={e => set('notIncluded', e.target.value)} /></label>
+        <label style={lbl}>Included — trip-wide (JSON array)<textarea style={{ ...inp, height: 80 }} value={form.included} onChange={e => set('included', e.target.value)} /></label>
+        <label style={lbl}>Not Included — trip-wide (JSON array)<textarea style={{ ...inp, height: 80 }} value={form.notIncluded} onChange={e => set('notIncluded', e.target.value)} /></label>
         <label style={lbl}>FAQs (JSON array of {'{q,a}'})<textarea style={{ ...inp, height: 100 }} value={form.faqs} onChange={e => set('faqs', e.target.value)} /></label>
       </div>
 
-      {/* Calculator fields */}
+      {/* Duration packages — NEW */}
+      <div style={card}>
+        <h2 style={cardTitle}>Duration Packages</h2>
+        <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: -4 }}>
+          Each option is one duration (e.g. 3D/2N, 4D/3N) with its own price, itinerary, inclusions, and accommodation.
+          Customers select one when enquiring. Draft packages are hidden from the public page.
+        </p>
+        <PackagesEditor packages={packages} onChange={setPackages} />
+      </div>
+
+      {/* Legacy Calculator fields — kept for backward compat */}
       {form.type === 'calculator' && (
         <div style={card}>
-          <h2 style={cardTitle}>Calculator Pricing</h2>
-          <label style={lbl}>Duration Labels (JSON array, e.g. ["3D/2N","4D/3N"])<textarea style={{ ...inp, height: 60 }} value={form.durLabels} onChange={e => set('durLabels', e.target.value)} /></label>
-          <label style={lbl}>Pricing (JSON 2D array [durIdx][tierIdx])<textarea style={{ ...inp, height: 80 }} value={form.pricing} onChange={e => set('pricing', e.target.value)} /></label>
-          <label style={lbl}>Tier Details (JSON array of {'{name,vehicle,meals,feats}'})<textarea style={{ ...inp, height: 120 }} value={form.tierDetails} onChange={e => set('tierDetails', e.target.value)} /></label>
-          <label style={lbl}>Itinerary (JSON 3D array [durIdx][dayIdx]{'{day,title,desc}'})<textarea style={{ ...inp, height: 140 }} value={form.itinerary} onChange={e => set('itinerary', e.target.value)} /></label>
+          <h2 style={cardTitle}>Legacy Calculator (optional, backward compat)</h2>
+          <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: -4 }}>
+            These fields power the old tier/duration matrix for trips that haven&apos;t been migrated to packages.
+            If you&apos;ve added packages above, you can leave these empty — the public page will prefer packages.
+          </p>
+          <label style={lbl}>Duration Labels (JSON array)<textarea style={{ ...inp, height: 60 }} value={form.durLabels} onChange={e => set('durLabels', e.target.value)} /></label>
+          <label style={lbl}>Pricing (JSON 2D array)<textarea style={{ ...inp, height: 80 }} value={form.pricing} onChange={e => set('pricing', e.target.value)} /></label>
+          <label style={lbl}>Tier Details (JSON array)<textarea style={{ ...inp, height: 120 }} value={form.tierDetails} onChange={e => set('tierDetails', e.target.value)} /></label>
+          <label style={lbl}>Legacy Itinerary (JSON 3D)<textarea style={{ ...inp, height: 140 }} value={form.itinerary} onChange={e => set('itinerary', e.target.value)} /></label>
         </div>
+      )}
+
+      {error && (
+        <p style={{ fontSize: 13, color: '#b91c1c', background: '#fef2f2', padding: '12px 14px', borderRadius: 10, border: '1px solid #fecaca' }}>
+          {error}
+        </p>
       )}
 
       {/* Actions */}

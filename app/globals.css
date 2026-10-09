@@ -4,26 +4,39 @@
   --bg: #FAFAF8;
   --bg-card: #FFFFFF;
   --bg-muted: #F5F3F0;
+  --bg-cream: #F3EEE3;
   --border: #EAE8E4;
   --border-light: #F0EDE8;
   --text-primary: #1a1a1a;
-  --text-secondary: #888888;
-  --text-muted: #BBBBBB;
+  --text-secondary: #666666;
+  --text-muted: #9A9A9A;
   --green: #1D9E75;
   --green-light: #E8F5F0;
   --green-dark: #0d6b50;
+  --green-darker: #072a21;
+  --ink: #0b1510;
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-dm-sans);
+
+  --shadow-sm: 0 1px 2px rgba(10, 20, 15, 0.05);
+  --shadow-md: 0 6px 20px rgba(10, 20, 15, 0.07);
+  --shadow-lg: 0 24px 48px -16px rgba(10, 20, 15, 0.18);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--bg);
   font-family: var(--font-sans), sans-serif;
   color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .hide-scrollbar {
@@ -31,4 +44,135 @@ body {
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Horizontal snap carousels (mobile-first) */
+.hscroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-left: 20px;
+  padding: 4px 20px 16px;
+}
+.hscroll > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+@media (min-width: 1024px) {
+  .hscroll { scroll-snap-type: none; }
+}
+
+/* Editorial eyebrow */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+/* Section typography */
+.section-title {
+  font-family: var(--font-playfair), serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #121212;
+  font-size: clamp(28px, 4.2vw, 42px);
+}
+
+/* ------------ Reveal animations ------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible,
+.reveal.auto-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Images in cards zoom on hover */
+.card-img {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.group:hover .card-img,
+.card-hover:hover .card-img {
+  transform: scale(1.06);
+}
+
+/* Soft lift on hover */
+.lift {
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ken Burns hero */
+@keyframes kenburns {
+  0% { transform: scale(1.06) translate3d(0, 0, 0); }
+  100% { transform: scale(1.14) translate3d(-1%, -1%, 0); }
+}
+.kenburns {
+  animation: kenburns 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Hero text entrance */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise > * {
+  opacity: 0;
+  animation: heroRise 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-rise > *:nth-child(1) { animation-delay: 120ms; }
+.hero-rise > *:nth-child(2) { animation-delay: 240ms; }
+.hero-rise > *:nth-child(3) { animation-delay: 360ms; }
+.hero-rise > *:nth-child(4) { animation-delay: 500ms; }
+.hero-rise > *:nth-child(5) { animation-delay: 620ms; }
+
+/* Dialog entrance */
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0.4; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.sheet-enter {
+  animation: slideUp 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.backdrop-enter {
+  animation: fadeIn 220ms ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .kenburns { animation: none; }
+  .hero-rise > * { opacity: 1; }
 }

@@ -1,9 +1,11 @@
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
+import { requireAdmin } from '@/lib/requireAdmin'
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminTrips() {
+  await requireAdmin()
   const trips = await prisma.trip.findMany({ orderBy: { createdAt: 'desc' } })
 
   return (
