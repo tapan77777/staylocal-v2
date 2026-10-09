@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
@@ -12,6 +13,27 @@ import EnquiryForm from '@/components/EnquiryForm'
 import Footer from '@/components/Footer'
 
 export const dynamic = 'force-dynamic'
+
+const homeTitle = 'StayLocal — Discover India Beyond the Ordinary'
+const homeDescription =
+  'Discover authentic India with local insights, thoughtfully planned trips, and personal travel support from StayLocal.'
+
+export const metadata: Metadata = {
+  title: { absolute: homeTitle },
+  description: homeDescription,
+  openGraph: {
+    title: homeTitle,
+    description: homeDescription,
+    url: '/',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: homeTitle,
+    description: homeDescription,
+  },
+}
 
 function regionOf(location: string, category: string): string {
   const l = (location || '').toLowerCase()

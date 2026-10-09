@@ -22,10 +22,10 @@ type CuratedTrip = {
 const CURATED: CuratedTrip[] = [
   {
     key: 'rishikesh',
-    title: 'Rishikesh',
+    title: 'Rishikesh Escape',
     location: 'Uttarakhand',
     duration: '3 days · 2 nights',
-    priceFrom: 16500,
+    priceFrom: 6999,
     badge: 'Yoga & River',
     image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=72',
     description:
@@ -43,7 +43,7 @@ const CURATED: CuratedTrip[] = [
     title: 'Mussoorie & Landour',
     location: 'Uttarakhand',
     duration: '4 days · 3 nights',
-    priceFrom: 22500,
+    priceFrom: 8999,
     badge: 'Hill-station classic',
     image: 'https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=1200&q=72',
     description:
@@ -61,29 +61,28 @@ const CURATED: CuratedTrip[] = [
     key: 'munnar-alleppey',
     title: 'Munnar & Alleppey',
     location: 'Kerala',
-    duration: '6 days · 5 nights',
-    priceFrom: 38500,
+    duration: '5 days · 4 nights',
+    priceFrom: 12999,
     badge: 'Hills to houseboat',
     image: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?auto=format&fit=crop&w=1200&q=72',
     description:
-      'Tea gardens, spice walks and a houseboat on the backwaters — Kerala\u2019s greatest hits paced for actual rest. We stay in boutique estates and finish with two slow Alleppey nights.',
+      'Tea gardens and a houseboat on the backwaters — Kerala\u2019s greatest hits paced for actual rest. We stay in boutique estates and finish with two slow Alleppey nights.',
     itinerary: [
       { day: 'Day 1', title: 'Kochi to Munnar', desc: 'Scenic drive up through the Western Ghats. Easy evening at a tea estate stay.' },
       { day: 'Day 2', title: 'Munnar — tea & trails', desc: 'Tea Museum, a guided plantation walk, Eravikulam viewpoint, café lunch.' },
-      { day: 'Day 3', title: 'Munnar → Thekkady', desc: 'Spice walk, cooking demo, overnight at a cardamom-estate homestay.' },
-      { day: 'Day 4', title: 'Thekkady → Alleppey', desc: 'Drive to the backwaters. Board a private houseboat for the night.' },
-      { day: 'Day 5', title: 'Backwater day', desc: 'Village walks, long lunch, a canoe ride through narrower canals.' },
-      { day: 'Day 6', title: 'Return', desc: 'Breakfast on the boat, drive back to Kochi airport.' },
+      { day: 'Day 3', title: 'Munnar → Alleppey', desc: 'Scenic drive to the backwaters. Board a private houseboat by late afternoon.' },
+      { day: 'Day 4', title: 'Backwater day', desc: 'Village walks, long lunch, a canoe ride through narrower canals.' },
+      { day: 'Day 5', title: 'Return', desc: 'Breakfast on the boat, drive back to Kochi airport.' },
     ],
-    inclusions: ['Boutique stays throughout', 'Private houseboat (1 night)', 'All breakfasts + houseboat meals', 'Private car with driver', 'Guided tea & spice walks'],
+    inclusions: ['Boutique stays throughout', 'Private houseboat (1 night)', 'All breakfasts + houseboat meals', 'Private car with driver', 'Guided tea walk'],
     exclusions: ['Flights to Kochi', 'Most lunches & dinners', 'Alcoholic beverages'],
   },
   {
     key: 'jibhi',
-    title: 'Jibhi',
+    title: 'Jibhi Mountain Retreat',
     location: 'Himachal Pradesh',
     duration: '4 days · 3 nights',
-    priceFrom: 19500,
+    priceFrom: 9999,
     badge: 'Pine valleys & cafés',
     image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=72',
     description:
@@ -99,10 +98,10 @@ const CURATED: CuratedTrip[] = [
   },
   {
     key: 'darjeeling',
-    title: 'Darjeeling',
+    title: 'Darjeeling Hills',
     location: 'West Bengal',
     duration: '4 days · 3 nights',
-    priceFrom: 24500,
+    priceFrom: 10999,
     badge: 'Toy train & tea',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=72',
     description:
@@ -118,53 +117,49 @@ const CURATED: CuratedTrip[] = [
   },
   {
     key: 'andaman',
-    title: 'Andaman Islands',
+    title: 'Andaman Island Escape',
     location: 'Andaman & Nicobar',
-    duration: '6 days · 5 nights',
-    priceFrom: 48500,
+    duration: '5 days · 4 nights',
+    priceFrom: 16999,
     badge: 'Reef & white sand',
     image: 'https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1200&q=72',
     description:
-      'Port Blair, Havelock and Neil — the slow version. Snorkel at a reef, read on Radhanagar at sunset, kayak the Neil mangroves. Private speedboat upgrades available.',
+      'Port Blair, Havelock and Neil — the slow version. Snorkel at a reef, read on Radhanagar at sunset, and kayak the Neil mangroves before heading home.',
     itinerary: [
       { day: 'Day 1', title: 'Arrive Port Blair', desc: 'Transfer in, Cellular Jail light-&-sound show in the evening.' },
       { day: 'Day 2', title: 'Ferry to Havelock', desc: 'Morning ferry. Afternoon on Radhanagar Beach, sunset there.' },
-      { day: 'Day 3', title: 'Elephant Beach & reef', desc: 'Snorkelling at Elephant Beach. Easy afternoon, Kalapathar for sunrise next day.' },
+      { day: 'Day 3', title: 'Elephant Beach & reef', desc: 'Snorkelling at Elephant Beach. Easy afternoon, Kalapathar for sunrise.' },
       { day: 'Day 4', title: 'Neil Island', desc: 'Short ferry across. Natural Bridge, Laxmanpur sunset, kayak through mangroves.' },
-      { day: 'Day 5', title: 'Back to Port Blair', desc: 'Return ferry, Chidiya Tapu for sunset birding.' },
-      { day: 'Day 6', title: 'Return', desc: 'Transfer to airport.' },
+      { day: 'Day 5', title: 'Return', desc: 'Return ferry to Port Blair, transfer to airport.' },
     ],
     inclusions: ['Beachfront stays on Havelock & Neil', 'All inter-island ferries (standard class)', 'Daily breakfast', 'Snorkelling at Elephant Beach', 'All airport & jetty transfers'],
     exclusions: ['Flights to Port Blair', 'Most lunches & dinners', 'Scuba diving (optional add-on)'],
   },
   {
     key: 'rajasthan',
-    title: 'Rajasthan',
-    location: 'Jaipur · Jodhpur · Udaipur',
-    duration: '7 days · 6 nights',
-    priceFrom: 54500,
+    title: 'Rajasthan Heritage',
+    location: 'Jaipur, Rajasthan',
+    duration: '4 days · 3 nights',
+    priceFrom: 8999,
     badge: 'Forts & palaces',
     image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=72',
     description:
-      'The classic desert triangle paced so you actually see it — pink Jaipur mornings, a Mehrangarh afternoon, Lake Pichola at dusk, and one night in a quieter hamlet between.',
+      'A pink-city long weekend — Amer Fort mornings, Hawa Mahal, a bazaar walk through the old city, and one quiet half-day at Nahargarh overlooking Jaipur.',
     itinerary: [
-      { day: 'Day 1', title: 'Arrive Jaipur', desc: 'Chokhi Dhani or Bapu Bazar walk, dinner at a haveli.' },
-      { day: 'Day 2', title: 'Amer & old city', desc: 'Amer Fort morning, Hawa Mahal, Jantar Mantar, local dinner.' },
-      { day: 'Day 3', title: 'Jaipur to Jodhpur', desc: 'Drive via Pushkar for a short stop. Settle in the blue city.' },
-      { day: 'Day 4', title: 'Mehrangarh day', desc: 'Fort audio walk, Jaswant Thada, rooftop dinner over the old city.' },
-      { day: 'Day 5', title: 'Jodhpur to Udaipur', desc: 'Drive via Ranakpur Jain temples. Boat ride on Lake Pichola at sunset.' },
-      { day: 'Day 6', title: 'Udaipur walk', desc: 'City Palace, old-city haveli breakfast, bazaars, farewell dinner at a lakeside rooftop.' },
-      { day: 'Day 7', title: 'Return', desc: 'Transfer to Udaipur airport.' },
+      { day: 'Day 1', title: 'Arrive Jaipur', desc: 'Settle in, Chokhi Dhani or Bapu Bazar walk, dinner at a heritage haveli.' },
+      { day: 'Day 2', title: 'Amer & old city', desc: 'Amer Fort morning, Hawa Mahal, Jantar Mantar, local lunch, pink-city dinner.' },
+      { day: 'Day 3', title: 'Nahargarh & craft walk', desc: 'Nahargarh viewpoint, Albert Hall museum, afternoon haveli block-print workshop.' },
+      { day: 'Day 4', title: 'Return', desc: 'Last breakfast, bazaar stop for souvenirs, transfer to Jaipur airport.' },
     ],
-    inclusions: ['Heritage stays in all 3 cities', 'Daily breakfast', 'Private AC car with driver', 'Monument entries included', 'Local walking guide in each city'],
+    inclusions: ['Heritage haveli stay', 'Daily breakfast', 'Private AC car with driver', 'Amer & Nahargarh entries', 'Local walking guide'],
     exclusions: ['Flights in/out', 'Most lunches & dinners', 'Camera fees at monuments'],
   },
   {
     key: 'himachal',
-    title: 'Himachal',
+    title: 'Himachal Family Escape',
     location: 'Shoja · Manali · Solang',
-    duration: '6 days · 5 nights',
-    priceFrom: 32500,
+    duration: '5 days · 4 nights',
+    priceFrom: 13999,
     badge: 'Cedars & snow views',
     image: 'https://images.unsplash.com/photo-1587922546307-776227941871?auto=format&fit=crop&w=1200&q=72',
     description:
@@ -173,9 +168,8 @@ const CURATED: CuratedTrip[] = [
       { day: 'Day 1', title: 'Chandigarh to Shoja', desc: 'Transfer up through the Tirthan valley. Settle in at a cedar-forest lodge.' },
       { day: 'Day 2', title: 'Jalori Pass walk', desc: 'Oak-forest walk to Serolsar lake. Picnic lunch, slow evening.' },
       { day: 'Day 3', title: 'Shoja to Manali', desc: 'Drive via Mandi. Settle in old Manali, café evening.' },
-      { day: 'Day 4', title: 'Old Manali day', desc: 'Hadimba temple, Vashisht hot springs, Manu temple, café hop.' },
-      { day: 'Day 5', title: 'Solang morning', desc: 'Ropeway + optional paragliding at Solang. Afternoon rest, farewell dinner.' },
-      { day: 'Day 6', title: 'Return', desc: 'Breakfast, transfer down to Chandigarh (or fly out from Bhuntar).' },
+      { day: 'Day 4', title: 'Manali & Solang', desc: 'Hadimba temple, Vashisht hot springs, Solang ropeway morning, café hop and farewell dinner.' },
+      { day: 'Day 5', title: 'Return', desc: 'Breakfast, transfer down to Chandigarh (or fly out from Bhuntar).' },
     ],
     inclusions: ['Boutique stays throughout', 'Daily breakfast', 'Private vehicle with driver', 'Solang ropeway tickets', 'Local guide for Jalori walk'],
     exclusions: ['Flights/trains', 'Lunches & dinners', 'Paragliding & snow activities'],
@@ -190,7 +184,7 @@ function buildWaMessage(t: CuratedTrip) {
   return [
     `Hi StayLocal! I'd love a curated trip to *${t.title}*.`,
     `Duration: ${t.duration}`,
-    `Indicative budget: from ${formatInr(t.priceFrom)} / person (excl. flights, subject to confirmation).`,
+    `Indicative price per person: from ${formatInr(t.priceFrom)} (flights excluded, final price confirmed after enquiry).`,
     `Could you share a tailored itinerary and quote?`,
   ].join('\n')
 }
@@ -499,7 +493,7 @@ function CuratedModal({ trip, onClose }: { trip: CuratedTrip; onClose: () => voi
                 <span style={{ fontFamily: 'inherit', fontSize: 13, fontWeight: 500, color: 'var(--text-secondary)', marginLeft: 6 }}>/ person</span>
               </p>
               <p style={{ fontSize: 12, color: 'var(--text-muted, #8a877f)', marginTop: 4 }}>
-                Per person, twin sharing. Excludes flights. Subject to confirmation.
+                Indicative price per person · Flights excluded · Final price confirmed after enquiry
               </p>
             </div>
             <a
