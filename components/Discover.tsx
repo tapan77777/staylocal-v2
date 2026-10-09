@@ -1,6 +1,7 @@
 'use client'
 import { useMemo, useState } from 'react'
 import CategoryCircles from './CategoryCircles'
+import CuratedTrips from './CuratedTrips'
 import DestinationsCarousel from './DestinationsCarousel'
 import FeaturedCarousel from './FeaturedCarousel'
 
@@ -52,6 +53,7 @@ export default function Discover({ trips, destinationTrips }: Props) {
     <>
       <CategoryCircles active={cat} onChange={setCat} />
       <FeaturedCarousel trips={filtered} activeCategory={cat} />
+      <CuratedTrips />
       <DestinationsCarousel trips={destinationTrips} />
     </>
   )
