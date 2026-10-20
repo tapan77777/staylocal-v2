@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "db:upgrade:packages": "prisma db execute --schema prisma/schema.prisma --file prisma/upgrades/20261020_trip_packages.sql",
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",

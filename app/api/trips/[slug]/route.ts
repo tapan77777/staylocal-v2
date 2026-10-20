@@ -5,8 +5,8 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ slu
   const { slug } = await params
   const trip = await prisma.trip.findUnique({
     where: { slug },
-    include: { packages: { orderBy: { sortOrder: 'asc' } } },
+    include: { packages: { where: { status: 'published' }, orderBy: { sortOrder: 'asc' } } },
   })
-  if (!trip) return NextResponse.json({ error: 'Not found' }, { status: 404 })
+  if (!trip || trip.status !== 'published') return NextResponse.json({ error: 'Not found' }, { status: 404 })
   return NextResponse.json(trip)
 }

@@ -13,6 +13,7 @@ interface Props {
   estimatedPrice?: number | null
   priceOnRequest?: boolean
   initialPeople?: number
+  initialMessage?: string
 }
 
 export default function BookingModal({
@@ -24,12 +25,13 @@ export default function BookingModal({
   estimatedPrice = null,
   priceOnRequest = false,
   initialPeople = 2,
+  initialMessage = '',
 }: Props) {
   const [form, setForm] = useState({
     name: '',
     phone: '',
     email: '',
-    message: '',
+    message: initialMessage,
     people: initialPeople,
     month: '',
   })

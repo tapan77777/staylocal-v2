@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import BookingModal from '@/components/BookingModal'
 
 // ─── types ────────────────────────────────────────────────────────────────────
 
@@ -542,22 +543,22 @@ export default function AndamanPage({ trip }: { trip: TripRaw }) {
 // ─── enquiry submit ────────────────────────────────────────────────────────────
 
 function EnquirySubmit({ trip, durLabel, tierName, people, total }: { trip: TripRaw; durLabel: string; tierName: string; people: number; total: number }) {
-  const [sent, setSent] = useState(false)
-  const [loading, setLoading] = useState(false)
-  async function submit() {
-    setLoading(true)
-    await fetch('/api/bookings', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: 'Enquiry', phone: 'via form', tripSlug: trip.slug, people, message: `${durLabel} · ${tierName} · Total ${fmtINR(total)}` })
-    })
-    setLoading(false); setSent(true)
-  }
-  if (sent) return <div className="border border-white/50 text-white rounded-full py-3 text-center text-[14px] font-semibold">✓ Enquiry sent!</div>
+  const [showModal, setShowModal] = useState(false)
   return (
-    <button onClick={submit} disabled={loading}
-      className="bg-transparent border border-white/50 text-white rounded-full py-3 text-[14px] font-semibold cursor-pointer w-full"
-      style={{ opacity: loading ? 0.7 : 1 }}>
-      {loading ? 'Sending...' : 'Submit enquiry'}
-    </button>
+    <>
+      <button onClick={() => setShowModal(true)}
+        className="bg-transparent border border-white/50 text-white rounded-full py-3 text-[14px] font-semibold cursor-pointer w-full">
+        Submit enquiry
+      </button>
+      {showModal && <BookingModal
+        tripSlug={trip.slug}
+        tripTitle={trip.title}
+        packageLabel={`${durLabel} · ${tierName}`}
+        estimatedPrice={total}
+        initialPeople={people}
+        initialMessage={`${durLabel} · ${tierName} · Total ${fmtINR(total)}`}
+        onClose={() => setShowModal(false)}
+      />}
+    </>
   )
 }
