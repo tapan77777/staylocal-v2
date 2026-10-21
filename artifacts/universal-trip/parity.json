@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "jibhi",
+    "blockers": [
+      "Card duration is 9D/8N but calculator options are 3D/2N–5D/4N; owner review required."
+    ],
+    "warnings": [
+      "Stored card price 15000 differs from first regular calculator price 7500; neither value is overwritten."
+    ],
+    "cases": 450,
+    "enabled": false
+  },
+  {
+    "slug": "andaman",
+    "blockers": [
+      "Andaman is protected; promo, initial selection, hotels, hardcoded itinerary and comparison evidence require explicit review."
+    ],
+    "warnings": [],
+    "cases": 600,
+    "enabled": false
+  },
+  {
+    "slug": "darjeeling",
+    "blockers": [
+      "Tier names/details are missing; matrix columns cannot be assigned invented names.",
+      "Trip card duration summary is missing.",
+      "3D/2N: complete itinerary is missing.",
+      "4D/3N: complete itinerary is missing.",
+      "5D/4N: complete itinerary is missing."
+    ],
+    "warnings": [
+      "Stored card price 5999 differs from first regular calculator price 4999; neither value is overwritten."
+    ],
+    "cases": 450,
+    "enabled": false
+  }
+]

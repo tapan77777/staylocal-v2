@@ -159,10 +159,9 @@ describe('validateTripPackageInput', () => {
     expect(r.ok).toBe(false)
   })
 
-  it('replaces an invalid JSON itinerary with the default', () => {
+  it('rejects invalid JSON rather than silently discarding itinerary content', () => {
     const r = validateTripPackageInput({ ...basePackage, itinerary: '{not json' })
-    expect(r.ok).toBe(true)
-    if (r.ok) expect(r.data.itinerary).toBe('[]')
+    expect(r.ok).toBe(false)
   })
 })
 
@@ -172,9 +171,9 @@ describe('validatePackageArray', () => {
     expect(r.ok).toBe(true)
   })
 
-  it('accepts a null/undefined input as empty', () => {
+  it('accepts omitted packages but rejects null to avoid accidental deletion', () => {
     expect(validatePackageArray(undefined).ok).toBe(true)
-    expect(validatePackageArray(null).ok).toBe(true)
+    expect(validatePackageArray(null).ok).toBe(false)
   })
 
   it('rejects a non-array input', () => {

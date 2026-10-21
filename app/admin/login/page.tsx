@@ -14,10 +14,17 @@ export default function LoginPage() {
     e.preventDefault()
     setLoading(true)
     setError('')
-    const res = await signIn('credentials', { email, password, redirect: false })
-    setLoading(false)
-    if (res?.ok) router.push('/admin')
-    else setError('Invalid email or password')
+    try {
+      const res = await signIn('credentials', { email, password, redirect: false })
+      const failure = res?.error
+      if (res?.ok) router.push('/admin')
+      else setError(failure && ['Too many sign-in attempts. Please try again later.', 'Sign-in is temporarily unavailable. Please retry.'].includes(failure)
+        ? failure : 'Invalid email or password')
+    } catch {
+      setError('Sign-in is temporarily unavailable. Please retry.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (

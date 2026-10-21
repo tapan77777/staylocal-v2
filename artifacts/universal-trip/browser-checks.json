@@ -1,0 +1,60 @@
+[
+  {
+    "slug": "jibhi",
+    "device": "desktop",
+    "overflow": false,
+    "errors": [],
+    "brokenImages": 0
+  },
+  {
+    "slug": "darjeeling",
+    "device": "desktop",
+    "overflow": false,
+    "errors": [],
+    "brokenImages": 0
+  },
+  {
+    "slug": "andaman",
+    "device": "desktop",
+    "overflow": false,
+    "errors": [],
+    "brokenImages": 0
+  },
+  {
+    "slug": "jibhi",
+    "device": "mobile",
+    "overflow": false,
+    "errors": [],
+    "brokenImages": 0
+  },
+  {
+    "slug": "darjeeling",
+    "device": "mobile",
+    "overflow": false,
+    "errors": [],
+    "brokenImages": 0
+  },
+  {
+    "slug": "andaman",
+    "device": "mobile",
+    "overflow": false,
+    "errors": [],
+    "brokenImages": 0
+  },
+  {
+    "interactive": "duration + tier + traveller quote + mobile sticky enquiry + modal",
+    "passed": true
+  },
+  {
+    "builder": "desktop",
+    "preview": true,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "builder": "mobile",
+    "preview": true,
+    "overflow": false,
+    "errors": []
+  }
+]

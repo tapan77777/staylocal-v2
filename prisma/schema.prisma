@@ -43,6 +43,16 @@ model Trip {
   createdAt    DateTime @default(now())
   updatedAt   DateTime @updatedAt
   packages    TripPackage[]
+  experience  TripExperience?
+}
+
+// Additive opt-in configuration. Existing Trip/TripPackage scalar columns stay intact.
+model TripExperience {
+  tripId    Int      @id
+  trip      Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  config    String
+  enabled   Boolean  @default(false)
+  updatedAt DateTime @updatedAt
 }
 
 model TripPackage {

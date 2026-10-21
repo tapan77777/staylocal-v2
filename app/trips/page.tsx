@@ -1,3 +1,4 @@
+import { publicTripPrices } from '@/lib/public-trip-prices'
 import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import Navbar from '@/components/Navbar'
@@ -31,7 +32,8 @@ export default async function TripsPage({ searchParams }: { searchParams: SP }) 
 
   const sp = await searchParams
 
-  const data = trips.map(t => ({
+  const pricedTrips = await publicTripPrices(trips)
+  const data = pricedTrips.map(t => ({
     id: t.id,
     slug: t.slug,
     title: t.title,
@@ -41,6 +43,7 @@ export default async function TripsPage({ searchParams }: { searchParams: SP }) 
     duration: t.duration,
     difficulty: t.difficulty,
     price: t.price,
+    priceOnRequest: t.priceOnRequest,
     image: t.image,
     gallery: t.gallery,
     route: t.route,

@@ -1,317 +1,75 @@
 'use client'
-import { useCallback } from 'react'
+import { useState } from 'react'
+import { ListEditor, OrderControls, parseArray } from './builder/BuilderControls'
+import { moveItem } from '@/lib/trip-builder'
+import styles from './builder/TripBuilder.module.css'
 
 export interface PackageDraft {
-  id?: number
-  slug: string
-  label: string
-  days: number
-  nights: number
-  priceAdult: number
-  priceBasis: string
-  priceOnRequest: boolean
-  image: string
-  sortOrder: number
-  status: string
-  itinerary: string
-  accommodation: string
-  inclusions: string
-  exclusions: string
-  notes: string
+  id?: number; slug: string; label: string; days: number; nights: number; priceAdult: number
+  priceBasis: string; priceOnRequest: boolean; image: string; sortOrder: number; status: string
+  itinerary: string; accommodation: string; inclusions: string; exclusions: string; notes: string
 }
+export interface ItineraryDay { day: string; title: string; desc: string }
 
-interface Props {
-  packages: PackageDraft[]
-  onChange: (next: PackageDraft[]) => void
-}
-
-function emptyPackage(sortOrder: number): PackageDraft {
-  return {
-    slug: '',
-    label: '',
-    days: 3,
-    nights: 2,
-    priceAdult: 0,
-    priceBasis: 'per adult, twin sharing',
-    priceOnRequest: false,
-    image: '',
-    sortOrder,
-    status: 'draft',
-    itinerary: '[]',
-    accommodation: '',
-    inclusions: '[]',
-    exclusions: '[]',
-    notes: '',
+export default function PackagesEditor({ packages, onChange }: { packages: PackageDraft[]; onChange: (packages: PackageDraft[]) => void }) {
+  const [removed, setRemoved] = useState<{ pkg: PackageDraft; index: number } | null>(null)
+  const update = (index: number, patch: Partial<PackageDraft>) => onChange(packages.map((p, i) => i === index ? { ...p, ...patch } : p))
+  const remove = (index: number) => {
+    const pkg = packages[index]
+    if (pkg.id && !window.confirm(`Remove “${pkg.label}”? It will be removed from this trip only after you save. You can undo this here.`)) return
+    setRemoved({ pkg, index })
+    onChange(packages.filter((_, i) => i !== index))
   }
-}
-
-function parseDays(json: string): { day: string; title: string; desc: string }[] {
-  try {
-    const parsed = JSON.parse(json)
-    if (!Array.isArray(parsed)) return []
-    return parsed
-      .map((d, i) => ({
-        day: String(d?.day ?? `Day ${i + 1}`),
-        title: String(d?.title ?? ''),
-        desc: String(d?.desc ?? ''),
-      }))
-  } catch {
-    return []
-  }
-}
-
-function parseList(json: string): string[] {
-  try {
-    const parsed = JSON.parse(json)
-    return Array.isArray(parsed) ? parsed.map(String) : []
-  } catch {
-    return []
-  }
-}
-
-export default function PackagesEditor({ packages, onChange }: Props) {
-  const update = useCallback(
-    (idx: number, patch: Partial<PackageDraft>) => {
-      const next = packages.map((p, i) => (i === idx ? { ...p, ...patch } : p))
-      onChange(next)
-    },
-    [packages, onChange]
-  )
-
-  const remove = (idx: number) => {
-    const p = packages[idx]
-    if (!confirm(`Delete package "${p.label || p.slug || 'Untitled'}"? This cannot be undone.`)) return
-    onChange(packages.filter((_, i) => i !== idx))
-  }
-
-  const move = (idx: number, dir: -1 | 1) => {
-    const to = idx + dir
-    if (to < 0 || to >= packages.length) return
-    const next = [...packages]
-    ;[next[idx], next[to]] = [next[to], next[idx]]
-    onChange(next.map((p, i) => ({ ...p, sortOrder: i })))
-  }
-
-  const add = () => {
-    onChange([...packages, emptyPackage(packages.length)])
-  }
-
-  const setDays = (idx: number, days: { day: string; title: string; desc: string }[]) => {
-    update(idx, { itinerary: JSON.stringify(days) })
-  }
-
-  const setList = (idx: number, key: 'inclusions' | 'exclusions', list: string[]) => {
-    update(idx, { [key]: JSON.stringify(list) } as Partial<PackageDraft>)
-  }
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      {packages.length === 0 && (
-        <p style={{ color: 'var(--text-muted)', fontSize: 13 }}>
-          No packages yet. Add at least one duration option so customers can select and enquire.
-        </p>
-      )}
-
-      {packages.map((pkg, idx) => {
-        const days = parseDays(pkg.itinerary)
-        const inclusions = parseList(pkg.inclusions)
-        const exclusions = parseList(pkg.exclusions)
-        return (
-          <div
-            key={pkg.id ?? `new-${idx}`}
-            style={{
-              border: '1px solid var(--border)',
-              background: '#fff',
-              borderRadius: 14,
-              padding: '18px 20px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 12,
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-              <h3 style={{ fontSize: 15, fontWeight: 700 }}>
-                Package {idx + 1}
-                {pkg.id ? <span style={{ fontSize: 11, color: 'var(--text-muted)', marginLeft: 8 }}>#{pkg.id}</span> : null}
-              </h3>
-              <div style={{ display: 'flex', gap: 6 }}>
-                <button type="button" onClick={() => move(idx, -1)} disabled={idx === 0} style={iconBtn}>↑</button>
-                <button type="button" onClick={() => move(idx, 1)} disabled={idx === packages.length - 1} style={iconBtn}>↓</button>
-                <button type="button" onClick={() => remove(idx)} style={{ ...iconBtn, color: '#b91c1c', borderColor: '#fecaca' }}>Remove</button>
+  const add = () => onChange([...packages, {
+    slug: `package-${crypto.randomUUID().slice(0, 8)}`, label: '3 days · 2 nights', days: 3, nights: 2, priceAdult: 0,
+    priceBasis: 'per adult, twin sharing', priceOnRequest: false, image: '', sortOrder: packages.length, status: 'draft',
+    itinerary: '[]', accommodation: '', inclusions: '[]', exclusions: '[]', notes: '',
+  }])
+  return <div>
+    {removed && <div className={styles.notice} role="status">Package removed from this edit. <button className={styles.textButton} type="button" onClick={() => {
+      const next = [...packages]; next.splice(Math.min(removed.index, next.length), 0, removed.pkg); onChange(next); setRemoved(null)
+    }}>Undo removal</button></div>}
+    {packages.length === 0 && <div className={styles.emptyCover}>Your first package starts here. Add a duration option below.</div>}
+    {packages.map((pkg, index) => <details className={styles.package} key={pkg.id ?? pkg.slug} open={index === 0 ? true : undefined}>
+      <summary><span>{String(index + 1).padStart(2, '0')} &nbsp; {pkg.label || 'Untitled package'} <small className={styles.muted}> · {pkg.days}D/{pkg.nights}N</small></span><span className={styles.badge}>{pkg.status === 'published' ? 'Ready' : 'Draft'}</span></summary>
+      <div className={styles.packageContent}>
+        <div className={styles.packageTop}>
+          <label className={styles.ready}><input type="checkbox" checked={pkg.status === 'published'} onChange={e => update(index, { status: e.target.checked ? 'published' : 'draft' })} />Ready for customers</label>
+          <OrderControls index={index} length={packages.length} label={`package ${index + 1}`} move={direction => onChange(moveItem(packages, index, direction).map((p, i) => ({ ...p, sortOrder: i })))} remove={() => remove(index)} />
+        </div>
+        <p className={styles.muted}>Draft packages stay hidden from travellers, even when the trip is published.</p>
+        <div className={styles.grid}>
+          <label className={`${styles.field} ${styles.wide}`}>Package name<input value={pkg.label} onChange={e => update(index, { label: e.target.value })} placeholder="e.g. A slow mountain escape" /></label>
+          <label className={styles.field}>Days<input type="number" min="1" max="60" value={pkg.days} onChange={e => update(index, { days: Number(e.target.value) })} /></label>
+          <label className={styles.field}>Nights<input type="number" min="0" max="59" value={pkg.nights} onChange={e => update(index, { nights: Number(e.target.value) })} /></label>
+          <label className={styles.field}>Starting price per person (₹)<input type="number" min="0" step="1" disabled={pkg.priceOnRequest} value={pkg.priceAdult} onChange={e => update(index, { priceAdult: Number(e.target.value) })} /></label>
+          <label className={styles.field}>Price basis<input value={pkg.priceBasis} onChange={e => update(index, { priceBasis: e.target.value })} /></label>
+          <label className={`${styles.ready} ${styles.wide}`}><input type="checkbox" checked={pkg.priceOnRequest} onChange={e => update(index, { priceOnRequest: e.target.checked })} />Price on request — send a confirmed quote after enquiry</label>
+          <label className={`${styles.field} ${styles.wide}`}>Accommodation<input value={pkg.accommodation} onChange={e => update(index, { accommodation: e.target.value })} placeholder="e.g. Boutique homestay, twin sharing" /></label>
+          <label className={`${styles.field} ${styles.wide}`}>Package photo URL <small>Optional; the trip cover is used when empty.</small><input type="url" value={pkg.image} onChange={e => update(index, { image: e.target.value })} placeholder="https://…" /></label>
+        </div>
+        <section className={styles.listEditor}>
+          <div className={styles.sectionHeading}><h3>Day-wise itinerary</h3><button className={styles.textButton} type="button" onClick={() => {
+            const days = parseArray<ItineraryDay>(pkg.itinerary)
+            update(index, { itinerary: JSON.stringify([...days, { day: `Day ${days.length + 1}`, title: '', desc: '' }]) })
+          }}>+ Add day</button></div>
+          <p className={styles.muted}>A clear plan for each day. Add {pkg.days} days before this package goes live.</p>
+          <div className={styles.days}>{parseArray<ItineraryDay>(pkg.itinerary).map((day, dayIndex, all) => {
+            const changeDay = (patch: Partial<ItineraryDay>) => update(index, { itinerary: JSON.stringify(all.map((d, i) => i === dayIndex ? { ...d, ...patch } : d)) })
+            return <div className={styles.day} key={dayIndex}>
+              <div className={styles.dayHead}><label className={styles.field}>Day label<input aria-label={`Package ${index + 1} day ${dayIndex + 1} label`} value={day.day} onChange={e => changeDay({ day: e.target.value })} /></label>
+                <OrderControls index={dayIndex} length={all.length} label={`package ${index + 1} day ${dayIndex + 1}`} move={direction => update(index, { itinerary: JSON.stringify(moveItem(all, dayIndex, direction)) })} remove={() => update(index, { itinerary: JSON.stringify(all.filter((_, i) => i !== dayIndex)) })} />
               </div>
+              <input aria-label={`Package ${index + 1} day ${dayIndex + 1} title`} placeholder="Give this day a title" value={day.title} onChange={e => changeDay({ title: e.target.value })} />
+              <textarea aria-label={`Package ${index + 1} day ${dayIndex + 1} description`} placeholder="Describe the experiences, transfers and overnight stay…" value={day.desc} onChange={e => changeDay({ desc: e.target.value })} />
             </div>
-
-            <div style={grid2}>
-              <label style={lbl}>Label (e.g. &ldquo;3D/2N Standard&rdquo;)
-                <input style={inp} value={pkg.label} onChange={e => update(idx, { label: e.target.value })} />
-              </label>
-              <label style={lbl}>Slug (lowercase, no spaces)
-                <input style={inp} value={pkg.slug} onChange={e => update(idx, { slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '-') })} />
-              </label>
-              <label style={lbl}>Days
-                <input type="number" min={1} style={inp} value={pkg.days} onChange={e => update(idx, { days: Math.max(1, parseInt(e.target.value) || 1) })} />
-              </label>
-              <label style={lbl}>Nights
-                <input type="number" min={0} style={inp} value={pkg.nights} onChange={e => update(idx, { nights: Math.max(0, parseInt(e.target.value) || 0) })} />
-              </label>
-              <label style={lbl}>Price per adult (₹)
-                <input
-                  type="number"
-                  min={0}
-                  style={{ ...inp, opacity: pkg.priceOnRequest ? 0.5 : 1 }}
-                  value={pkg.priceAdult}
-                  onChange={e => update(idx, { priceAdult: Math.max(0, parseInt(e.target.value) || 0) })}
-                  disabled={pkg.priceOnRequest}
-                />
-                {pkg.priceOnRequest && (
-                  <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>
-                    Ignored while &ldquo;Price on request&rdquo; is enabled.
-                  </span>
-                )}
-              </label>
-              <label style={lbl}>Price basis
-                <input style={inp} value={pkg.priceBasis} onChange={e => update(idx, { priceBasis: e.target.value })} />
-              </label>
-              <label style={{ ...lbl, gridColumn: '1 / -1', flexDirection: 'row', alignItems: 'flex-start', gap: 8 }}>
-                <input
-                  type="checkbox"
-                  checked={pkg.priceOnRequest}
-                  onChange={e => update(idx, { priceOnRequest: e.target.checked })}
-                  style={{ marginTop: 2 }}
-                />
-                <span>
-                  <strong>Price on request (enquiry-only)</strong>
-                  <span style={{ display: 'block', fontWeight: 400, color: 'var(--text-muted)', marginTop: 2 }}>
-                    Use when supplier cost and selling price are not yet verified. Public page shows &ldquo;Price on request&rdquo; and the enquiry omits any estimated total.
-                  </span>
-                </span>
-              </label>
-              <label style={lbl}>Image URL
-                <input style={inp} value={pkg.image} onChange={e => update(idx, { image: e.target.value })} />
-              </label>
-              <label style={lbl}>Status
-                <select
-                  style={inp}
-                  value={pkg.status}
-                  onChange={e => {
-                    const next = e.target.value
-                    if (pkg.status !== 'published' && next === 'published') {
-                      const priceOk = Number(pkg.priceAdult) > 0 || pkg.priceOnRequest
-                      const msg = pkg.priceOnRequest
-                        ? 'Publish this package as price-on-request? Customers will see "Price on request" and the enquiry will not include an estimated total. If this trip has legacy pricing, the public page will switch to the package picker.'
-                        : priceOk
-                          ? 'Publish this package? Once saved, it becomes public immediately. If this trip has legacy pricing, the public page will switch to the package picker.'
-                          : 'Cannot publish: price per adult is ₹0 or empty. Set a non-zero price or enable "Price on request" first.'
-                      if (!priceOk) { alert(msg); return }
-                      if (!confirm(msg)) return
-                    }
-                    update(idx, { status: next })
-                  }}
-                >
-                  <option value="draft">Draft (hidden)</option>
-                  <option value="published">Published (public)</option>
-                </select>
-                {pkg.status === 'draft' && (
-                  <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>
-                    Verify pricing with the supplier before publishing.
-                  </span>
-                )}
-              </label>
-              <label style={{ ...lbl, gridColumn: '1 / -1' }}>Accommodation details
-                <input style={inp} placeholder="e.g. 3-star hotel, Darjeeling town" value={pkg.accommodation} onChange={e => update(idx, { accommodation: e.target.value })} />
-              </label>
-              <label style={{ ...lbl, gridColumn: '1 / -1' }}>Notes (seasonal supplements, pricing caveats)
-                <textarea style={{ ...inp, height: 60, resize: 'vertical' }} value={pkg.notes} onChange={e => update(idx, { notes: e.target.value })} />
-              </label>
-            </div>
-
-            <ItineraryEditor days={days} onChange={d => setDays(idx, d)} />
-
-            <ListEditor label="Inclusions" items={inclusions} onChange={l => setList(idx, 'inclusions', l)} />
-            <ListEditor label="Exclusions / Optional" items={exclusions} onChange={l => setList(idx, 'exclusions', l)} />
-          </div>
-        )
-      })}
-
-      <button
-        type="button"
-        onClick={add}
-        style={{
-          background: 'var(--green-light)',
-          color: 'var(--green)',
-          border: '1.5px dashed var(--green)',
-          borderRadius: 12,
-          padding: '12px 20px',
-          fontWeight: 600,
-          fontSize: 13,
-          cursor: 'pointer',
-        }}
-      >
-        + Add duration package
-      </button>
-    </div>
-  )
-}
-
-function ItineraryEditor({ days, onChange }: { days: { day: string; title: string; desc: string }[]; onChange: (d: { day: string; title: string; desc: string }[]) => void }) {
-  const update = (i: number, patch: Partial<{ day: string; title: string; desc: string }>) => {
-    onChange(days.map((d, idx) => (idx === i ? { ...d, ...patch } : d)))
-  }
-  const add = () => onChange([...days, { day: `Day ${days.length + 1}`, title: '', desc: '' }])
-  const remove = (i: number) => onChange(days.filter((_, idx) => idx !== i))
-  const move = (i: number, dir: -1 | 1) => {
-    const to = i + dir
-    if (to < 0 || to >= days.length) return
-    const next = [...days]
-    ;[next[i], next[to]] = [next[to], next[i]]
-    onChange(next)
-  }
-
-  return (
-    <div style={{ border: '1px solid var(--border-light)', borderRadius: 10, padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-secondary)' }}>Itinerary (day by day)</p>
-        <button type="button" onClick={add} style={smallBtn}>+ Add day</button>
+          })}</div>
+        </section>
+        <ListEditor label="Package inclusions" items={parseArray<string>(pkg.inclusions)} onChange={items => update(index, { inclusions: JSON.stringify(items) })} />
+        <ListEditor label="Package exclusions" items={parseArray<string>(pkg.exclusions)} onChange={items => update(index, { exclusions: JSON.stringify(items) })} />
+        <label className={styles.field} style={{ marginTop: 22 }}>Anything else travellers should know?<textarea value={pkg.notes} onChange={e => update(index, { notes: e.target.value })} placeholder="Seasonal supplements, optional activities or pricing notes…" /></label>
       </div>
-      {days.length === 0 && <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>No days yet.</p>}
-      {days.map((d, i) => (
-        <div key={i} style={{ display: 'grid', gridTemplateColumns: '90px 1fr 36px 36px 36px', gap: 8, alignItems: 'start' }}>
-          <input style={inp} placeholder="Day 1" value={d.day} onChange={e => update(i, { day: e.target.value })} />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <input style={inp} placeholder="Title (e.g. Arrival & local sightseeing)" value={d.title} onChange={e => update(i, { title: e.target.value })} />
-            <textarea style={{ ...inp, height: 50, resize: 'vertical' }} placeholder="Description" value={d.desc} onChange={e => update(i, { desc: e.target.value })} />
-          </div>
-          <button type="button" onClick={() => move(i, -1)} disabled={i === 0} style={iconBtn}>↑</button>
-          <button type="button" onClick={() => move(i, 1)} disabled={i === days.length - 1} style={iconBtn}>↓</button>
-          <button type="button" onClick={() => remove(i)} style={{ ...iconBtn, color: '#b91c1c' }}>✕</button>
-        </div>
-      ))}
-    </div>
-  )
+    </details>)}
+    <button type="button" className={styles.addCard} onClick={add}>＋ Add a duration package</button>
+  </div>
 }
-
-function ListEditor({ label, items, onChange }: { label: string; items: string[]; onChange: (next: string[]) => void }) {
-  const update = (i: number, v: string) => onChange(items.map((x, idx) => (idx === i ? v : x)))
-  const add = () => onChange([...items, ''])
-  const remove = (i: number) => onChange(items.filter((_, idx) => idx !== i))
-  return (
-    <div style={{ border: '1px solid var(--border-light)', borderRadius: 10, padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-secondary)' }}>{label}</p>
-        <button type="button" onClick={add} style={smallBtn}>+ Add</button>
-      </div>
-      {items.map((item, i) => (
-        <div key={i} style={{ display: 'flex', gap: 6 }}>
-          <input style={{ ...inp, flex: 1 }} value={item} onChange={e => update(i, e.target.value)} />
-          <button type="button" onClick={() => remove(i)} style={{ ...iconBtn, color: '#b91c1c' }}>✕</button>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const inp: React.CSSProperties = { padding: '9px 12px', borderRadius: 8, border: '1.5px solid var(--border)', fontSize: 13, outline: 'none', fontFamily: 'inherit', width: '100%' }
-const lbl: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 4, fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)' }
-const grid2: React.CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }
-const iconBtn: React.CSSProperties = { background: '#fff', border: '1.5px solid var(--border)', borderRadius: 8, padding: '6px 10px', fontSize: 12, cursor: 'pointer', fontWeight: 600 }
-const smallBtn: React.CSSProperties = { background: 'var(--green)', color: '#fff', border: 'none', borderRadius: 999, padding: '4px 12px', fontSize: 11, fontWeight: 600, cursor: 'pointer' }

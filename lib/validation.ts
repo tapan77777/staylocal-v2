@@ -1,3 +1,6 @@
+import { allowedKeys, imageUrl, integer, itinerary, jsonValue, object, publication, slug as validateSlug, stringList, text, validate, ContentError } from '@/lib/content-validation'
+import { packageInputSchema } from '@/lib/trip-schemas'
+
 export interface BookingInput {
   name: string
   phone: string
@@ -112,81 +115,49 @@ export interface ValidatedPackage {
 }
 
 export function validateTripPackageInput(input: unknown): { ok: true; data: ValidatedPackage } | { ok: false; error: string } {
-  if (!input || typeof input !== 'object') return { ok: false, error: 'Invalid package.' }
-  const raw = input as Record<string, unknown>
-
-  const label = str(raw.label).trim()
-  if (label.length < 1 || label.length > 120) return { ok: false, error: 'Package label is required (max 120 chars).' }
-
-  const slug = str(raw.slug).trim().toLowerCase()
-  if (!/^[a-z0-9][a-z0-9-]{0,80}$/.test(slug)) return { ok: false, error: `Package slug invalid: "${slug}"` }
-
-  const days = toInt(raw.days)
-  if (days === null || days < 1 || days > 60) return { ok: false, error: `Days must be 1–60 (got ${raw.days})` }
-
-  const nights = toInt(raw.nights)
-  if (nights === null || nights < 0 || nights > 60) return { ok: false, error: `Nights must be 0–60 (got ${raw.nights})` }
-
-  const priceAdult = toInt(raw.priceAdult)
-  if (priceAdult === null || priceAdult < 0 || priceAdult > 10_000_000) return { ok: false, error: 'Price must be between ₹0 and ₹1,00,00,000.' }
-
-  const sortOrder = toInt(raw.sortOrder) ?? 0
-
-  const priceOnRequest = raw.priceOnRequest === true || raw.priceOnRequest === 'true' || raw.priceOnRequest === 1
-
-  const status = str(raw.status).trim() || 'draft'
-  if (status !== 'published' && status !== 'draft') return { ok: false, error: 'Package status must be draft or published.' }
-  // Safeguard: never publish a zero-priced package unless it's an enquiry-only (price-on-request) listing.
-  if (status === 'published' && priceAdult === 0 && !priceOnRequest) {
-    return { ok: false, error: 'Cannot publish a package with ₹0 price. Save as draft, set a non-zero price, or mark it as price-on-request.' }
-  }
-
-  const priceBasis = str(raw.priceBasis).trim() || 'per adult, twin sharing'
-  const image = str(raw.image).trim()
-  const accommodation = str(raw.accommodation).trim()
-  const notes = str(raw.notes).trim().slice(0, 2000)
-
-  const itinerary = normalizeJsonString(raw.itinerary, '[]')
-  const inclusions = normalizeJsonString(raw.inclusions, '[]')
-  const exclusions = normalizeJsonString(raw.exclusions, '[]')
-
-  const idRaw = raw.id
-  const id = idRaw === undefined || idRaw === null || idRaw === '' ? undefined : toInt(idRaw) ?? undefined
-
-  return {
-    ok: true,
-    data: {
-      id,
-      slug,
-      label,
-      days,
-      nights,
-      priceAdult,
-      priceBasis,
-      priceOnRequest,
-      image,
-      sortOrder,
-      status,
-      itinerary,
-      accommodation,
-      inclusions,
-      exclusions,
-      notes,
-    },
-  }
+  const shape = packageInputSchema.safeParse(input)
+  if (!shape.success) return { ok: false, error: `Invalid package field: ${shape.error.issues[0]?.path.join('.') || 'body'}. Check its value and format.` }
+  return validate(() => {
+    const raw = object(input, 'Package')
+    allowedKeys(raw, ['id', 'slug', 'label', 'days', 'nights', 'priceAdult', 'priceBasis', 'priceOnRequest', 'image', 'sortOrder', 'status', 'itinerary', 'accommodation', 'inclusions', 'exclusions', 'notes'])
+    const status = publication(raw.status ?? 'draft')
+    if (raw.priceOnRequest !== undefined && ![true, false, 'true', 'false', 1, 0].includes(raw.priceOnRequest as boolean)) throw new ContentError('Price on request must be boolean.')
+    const priceOnRequest = raw.priceOnRequest === true || raw.priceOnRequest === 'true' || raw.priceOnRequest === 1
+    const priceAdult = integer(raw.priceAdult, 'Price')
+    if (status === 'published' && priceAdult === 0 && !priceOnRequest) throw new ContentError('Cannot publish a package with ₹0 price. Set a price or mark it as price-on-request.')
+    const days = integer(raw.days, 'Days', 1, 60)
+    const nights = integer(raw.nights, 'Nights', 0, 60)
+    if (nights >= days) throw new ContentError('Nights must be fewer than days.')
+    return {
+      id: raw.id === undefined ? undefined : integer(raw.id, 'Package ID', 1, 2_147_483_647),
+      slug: validateSlug(raw.slug, 'Package slug'), label: text(raw.label, 'Package label', true, 120),
+      days, nights, priceAdult, priceOnRequest, status,
+      priceBasis: text(raw.priceBasis ?? 'per adult, twin sharing', 'Price basis', true, 300),
+      image: imageUrl(raw.image ?? '', 'Package image'), sortOrder: integer(raw.sortOrder ?? 0, 'Sort order', 0, 10_000),
+      accommodation: text(raw.accommodation ?? '', 'Accommodation'), notes: text(raw.notes ?? '', 'Notes'),
+      itinerary: JSON.stringify(itinerary(jsonValue(raw.itinerary ?? '[]', 'Package itinerary'), 'Package itinerary', status === 'published')),
+      inclusions: JSON.stringify(stringList(jsonValue(raw.inclusions ?? '[]', 'Inclusions'), 'Inclusions')),
+      exclusions: JSON.stringify(stringList(jsonValue(raw.exclusions ?? '[]', 'Exclusions'), 'Exclusions')),
+    }
+  })
 }
 
 export function validatePackageArray(input: unknown): { ok: true; data: ValidatedPackage[] } | { ok: false; error: string } {
-  if (input === undefined || input === null) return { ok: true, data: [] }
-  if (!Array.isArray(input)) return { ok: false, error: 'Packages must be an array.' }
+  if (input === undefined) return { ok: true, data: [] }
+  if (!Array.isArray(input) || input.length > 100) return { ok: false, error: 'Packages must be an array (max 100).' }
 
   const out: ValidatedPackage[] = []
   const seenSlugs = new Set<string>()
+  const seenIds = new Set<number>()
   for (let i = 0; i < input.length; i++) {
     const r = validateTripPackageInput(input[i])
     if (!r.ok) return { ok: false, error: `Package ${i + 1}: ${r.error}` }
     if (seenSlugs.has(r.data.slug)) return { ok: false, error: `Duplicate package slug "${r.data.slug}".` }
     seenSlugs.add(r.data.slug)
+    if (r.data.id !== undefined) {
+      if (seenIds.has(r.data.id)) return { ok: false, error: 'Duplicate package ID.' }
+      seenIds.add(r.data.id)
+    }
     out.push(r.data)
   }
   return { ok: true, data: out }
@@ -195,27 +166,4 @@ export function validatePackageArray(input: unknown): { ok: true; data: Validate
 function str(v: unknown): string {
   if (v === undefined || v === null) return ''
   return typeof v === 'string' ? v : String(v)
-}
-
-function toInt(v: unknown): number | null {
-  if (v === undefined || v === null || v === '') return null
-  const n = typeof v === 'number' ? v : parseInt(String(v), 10)
-  return Number.isFinite(n) ? Math.floor(n) : null
-}
-
-function normalizeJsonString(v: unknown, fallback: string): string {
-  if (v === undefined || v === null || v === '') return fallback
-  if (typeof v === 'string') {
-    try {
-      JSON.parse(v)
-      return v
-    } catch {
-      return fallback
-    }
-  }
-  try {
-    return JSON.stringify(v)
-  } catch {
-    return fallback
-  }
 }

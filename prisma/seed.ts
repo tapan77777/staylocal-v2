@@ -1,35 +1,19 @@
 import { PrismaClient, Prisma } from '@prisma/client'
 import bcrypt from 'bcryptjs'
+import { seedPolicy } from '../lib/seed-policy'
 
 const prisma = new PrismaClient()
 
-function dbHostFromUrl(url: string | undefined): string {
-  if (!url) return '<unset>'
-  try { return new URL(url).host } catch { return '<unparseable>' }
-}
-
 async function main() {
-  const url = process.env.DATABASE_URL
-  const host = dbHostFromUrl(url)
-  // Hard stop on prod DB unless the operator opts in. The deploy host of record is
-  // `ep-red-frog-aq1q61wu-pooler.c-8.us-east-1.aws.neon.tech` — if that is the target,
-  // require `CONFIRM_SEED=yes` so no one runs this seed against production by accident.
-  const prodHostMarker = 'ep-red-frog-aq1q61wu'
-  if (host.includes(prodHostMarker) && process.env.CONFIRM_SEED !== 'yes') {
-    console.error(
-      `\nREFUSING TO SEED PRODUCTION.\n` +
-      `DATABASE_URL host: ${host}\n` +
-      `Re-run with CONFIRM_SEED=yes to proceed, or point DATABASE_URL at a staging branch.\n`
-    )
-    process.exit(2)
-  }
-  console.log(`[seed] target DB host: ${host}`)
-
-  const password = await bcrypt.hash('staylocal@2026', 10)
+  const policyError = seedPolicy(process.env)
+  if (policyError) throw new Error(policyError)
+  const email = process.env.SEED_ADMIN_EMAIL!
+  // No default credentials and no password update for an existing account.
+  const password = await bcrypt.hash(process.env.SEED_ADMIN_PASSWORD!, 12)
   await prisma.user.upsert({
-    where: { email: 'admin@staylocal.com' },
+    where: { email },
     update: {},
-    create: { name: 'Tapan', email: 'admin@staylocal.com', password, role: 'admin' }
+    create: { name: 'Admin', email, password, role: 'admin' },
   })
 
   const jibhiDurSubLabels = JSON.stringify(['Jibhi + Jalori', '+ Shoja + Trek', '+ Manali day'])
@@ -518,7 +502,10 @@ async function main() {
   console.log('Seeded successfully')
 }
 
-main().catch(console.error).finally(() => prisma.$disconnect())
+main().catch(() => {
+  console.error('Local seed refused or failed. Check the local-only seed policy and configuration.')
+  process.exitCode = 1
+}).finally(() => prisma.$disconnect())
 
 /* ---------- Family catalogue fixtures ---------- */
 

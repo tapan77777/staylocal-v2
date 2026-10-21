@@ -1,3 +1,7 @@
+import { publicTripPrices } from '@/lib/public-trip-prices'
+import UniversalTrip from '@/components/trip/UniversalTrip'
+import { loadUniversal, legacyPackages } from '@/lib/universal-store'
+import { quoteOffer, eligibleOffers, publicUniversal } from '@/lib/universal-trip'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
@@ -19,10 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 
 
+  const [pricedTrip] = await publicTripPrices([trip])
   const title = `${trip.title} — ${trip.duration} in ${trip.location}`
   const description =
     trip.subtitle ||
-    `${trip.title}: ${trip.duration} trip in ${trip.location}. Starting from ₹${trip.price.toLocaleString('en-IN')} per person.`
+    `${trip.title}: ${trip.duration} trip in ${trip.location}. ${pricedTrip.priceOnRequest ? 'Price on request.' : `Starting from ₹${pricedTrip.price.toLocaleString('en-IN')} per person.`}`
   const url = `${brand.siteUrl}/trip/${trip.slug}`
   const image = trip.image || undefined
 
@@ -54,6 +59,12 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
   })
   if (!trip || trip.status !== 'published') return notFound()
 
+  const universal = await loadUniversal(trip)
+  if (universal) {
+    const initialQuotes = Object.fromEntries(eligibleOffers(universal, trip.packages).map(({ pkg }) => [pkg.slug, quoteOffer(universal, trip.packages, pkg.slug, Math.min(2, universal.maxPeople))]))
+    return <><Navbar /><UniversalTrip trip={trip} config={publicUniversal(universal, trip.packages)} initialQuotes={initialQuotes} /><Footer /></>
+  }
+
   if (trip.type === 'andaman') {
     return (
       <>
@@ -80,7 +91,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
     tierDetailsArr: parse(trip.tierDetails),
     durLabelsArr: parse(trip.durLabels),
     durSubLabelsArr: parse(trip.durSubLabels),
-    packages: trip.packages,
+    packages: legacyPackages(trip.packages),
   }
 
   return (

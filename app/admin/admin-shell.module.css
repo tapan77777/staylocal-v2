@@ -1,0 +1,9 @@
+@media(max-width:760px){
+  .builderShell{flex-direction:column}
+  .builderShell .sidebar{width:100%!important;padding:12px 10px!important}
+  .builderShell .sidebar>div:first-child{padding:0 10px 10px!important}
+  .builderShell .sidebar>div:last-child{display:none}
+  .builderShell .sidebar nav{display:flex;flex-direction:row!important;overflow-x:auto;padding:10px 0 0!important;gap:4px!important}
+  .builderShell .sidebar nav a{white-space:nowrap;padding:8px 12px!important;font-size:12px!important}
+  .builderShell .content{padding:22px 12px!important}
+}

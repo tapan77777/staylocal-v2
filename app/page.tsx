@@ -1,3 +1,4 @@
+import { publicTripPrices } from '@/lib/public-trip-prices'
 import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import Navbar from '@/components/Navbar'
@@ -57,10 +58,11 @@ export default async function Home() {
     prisma.experience.findMany({ where: { status: 'published' }, orderBy: { createdAt: 'desc' } }),
   ])
 
-  const tripList = trips.map(t => ({
+  const pricedTrips = await publicTripPrices(trips)
+  const tripList = pricedTrips.map(t => ({
     id: t.id, slug: t.slug, title: t.title, subtitle: t.subtitle,
     location: t.location, category: t.category, duration: t.duration,
-    difficulty: t.difficulty, price: t.price, image: t.image,
+    difficulty: t.difficulty, price: t.price, priceOnRequest: t.priceOnRequest, image: t.image,
     gallery: t.gallery, route: t.route, status: t.status,
   }))
 

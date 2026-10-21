@@ -12,6 +12,7 @@ interface Trip {
   duration: string
   difficulty: string
   price: number
+  priceOnRequest?: boolean
   image: string
   gallery: string
   route: string
@@ -52,7 +53,7 @@ export default function TripCard({ trip, size = 'default' }: Props) {
     <Link
       href={`/trip/${trip.slug}`}
       className="group lift"
-      aria-label={`${trip.title} — ${trip.duration}, from ₹${trip.price.toLocaleString('en-IN')} per person`}
+      aria-label={`${trip.title} — ${trip.duration}, ${trip.priceOnRequest ? 'price on request' : `from ₹${trip.price.toLocaleString('en-IN')} per person`}`}
       style={{
         textDecoration: 'none',
         color: 'inherit',
@@ -221,7 +222,7 @@ export default function TripCard({ trip, size = 'default' }: Props) {
                 color: 'var(--text-muted)',
               }}
             >
-              Starting from
+              {trip.priceOnRequest ? 'Pricing' : 'Starting from'}
             </p>
             <p
               style={{
@@ -233,9 +234,9 @@ export default function TripCard({ trip, size = 'default' }: Props) {
                 marginTop: 2,
               }}
             >
-              ₹{trip.price.toLocaleString('en-IN')}
+              {trip.priceOnRequest ? 'Price on request' : `₹${trip.price.toLocaleString('en-IN')}`}
               <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 11, fontWeight: 500, color: 'var(--text-muted)', marginLeft: 6 }}>
-                / person
+                {trip.priceOnRequest ? '' : '/ person'}
               </span>
             </p>
           </div>

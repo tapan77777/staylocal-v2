@@ -3,6 +3,7 @@ import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SessionProvider } from 'next-auth/react'
+import styles from './admin-shell.module.css'
 
 const NAV = [
   { href: '/admin', label: 'Dashboard' },
@@ -15,13 +16,14 @@ const NAV = [
 function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const { data: session } = useSession()
+  const builderPage = /^\/admin\/trips\/(?:new|[^/]+\/edit)$/.test(pathname)
 
   if (pathname === '/admin/login') return <>{children}</>
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
+    <div className={builderPage ? styles.builderShell : undefined} style={{ display: 'flex', minHeight: '100vh' }}>
       {/* Sidebar */}
-      <aside style={{ width: 220, background: '#0d3d2e', flexShrink: 0, display: 'flex', flexDirection: 'column', padding: '24px 0' }}>
+      <aside className={styles.sidebar} style={{ width: 220, background: '#0d3d2e', flexShrink: 0, display: 'flex', flexDirection: 'column', padding: '24px 0' }}>
         <div style={{ padding: '0 20px 24px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
           <div style={{ fontFamily: 'var(--font-playfair)', fontSize: 20, fontWeight: 700, color: '#fff' }}>
             Stay<span style={{ color: '#6ee7b7' }}>Local</span>
@@ -29,7 +31,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', marginTop: 2 }}>Admin Panel</p>
         </div>
         <nav style={{ flex: 1, padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          {NAV.map(item => {
+          {NAV.filter(item => !['/admin/bookings', '/admin/users'].includes(item.href) || (session?.user as { role?: string } | undefined)?.role === 'admin').map(item => {
             const active = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))
             return (
               <Link key={item.href} href={item.href} style={{
@@ -54,13 +56,13 @@ function AdminShell({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Main */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
         <header style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '0 24px', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 12 }}>
           <Link href="/" target="_blank" style={{ fontSize: 13, color: 'var(--green)', textDecoration: 'none', fontWeight: 600 }}>
             View Site →
           </Link>
         </header>
-        <main style={{ flex: 1, padding: '28px 24px', background: 'var(--bg)' }}>
+        <main className={styles.content} style={{ flex: 1, minWidth: 0, padding: '28px 24px', background: 'var(--bg)' }}>
           {children}
         </main>
       </div>

@@ -6,20 +6,30 @@ export default function AddExperience() {
   const router = useRouter()
   const [form, setForm] = useState({ slug: '', title: '', location: '', category: '', description: '', visited: true, status: 'published' })
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const set = (k: string, v: string | boolean) => setForm(f => ({ ...f, [k]: v }))
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await fetch('/api/admin/experiences', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    })
-    setLoading(false)
-    setForm({ slug: '', title: '', location: '', category: '', description: '', visited: true, status: 'published' })
-    router.refresh()
+    setError(null)
+    try {
+      const response = await fetch('/api/admin/experiences', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form),
+      })
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        setError(data.error || 'Could not add experience. Please retry.')
+        return
+      }
+      setForm({ slug: '', title: '', location: '', category: '', description: '', visited: true, status: 'published' })
+      router.refresh()
+    } catch {
+      setError('Network error. Experience was not saved.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -35,6 +45,7 @@ export default function AddExperience() {
           <input type="checkbox" checked={form.visited} onChange={e => set('visited', e.target.checked)} />
           Been there
         </label>
+        {error && <p role="alert" style={{ color: '#b91c1c', fontSize: 13 }}>{error}</p>}
         <button type="submit" disabled={loading} style={{ background: 'var(--green)', color: '#fff', border: 'none', borderRadius: 999, padding: '11px', fontSize: 14, fontWeight: 700, cursor: 'pointer', opacity: loading ? 0.7 : 1 }}>
           {loading ? 'Adding...' : 'Add Experience'}
         </button>

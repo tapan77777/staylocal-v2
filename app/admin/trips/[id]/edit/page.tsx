@@ -17,7 +17,6 @@ export default async function EditTripPage({ params }: { params: Promise<{ id: s
   if (!trip) return notFound()
   return (
     <>
-      <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: 26, fontWeight: 700, marginBottom: 24 }}>Edit Trip</h1>
       <TripForm trip={trip} />
     </>
   )

@@ -4,8 +4,8 @@ import { requireAdmin } from '@/lib/requireAdmin'
 export const dynamic = 'force-dynamic'
 
 export default async function AdminUsers() {
-  await requireAdmin()
-  const users = await prisma.user.findMany({ orderBy: { createdAt: 'desc' } })
+  await requireAdmin('admin')
+  const users = await prisma.user.findMany({ orderBy: { createdAt: 'desc' }, select: { id: true, name: true, email: true, role: true, createdAt: true } })
 
   return (
     <>

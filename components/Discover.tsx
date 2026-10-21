@@ -15,6 +15,7 @@ interface Trip {
   duration: string
   difficulty: string
   price: number
+  priceOnRequest?: boolean
   image: string
   gallery: string
   route: string

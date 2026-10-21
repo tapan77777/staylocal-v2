@@ -5,20 +5,23 @@ import { requireAdmin } from '@/lib/requireAdmin'
 export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboard() {
-  await requireAdmin()
+  const session = await requireAdmin()
+  const canManageBookings = (session.user as { role?: string }).role === 'admin'
   const [totalTrips, publishedTrips, totalBookings, pendingBookings, recentBookings] = await Promise.all([
     prisma.trip.count(),
     prisma.trip.count({ where: { status: 'published' } }),
-    prisma.booking.count(),
-    prisma.booking.count({ where: { status: 'pending' } }),
-    prisma.booking.findMany({ orderBy: { createdAt: 'desc' }, take: 10 }),
+    canManageBookings ? prisma.booking.count() : Promise.resolve(0),
+    canManageBookings ? prisma.booking.count({ where: { status: 'pending' } }) : Promise.resolve(0),
+    canManageBookings ? prisma.booking.findMany({ orderBy: { createdAt: 'desc' }, take: 10 }) : Promise.resolve([]),
   ])
 
   const stats = [
     { label: 'Total Trips', value: totalTrips, color: '#1a1a1a' },
     { label: 'Published', value: publishedTrips, color: 'var(--green)' },
-    { label: 'Total Bookings', value: totalBookings, color: '#1a1a1a' },
-    { label: 'Pending', value: pendingBookings, color: '#d97706' },
+    ...(canManageBookings ? [
+      { label: 'Total Bookings', value: totalBookings, color: '#1a1a1a' },
+      { label: 'Pending', value: pendingBookings, color: '#d97706' },
+    ] : []),
   ]
 
   return (
@@ -34,7 +37,7 @@ export default async function AdminDashboard() {
         ))}
       </div>
 
-      <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 16, overflow: 'hidden' }}>
+      {canManageBookings && <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 16, overflow: 'hidden' }}>
         <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h2 style={{ fontWeight: 700, fontSize: 16 }}>Recent Bookings</h2>
           <Link href="/admin/bookings" style={{ fontSize: 13, color: 'var(--green)', textDecoration: 'none' }}>View all →</Link>
@@ -70,7 +73,7 @@ export default async function AdminDashboard() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div>}
     </>
   )
 }

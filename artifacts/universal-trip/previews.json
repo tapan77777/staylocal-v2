@@ -1,0 +1,2798 @@
+[
+  {
+    "trip": {
+      "id": 1,
+      "slug": "jibhi",
+      "title": "Jibhi Valley Escape",
+      "subtitle": "Pine forests, mountain silence, and a rhythm you forgot exists.",
+      "location": "Himachal Pradesh",
+      "category": "Mountains",
+      "duration": "9D · 8N",
+      "difficulty": "Easy",
+      "price": 15000,
+      "status": "published",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "gallery": "[\"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80\",\"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80\",\"https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80\"]",
+      "route": "Delhi → Aut → Jibhi → Rishikesh",
+      "highlights": "[\"Jalori Pass at 3120m\",\"Serolsar Lake trek\",\"Shoja village\",\"Chhoie waterfall\",\"Bonfire nights\"]",
+      "included": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+      "notIncluded": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]",
+      "faqs": "[{\"q\":\"What fitness level is required?\",\"a\":\"Easy — suitable for all ages and fitness levels.\"},{\"q\":\"Is transport from Delhi included?\",\"a\":\"No — transport from Delhi to Aut is not included. We can help you book a Volvo bus.\"},{\"q\":\"What is the cancellation policy?\",\"a\":\"₹3,000 advance to confirm. Refundable if cancelled 10+ days before.\"}]",
+      "type": "calculator",
+      "pricing": "[[7500,11899,18790],[9499,14999,23490],[11999,18499,28990]]",
+      "itinerary": "[[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi · Arrive\",\"desc\":\"Pickup from Aut, check in, Jibhi waterfall walk, bonfire evening\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar Lake\",\"desc\":\"Drive to Jalori Pass, trek to Serolsar Lake through alpine forest\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Aut drop\",\"desc\":\"Shoja village, Chhoie waterfall, drop to Aut\"}],[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, Jibhi waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Full day — Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Raghupur Fort\",\"desc\":\"Raghupur Fort trek, Tirthan evening\"},{\"day\":\"Day 4\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}],[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Raghupur Fort · Shoja\",\"desc\":\"Raghupur Fort, Tirthan valley\"},{\"day\":\"Day 4\",\"title\":\"Manali day trip\",\"desc\":\"Old Manali, Hadimba temple, cafes\"},{\"day\":\"Day 5\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]]",
+      "tierDetails": "[{\"name\":\"Standard\",\"vehicle\":\"Alto · Homestay sharing\",\"meals\":\"Breakfast\",\"feats\":[\"Homestay sharing\",\"Alto cab\",\"Breakfast\",\"Bonfire\"]},{\"name\":\"Deluxe\",\"vehicle\":\"Ertiga · Wooden cottage\",\"meals\":\"Breakfast\",\"feats\":[\"Wooden cottage\",\"Ertiga cab\",\"Breakfast\",\"Bonfire\",\"Forest walk\"]},{\"name\":\"Premium\",\"vehicle\":\"Jimny · Private riverside\",\"meals\":\"All meals\",\"feats\":[\"Private riverside cottage\",\"Jimny\",\"All meals\",\"Bonfire\",\"Serolsar guided trek\"]}]",
+      "durLabels": "[\"3D/2N\",\"4D/3N\",\"5D/4N\"]",
+      "durSubLabels": "[\"Jibhi + Jalori\",\"+ Shoja + Trek\",\"+ Manali day\"]",
+      "createdAt": "2026-05-17T09:50:15.113Z",
+      "updatedAt": "2026-05-17T10:29:09.142Z",
+      "packages": [
+        {
+          "slug": "universal-d1-t1",
+          "label": "3D/2N · Standard",
+          "days": 3,
+          "nights": 2,
+          "priceAdult": 7500,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi · Arrive\",\"desc\":\"Pickup from Aut, check in, Jibhi waterfall walk, bonfire evening\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar Lake\",\"desc\":\"Drive to Jalori Pass, trek to Serolsar Lake through alpine forest\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Aut drop\",\"desc\":\"Shoja village, Chhoie waterfall, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t2",
+          "label": "3D/2N · Deluxe",
+          "days": 3,
+          "nights": 2,
+          "priceAdult": 11899,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi · Arrive\",\"desc\":\"Pickup from Aut, check in, Jibhi waterfall walk, bonfire evening\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar Lake\",\"desc\":\"Drive to Jalori Pass, trek to Serolsar Lake through alpine forest\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Aut drop\",\"desc\":\"Shoja village, Chhoie waterfall, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t3",
+          "label": "3D/2N · Premium",
+          "days": 3,
+          "nights": 2,
+          "priceAdult": 18790,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi · Arrive\",\"desc\":\"Pickup from Aut, check in, Jibhi waterfall walk, bonfire evening\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar Lake\",\"desc\":\"Drive to Jalori Pass, trek to Serolsar Lake through alpine forest\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Aut drop\",\"desc\":\"Shoja village, Chhoie waterfall, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t1",
+          "label": "4D/3N · Standard",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 9499,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, Jibhi waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Full day — Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Raghupur Fort\",\"desc\":\"Raghupur Fort trek, Tirthan evening\"},{\"day\":\"Day 4\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t2",
+          "label": "4D/3N · Deluxe",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 14999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, Jibhi waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Full day — Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Raghupur Fort\",\"desc\":\"Raghupur Fort trek, Tirthan evening\"},{\"day\":\"Day 4\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t3",
+          "label": "4D/3N · Premium",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 23490,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, Jibhi waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Full day — Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Shoja · Raghupur Fort\",\"desc\":\"Raghupur Fort trek, Tirthan evening\"},{\"day\":\"Day 4\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t1",
+          "label": "5D/4N · Standard",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 11999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Raghupur Fort · Shoja\",\"desc\":\"Raghupur Fort, Tirthan valley\"},{\"day\":\"Day 4\",\"title\":\"Manali day trip\",\"desc\":\"Old Manali, Hadimba temple, cafes\"},{\"day\":\"Day 5\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t2",
+          "label": "5D/4N · Deluxe",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 18499,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Raghupur Fort · Shoja\",\"desc\":\"Raghupur Fort, Tirthan valley\"},{\"day\":\"Day 4\",\"title\":\"Manali day trip\",\"desc\":\"Old Manali, Hadimba temple, cafes\"},{\"day\":\"Day 5\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t3",
+          "label": "5D/4N · Premium",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 28990,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Aut → Jibhi\",\"desc\":\"Pickup, check in, waterfall, bonfire\"},{\"day\":\"Day 2\",\"title\":\"Jalori Pass · Serolsar\",\"desc\":\"Jalori Pass, Serolsar Lake trek\"},{\"day\":\"Day 3\",\"title\":\"Raghupur Fort · Shoja\",\"desc\":\"Raghupur Fort, Tirthan valley\"},{\"day\":\"Day 4\",\"title\":\"Manali day trip\",\"desc\":\"Old Manali, Hadimba temple, cafes\"},{\"day\":\"Day 5\",\"title\":\"Chhoie Waterfall · Aut\",\"desc\":\"Waterfall trek, drop to Aut\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Accommodation\",\"All local transfers\",\"Breakfast daily\",\"Local guide\",\"Bonfire\"]",
+          "exclusions": "[\"Delhi to Aut transport\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        }
+      ]
+    },
+    "config": {
+      "version": 1,
+      "maxPeople": 50,
+      "defaultPackageSlug": null,
+      "durations": [
+        {
+          "id": "duration-1",
+          "label": "3D/2N",
+          "sub": "Jibhi + Jalori",
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+        },
+        {
+          "id": "duration-2",
+          "label": "4D/3N",
+          "sub": "+ Shoja + Trek",
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+        },
+        {
+          "id": "duration-3",
+          "label": "5D/4N",
+          "sub": "+ Manali day",
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+        }
+      ],
+      "tiers": [
+        {
+          "id": "tier-1",
+          "name": "Standard",
+          "subtitle": "Alto · Homestay sharing",
+          "popular": false,
+          "meals": "Breakfast",
+          "transport": "Alto · Homestay sharing",
+          "features": [
+            "Homestay sharing",
+            "Alto cab",
+            "Breakfast",
+            "Bonfire"
+          ]
+        },
+        {
+          "id": "tier-2",
+          "name": "Deluxe",
+          "subtitle": "Ertiga · Wooden cottage",
+          "popular": false,
+          "meals": "Breakfast",
+          "transport": "Ertiga · Wooden cottage",
+          "features": [
+            "Wooden cottage",
+            "Ertiga cab",
+            "Breakfast",
+            "Bonfire",
+            "Forest walk"
+          ]
+        },
+        {
+          "id": "tier-3",
+          "name": "Premium",
+          "subtitle": "Jimny · Private riverside",
+          "popular": false,
+          "meals": "All meals",
+          "transport": "Jimny · Private riverside",
+          "features": [
+            "Private riverside cottage",
+            "Jimny",
+            "All meals",
+            "Bonfire",
+            "Serolsar guided trek"
+          ]
+        }
+      ],
+      "offers": [
+        {
+          "packageSlug": "universal-d1-t1",
+          "durationId": "duration-1",
+          "tierId": "tier-1",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d1-t2",
+          "durationId": "duration-1",
+          "tierId": "tier-2",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d1-t3",
+          "durationId": "duration-1",
+          "tierId": "tier-3",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d2-t1",
+          "durationId": "duration-2",
+          "tierId": "tier-1",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d2-t2",
+          "durationId": "duration-2",
+          "tierId": "tier-2",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d2-t3",
+          "durationId": "duration-2",
+          "tierId": "tier-3",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d3-t1",
+          "durationId": "duration-3",
+          "tierId": "tier-1",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d3-t2",
+          "durationId": "duration-3",
+          "tierId": "tier-2",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d3-t3",
+          "durationId": "duration-3",
+          "tierId": "tier-3",
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        }
+      ]
+    }
+  },
+  {
+    "trip": {
+      "id": 2,
+      "slug": "andaman",
+      "title": "Andaman Islands",
+      "subtitle": "Turquoise water, private beaches, limestone caves — places most tourists never find.",
+      "location": "Port Blair · Havelock · Neil Island",
+      "category": "Islands",
+      "duration": "4N · 5D",
+      "difficulty": "Easy",
+      "price": 18999,
+      "status": "published",
+      "image": "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=800&q=80",
+      "gallery": "[\"https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=800&q=80\",\"https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80\",\"https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&q=80\",\"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80\"]",
+      "route": "Port Blair → Havelock → Neil Island",
+      "highlights": "[\"Radhanagar Beach — one of Asia finest beaches\",\"Elephant Beach snorkeling included\",\"Neil Island — most tourists skip this\",\"Private AC cruise ferries throughout\",\"Cellular Jail Light and Sound show\",\"Baratang limestone caves — offbeat\"]",
+      "included": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+      "notIncluded": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]",
+      "faqs": "[{\"q\":\"Is flight included?\",\"a\":\"No — flights to Port Blair are not included. We help you find best flights.\"},{\"q\":\"What ferry is used?\",\"a\":\"Private AC cruise ferries — Makruzz, Nautika, or Green Ocean. Not government ferries.\"},{\"q\":\"Best time to visit?\",\"a\":\"October to May is ideal. June to September is monsoon season.\"},{\"q\":\"Is snorkeling included?\",\"a\":\"Yes — complimentary snorkeling at Elephant Beach included in all tiers.\"},{\"q\":\"Can I customise the itinerary?\",\"a\":\"Yes — WhatsApp us and we will create a custom package for your group.\"},{\"q\":\"How do promo codes work?\",\"a\":\"Enter your promo code in the calculator to get ₹2,000 off instantly. Valid codes are shared personally by our team.\"}]",
+      "type": "andaman",
+      "pricing": "{\"durations\":[{\"label\":\"3N/4D\",\"sub\":\"Port Blair + Havelock\",\"image\":\"https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=300&q=80\"},{\"label\":\"4N/5D\",\"sub\":\"+ Neil Island\",\"image\":\"https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&q=80\"},{\"label\":\"5N/6D\",\"sub\":\"+ Chidiyatapu\",\"image\":\"https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=300&q=80\"},{\"label\":\"6N/7D\",\"sub\":\"+ Baratang caves\",\"image\":\"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&q=80\"},{\"label\":\"7N/8D\",\"sub\":\"+ North Andaman\",\"image\":\"https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=300&q=80\"}],\"tiers\":[{\"name\":\"Explorer\",\"subtitle\":\"Budget hotels · Comfortable stay\",\"bufferPrice\":[24999,29999,34999,39999,44999],\"price\":[18999,22999,26999,30999,34999],\"promoPrice\":[16999,20999,24999,28999,32999],\"discount\":[24,23,23,22,22],\"popular\":false,\"hotels\":{\"portblair\":\"Hotel Vedant / Hotel Kings\",\"havelock\":\"Hotel Heaven Garden / Radhakrishna Hotel\",\"neil\":\"Neil Banjara / Neha Palace\"},\"ferry\":\"Private AC cruise ferry\",\"meals\":\"Breakfast included\",\"features\":[\"Budget guesthouse\",\"Private cruise ferry\",\"Breakfast daily\",\"All sightseeing\",\"Snorkeling at Elephant Beach\",\"Airport transfers\"]},{\"name\":\"Comfort\",\"subtitle\":\"3-star hotels · Sea view rooms\",\"bufferPrice\":[29999,35999,41999,47999,53999],\"price\":[19999,23999,27999,31999,35999],\"promoPrice\":[17999,21999,25999,29999,33999],\"discount\":[33,33,33,33,33],\"popular\":true,\"hotels\":{\"portblair\":\"King Safire / Hotel Blue Marlin\",\"havelock\":\"Golden Pebble / Radhakrishna Resort\",\"neil\":\"Deep Sea Resort / Save Green Resort\"},\"ferry\":\"Private AC cruise ferry\",\"meals\":\"Breakfast included\",\"features\":[\"3-star hotel\",\"Sea view rooms\",\"Private cruise ferry\",\"Breakfast daily\",\"All sightseeing\",\"Snorkeling + glass boat\",\"Complimentary photoshoot\"]},{\"name\":\"Premium\",\"subtitle\":\"Beach resorts · Premium rooms\",\"bufferPrice\":[35999,41999,47999,53999,59999],\"price\":[23999,27999,31999,35999,39999],\"promoPrice\":[21999,25999,29999,33999,37999],\"discount\":[33,33,33,33,33],\"popular\":false,\"hotels\":{\"portblair\":\"Hotel Darwin City / Hotel SR Castle\",\"havelock\":\"Arina Island Resort / Shangrilas Beach Resort\",\"neil\":\"Reef Valley Resort / Silver Pearl Beach Resort\"},\"ferry\":\"Private AC cruise ferry\",\"meals\":\"Breakfast + dinner\",\"features\":[\"Beach resort\",\"Premium sea view rooms\",\"Private cruise ferry\",\"Breakfast + dinner\",\"All sightseeing\",\"Snorkeling + glass boat\",\"Photoshoot\",\"Star gazing Neil Island\"]},{\"name\":\"Deluxe\",\"subtitle\":\"Boutique resorts · Sea facing cottages\",\"bufferPrice\":[42999,49999,56999,63999,70999],\"price\":[28999,33999,38999,43999,48999],\"promoPrice\":[26999,31999,36999,41999,46999],\"discount\":[33,32,32,31,31],\"popular\":false,\"hotels\":{\"portblair\":\"Hotel Bell Elite / Bayleaf Inn\",\"havelock\":\"White Coral Beach Resort / TSG Blue Resort\",\"neil\":\"TSG Aura / Pearl Park Beach Resort\"},\"ferry\":\"Private AC cruise ferry\",\"meals\":\"Breakfast + dinner\",\"features\":[\"Boutique beach resort\",\"Sea facing cottage\",\"Private cruise ferry\",\"Breakfast + dinner\",\"All sightseeing\",\"Snorkeling + glass boat\",\"Photoshoot\",\"Sunset cruise\"]},{\"name\":\"Luxury\",\"subtitle\":\"Premium resorts · Beachfront villas\",\"bufferPrice\":[51999,59999,67999,75999,83999],\"price\":[34999,39999,44999,49999,54999],\"promoPrice\":[32999,37999,42999,47999,52999],\"discount\":[33,33,34,34,34],\"popular\":false,\"hotels\":{\"portblair\":\"Hotel Sand Heaven / Mansha Regency\",\"havelock\":\"Symphony Palms Beach Resort / Sea Shell Havelock\",\"neil\":\"Sea Shell Neil / Tango Beach Resort\"},\"ferry\":\"Private AC cruise ferry\",\"meals\":\"All meals included\",\"features\":[\"Luxury beachfront resort\",\"Premium villa\",\"Private cruise ferry\",\"All meals included\",\"All sightseeing\",\"Scuba diving session\",\"Private photoshoot\",\"Sunset cruise\",\"Star gazing\"]}],\"promoCodes\":[\"KINNI2K\",\"MONU2K\",\"TAPAN2K\"],\"promoDiscount\":2000}",
+      "itinerary": "[]",
+      "tierDetails": "[]",
+      "durLabels": "[]",
+      "durSubLabels": "[]",
+      "createdAt": "2026-05-17T09:50:15.728Z",
+      "updatedAt": "2026-05-17T09:50:15.728Z",
+      "packages": [
+        {
+          "slug": "universal-d1-t1",
+          "label": "3N/4D · Explorer",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 18999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Port Blair — Depart\",\"desc\":\"Ferry back to Port Blair, last-minute shopping at Aberdeen Bazaar. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t2",
+          "label": "3N/4D · Comfort",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 19999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Port Blair — Depart\",\"desc\":\"Ferry back to Port Blair, last-minute shopping at Aberdeen Bazaar. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t3",
+          "label": "3N/4D · Premium",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 23999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Port Blair — Depart\",\"desc\":\"Ferry back to Port Blair, last-minute shopping at Aberdeen Bazaar. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t4",
+          "label": "3N/4D · Deluxe",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 28999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Port Blair — Depart\",\"desc\":\"Ferry back to Port Blair, last-minute shopping at Aberdeen Bazaar. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t5",
+          "label": "3N/4D · Luxury",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 34999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Port Blair — Depart\",\"desc\":\"Ferry back to Port Blair, last-minute shopping at Aberdeen Bazaar. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t1",
+          "label": "4N/5D · Explorer",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 22999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Port Blair — Depart\",\"desc\":\"Morning ferry back to Port Blair. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t2",
+          "label": "4N/5D · Comfort",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 23999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Port Blair — Depart\",\"desc\":\"Morning ferry back to Port Blair. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t3",
+          "label": "4N/5D · Premium",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 27999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Port Blair — Depart\",\"desc\":\"Morning ferry back to Port Blair. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t4",
+          "label": "4N/5D · Deluxe",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 33999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Port Blair — Depart\",\"desc\":\"Morning ferry back to Port Blair. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t5",
+          "label": "4N/5D · Luxury",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 39999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Port Blair — Depart\",\"desc\":\"Morning ferry back to Port Blair. Airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t1",
+          "label": "5N/6D · Explorer",
+          "days": 6,
+          "nights": 5,
+          "priceAdult": 26999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t2",
+          "label": "5N/6D · Comfort",
+          "days": 6,
+          "nights": 5,
+          "priceAdult": 27999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t3",
+          "label": "5N/6D · Premium",
+          "days": 6,
+          "nights": 5,
+          "priceAdult": 31999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t4",
+          "label": "5N/6D · Deluxe",
+          "days": 6,
+          "nights": 5,
+          "priceAdult": 38999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t5",
+          "label": "5N/6D · Luxury",
+          "days": 6,
+          "nights": 5,
+          "priceAdult": 44999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d4-t1",
+          "label": "6N/7D · Explorer",
+          "days": 7,
+          "nights": 6,
+          "priceAdult": 30999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d4-t2",
+          "label": "6N/7D · Comfort",
+          "days": 7,
+          "nights": 6,
+          "priceAdult": 31999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d4-t3",
+          "label": "6N/7D · Premium",
+          "days": 7,
+          "nights": 6,
+          "priceAdult": 35999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d4-t4",
+          "label": "6N/7D · Deluxe",
+          "days": 7,
+          "nights": 6,
+          "priceAdult": 43999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d4-t5",
+          "label": "6N/7D · Luxury",
+          "days": 7,
+          "nights": 6,
+          "priceAdult": 49999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d5-t1",
+          "label": "7N/8D · Explorer",
+          "days": 8,
+          "nights": 7,
+          "priceAdult": 34999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"North Andaman\",\"desc\":\"Drive north to Ross & Smith Islands (twin islands connected by sandbar), Kalipur beach, Saddle Peak forest.\"},{\"day\":\"Day 8\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d5-t2",
+          "label": "7N/8D · Comfort",
+          "days": 8,
+          "nights": 7,
+          "priceAdult": 35999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"North Andaman\",\"desc\":\"Drive north to Ross & Smith Islands (twin islands connected by sandbar), Kalipur beach, Saddle Peak forest.\"},{\"day\":\"Day 8\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d5-t3",
+          "label": "7N/8D · Premium",
+          "days": 8,
+          "nights": 7,
+          "priceAdult": 39999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"North Andaman\",\"desc\":\"Drive north to Ross & Smith Islands (twin islands connected by sandbar), Kalipur beach, Saddle Peak forest.\"},{\"day\":\"Day 8\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d5-t4",
+          "label": "7N/8D · Deluxe",
+          "days": 8,
+          "nights": 7,
+          "priceAdult": 48999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"North Andaman\",\"desc\":\"Drive north to Ross & Smith Islands (twin islands connected by sandbar), Kalipur beach, Saddle Peak forest.\"},{\"day\":\"Day 8\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d5-t5",
+          "label": "7N/8D · Luxury",
+          "days": 8,
+          "nights": 7,
+          "priceAdult": 54999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[{\"day\":\"Day 1\",\"title\":\"Port Blair — Arrive\",\"desc\":\"Airport pickup, hotel check-in. Visit Cellular Jail, evening Light & Sound show. Corbyn's Cove beach walk.\"},{\"day\":\"Day 2\",\"title\":\"Havelock Island\",\"desc\":\"Morning private ferry to Havelock. Check-in, afternoon at Radhanagar Beach — one of Asia's finest. Kalapathar sunset.\"},{\"day\":\"Day 3\",\"title\":\"Elephant Beach\",\"desc\":\"Snorkeling at Elephant Beach (complimentary). Glass boat ride over coral. Free afternoon at leisure.\"},{\"day\":\"Day 4\",\"title\":\"Neil Island\",\"desc\":\"Ferry to Neil Island — the quietest and most beautiful. Bharatpur beach, Laxmanpur sunset, Natural Bridge.\"},{\"day\":\"Day 5\",\"title\":\"Chidiyatapu\",\"desc\":\"Drive to Chidiyatapu — bird sanctuary and Munda Pahar beach. Famous for the most beautiful sunsets in Andaman.\"},{\"day\":\"Day 6\",\"title\":\"Baratang Caves\",\"desc\":\"Early start — mangrove boat ride to Baratang. Limestone caves and mud volcanoes. Return to Port Blair.\"},{\"day\":\"Day 7\",\"title\":\"North Andaman\",\"desc\":\"Drive north to Ross & Smith Islands (twin islands connected by sandbar), Kalipur beach, Saddle Peak forest.\"},{\"day\":\"Day 8\",\"title\":\"Departure\",\"desc\":\"Breakfast, hotel check-out, airport drop.\"}]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"Airport pickup and drop\",\"Private AC vehicle throughout\",\"All ferry tickets — private cruise ferries\",\"Breakfast daily\",\"All entry tickets and permits\",\"Ground team support throughout\"]",
+          "exclusions": "[\"Flight to Port Blair\",\"Scuba diving — available as add-on ₹3,500\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        }
+      ]
+    },
+    "config": {
+      "version": 1,
+      "maxPeople": 12,
+      "defaultPackageSlug": "universal-d2-t2",
+      "durations": [
+        {
+          "id": "duration-1",
+          "label": "3N/4D",
+          "sub": "Port Blair + Havelock",
+          "image": "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=300&q=80"
+        },
+        {
+          "id": "duration-2",
+          "label": "4N/5D",
+          "sub": "+ Neil Island",
+          "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&q=80"
+        },
+        {
+          "id": "duration-3",
+          "label": "5N/6D",
+          "sub": "+ Chidiyatapu",
+          "image": "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=300&q=80"
+        },
+        {
+          "id": "duration-4",
+          "label": "6N/7D",
+          "sub": "+ Baratang caves",
+          "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&q=80"
+        },
+        {
+          "id": "duration-5",
+          "label": "7N/8D",
+          "sub": "+ North Andaman",
+          "image": "https://images.unsplash.com/photo-1586500036706-41963de24d8b?w=300&q=80"
+        }
+      ],
+      "tiers": [
+        {
+          "id": "tier-1",
+          "name": "Explorer",
+          "subtitle": "Budget hotels · Comfortable stay",
+          "popular": false,
+          "meals": "Breakfast included",
+          "transport": "Private AC cruise ferry",
+          "features": [
+            "Budget guesthouse",
+            "Private cruise ferry",
+            "Breakfast daily",
+            "All sightseeing",
+            "Snorkeling at Elephant Beach",
+            "Airport transfers"
+          ]
+        },
+        {
+          "id": "tier-2",
+          "name": "Comfort",
+          "subtitle": "3-star hotels · Sea view rooms",
+          "popular": true,
+          "meals": "Breakfast included",
+          "transport": "Private AC cruise ferry",
+          "features": [
+            "3-star hotel",
+            "Sea view rooms",
+            "Private cruise ferry",
+            "Breakfast daily",
+            "All sightseeing",
+            "Snorkeling + glass boat",
+            "Complimentary photoshoot"
+          ]
+        },
+        {
+          "id": "tier-3",
+          "name": "Premium",
+          "subtitle": "Beach resorts · Premium rooms",
+          "popular": false,
+          "meals": "Breakfast + dinner",
+          "transport": "Private AC cruise ferry",
+          "features": [
+            "Beach resort",
+            "Premium sea view rooms",
+            "Private cruise ferry",
+            "Breakfast + dinner",
+            "All sightseeing",
+            "Snorkeling + glass boat",
+            "Photoshoot",
+            "Star gazing Neil Island"
+          ]
+        },
+        {
+          "id": "tier-4",
+          "name": "Deluxe",
+          "subtitle": "Boutique resorts · Sea facing cottages",
+          "popular": false,
+          "meals": "Breakfast + dinner",
+          "transport": "Private AC cruise ferry",
+          "features": [
+            "Boutique beach resort",
+            "Sea facing cottage",
+            "Private cruise ferry",
+            "Breakfast + dinner",
+            "All sightseeing",
+            "Snorkeling + glass boat",
+            "Photoshoot",
+            "Sunset cruise"
+          ]
+        },
+        {
+          "id": "tier-5",
+          "name": "Luxury",
+          "subtitle": "Premium resorts · Beachfront villas",
+          "popular": false,
+          "meals": "All meals included",
+          "transport": "Private AC cruise ferry",
+          "features": [
+            "Luxury beachfront resort",
+            "Premium villa",
+            "Private cruise ferry",
+            "All meals included",
+            "All sightseeing",
+            "Scuba diving session",
+            "Private photoshoot",
+            "Sunset cruise",
+            "Star gazing"
+          ]
+        }
+      ],
+      "offers": [
+        {
+          "packageSlug": "universal-d1-t1",
+          "durationId": "duration-1",
+          "tierId": "tier-1",
+          "comparison": {
+            "price": 24999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Vedant / Hotel Kings",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Hotel Heaven Garden / Radhakrishna Hotel",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Neil Banjara / Neha Palace",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 16999
+          }
+        },
+        {
+          "packageSlug": "universal-d1-t2",
+          "durationId": "duration-1",
+          "tierId": "tier-2",
+          "comparison": {
+            "price": 29999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "King Safire / Hotel Blue Marlin",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Golden Pebble / Radhakrishna Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Deep Sea Resort / Save Green Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 17999
+          }
+        },
+        {
+          "packageSlug": "universal-d1-t3",
+          "durationId": "duration-1",
+          "tierId": "tier-3",
+          "comparison": {
+            "price": 35999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Darwin City / Hotel SR Castle",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Arina Island Resort / Shangrilas Beach Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Reef Valley Resort / Silver Pearl Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 21999
+          }
+        },
+        {
+          "packageSlug": "universal-d1-t4",
+          "durationId": "duration-1",
+          "tierId": "tier-4",
+          "comparison": {
+            "price": 42999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Bell Elite / Bayleaf Inn",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "White Coral Beach Resort / TSG Blue Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "TSG Aura / Pearl Park Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 26999
+          }
+        },
+        {
+          "packageSlug": "universal-d1-t5",
+          "durationId": "duration-1",
+          "tierId": "tier-5",
+          "comparison": {
+            "price": 51999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Sand Heaven / Mansha Regency",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Symphony Palms Beach Resort / Sea Shell Havelock",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Sea Shell Neil / Tango Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 32999
+          }
+        },
+        {
+          "packageSlug": "universal-d2-t1",
+          "durationId": "duration-2",
+          "tierId": "tier-1",
+          "comparison": {
+            "price": 29999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Vedant / Hotel Kings",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Hotel Heaven Garden / Radhakrishna Hotel",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Neil Banjara / Neha Palace",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 20999
+          }
+        },
+        {
+          "packageSlug": "universal-d2-t2",
+          "durationId": "duration-2",
+          "tierId": "tier-2",
+          "comparison": {
+            "price": 35999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "King Safire / Hotel Blue Marlin",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Golden Pebble / Radhakrishna Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Deep Sea Resort / Save Green Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 21999
+          }
+        },
+        {
+          "packageSlug": "universal-d2-t3",
+          "durationId": "duration-2",
+          "tierId": "tier-3",
+          "comparison": {
+            "price": 41999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Darwin City / Hotel SR Castle",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Arina Island Resort / Shangrilas Beach Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Reef Valley Resort / Silver Pearl Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 25999
+          }
+        },
+        {
+          "packageSlug": "universal-d2-t4",
+          "durationId": "duration-2",
+          "tierId": "tier-4",
+          "comparison": {
+            "price": 49999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Bell Elite / Bayleaf Inn",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "White Coral Beach Resort / TSG Blue Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "TSG Aura / Pearl Park Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 31999
+          }
+        },
+        {
+          "packageSlug": "universal-d2-t5",
+          "durationId": "duration-2",
+          "tierId": "tier-5",
+          "comparison": {
+            "price": 59999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Sand Heaven / Mansha Regency",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Symphony Palms Beach Resort / Sea Shell Havelock",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Sea Shell Neil / Tango Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 37999
+          }
+        },
+        {
+          "packageSlug": "universal-d3-t1",
+          "durationId": "duration-3",
+          "tierId": "tier-1",
+          "comparison": {
+            "price": 34999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Vedant / Hotel Kings",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Hotel Heaven Garden / Radhakrishna Hotel",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Neil Banjara / Neha Palace",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 24999
+          }
+        },
+        {
+          "packageSlug": "universal-d3-t2",
+          "durationId": "duration-3",
+          "tierId": "tier-2",
+          "comparison": {
+            "price": 41999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "King Safire / Hotel Blue Marlin",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Golden Pebble / Radhakrishna Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Deep Sea Resort / Save Green Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 25999
+          }
+        },
+        {
+          "packageSlug": "universal-d3-t3",
+          "durationId": "duration-3",
+          "tierId": "tier-3",
+          "comparison": {
+            "price": 47999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Darwin City / Hotel SR Castle",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Arina Island Resort / Shangrilas Beach Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Reef Valley Resort / Silver Pearl Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 29999
+          }
+        },
+        {
+          "packageSlug": "universal-d3-t4",
+          "durationId": "duration-3",
+          "tierId": "tier-4",
+          "comparison": {
+            "price": 56999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Bell Elite / Bayleaf Inn",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "White Coral Beach Resort / TSG Blue Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "TSG Aura / Pearl Park Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 36999
+          }
+        },
+        {
+          "packageSlug": "universal-d3-t5",
+          "durationId": "duration-3",
+          "tierId": "tier-5",
+          "comparison": {
+            "price": 67999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Sand Heaven / Mansha Regency",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Symphony Palms Beach Resort / Sea Shell Havelock",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Sea Shell Neil / Tango Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 42999
+          }
+        },
+        {
+          "packageSlug": "universal-d4-t1",
+          "durationId": "duration-4",
+          "tierId": "tier-1",
+          "comparison": {
+            "price": 39999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Vedant / Hotel Kings",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Hotel Heaven Garden / Radhakrishna Hotel",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Neil Banjara / Neha Palace",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 28999
+          }
+        },
+        {
+          "packageSlug": "universal-d4-t2",
+          "durationId": "duration-4",
+          "tierId": "tier-2",
+          "comparison": {
+            "price": 47999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "King Safire / Hotel Blue Marlin",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Golden Pebble / Radhakrishna Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Deep Sea Resort / Save Green Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 29999
+          }
+        },
+        {
+          "packageSlug": "universal-d4-t3",
+          "durationId": "duration-4",
+          "tierId": "tier-3",
+          "comparison": {
+            "price": 53999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Darwin City / Hotel SR Castle",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Arina Island Resort / Shangrilas Beach Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Reef Valley Resort / Silver Pearl Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 33999
+          }
+        },
+        {
+          "packageSlug": "universal-d4-t4",
+          "durationId": "duration-4",
+          "tierId": "tier-4",
+          "comparison": {
+            "price": 63999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Bell Elite / Bayleaf Inn",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "White Coral Beach Resort / TSG Blue Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "TSG Aura / Pearl Park Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 41999
+          }
+        },
+        {
+          "packageSlug": "universal-d4-t5",
+          "durationId": "duration-4",
+          "tierId": "tier-5",
+          "comparison": {
+            "price": 75999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Sand Heaven / Mansha Regency",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Symphony Palms Beach Resort / Sea Shell Havelock",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Sea Shell Neil / Tango Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 47999
+          }
+        },
+        {
+          "packageSlug": "universal-d5-t1",
+          "durationId": "duration-5",
+          "tierId": "tier-1",
+          "comparison": {
+            "price": 44999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Vedant / Hotel Kings",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Hotel Heaven Garden / Radhakrishna Hotel",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Neil Banjara / Neha Palace",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 32999
+          }
+        },
+        {
+          "packageSlug": "universal-d5-t2",
+          "durationId": "duration-5",
+          "tierId": "tier-2",
+          "comparison": {
+            "price": 53999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "King Safire / Hotel Blue Marlin",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Golden Pebble / Radhakrishna Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Deep Sea Resort / Save Green Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 33999
+          }
+        },
+        {
+          "packageSlug": "universal-d5-t3",
+          "durationId": "duration-5",
+          "tierId": "tier-3",
+          "comparison": {
+            "price": 59999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Darwin City / Hotel SR Castle",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Arina Island Resort / Shangrilas Beach Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Reef Valley Resort / Silver Pearl Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 37999
+          }
+        },
+        {
+          "packageSlug": "universal-d5-t4",
+          "durationId": "duration-5",
+          "tierId": "tier-4",
+          "comparison": {
+            "price": 70999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Bell Elite / Bayleaf Inn",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "White Coral Beach Resort / TSG Blue Resort",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "TSG Aura / Pearl Park Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 46999
+          }
+        },
+        {
+          "packageSlug": "universal-d5-t5",
+          "durationId": "duration-5",
+          "tierId": "tier-5",
+          "comparison": {
+            "price": 83999,
+            "approved": false,
+            "evidence": ""
+          },
+          "rules": [
+            {
+              "min": 1,
+              "max": 1,
+              "adjustmentBps": 1500
+            },
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 7,
+              "adjustmentBps": -1000
+            },
+            {
+              "min": 8,
+              "max": 12,
+              "adjustmentBps": -1500
+            }
+          ],
+          "rounding": "person",
+          "stays": [
+            {
+              "location": "Port Blair",
+              "name": "Hotel Sand Heaven / Mansha Regency",
+              "image": ""
+            },
+            {
+              "location": "Havelock",
+              "name": "Symphony Palms Beach Resort / Sea Shell Havelock",
+              "image": ""
+            },
+            {
+              "location": "Neil Island",
+              "name": "Sea Shell Neil / Tango Beach Resort",
+              "image": ""
+            }
+          ],
+          "promo": {
+            "codes": [
+              "KINNI2K",
+              "MONU2K",
+              "TAPAN2K"
+            ],
+            "price": 52999
+          }
+        }
+      ]
+    }
+  },
+  {
+    "trip": {
+      "id": 4,
+      "slug": "darjeeling",
+      "title": "Darjeeling Escape",
+      "subtitle": "Sunrise over Kanchenjunga, toy trains and tea gardens — the Queen of Hills at slow pace.",
+      "location": "Darjeeling, West Bengal",
+      "category": "Mountains",
+      "duration": "",
+      "difficulty": "Easy",
+      "price": 5999,
+      "status": "published",
+      "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80",
+      "gallery": "[\"https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80\",\"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80\",\"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80\",\"https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80\"]",
+      "route": "NJP → Darjeeling → NJP",
+      "highlights": "[\"Tiger Hill sunrise over Kanchenjunga at 4am\",\"Ghoom Monastery — oldest in Darjeeling\",\"Toy train ride — UNESCO World Heritage\",\"Tea garden walk and tasting session\",\"Batasia Loop viewpoint\",\"Lamahatta eco park and pine forest\"]",
+      "included": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+      "notIncluded": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]",
+      "faqs": "[{\"q\":\"Is flight or train to NJP included?\",\"a\":\"No — travel to NJP is not included. We recommend booking a train from Kolkata or Delhi to NJP.\"},{\"q\":\"What fitness level is required?\",\"a\":\"Easy — suitable for all ages. Tiger Hill requires an early 4am start but no trekking.\"},{\"q\":\"Best time to visit Darjeeling?\",\"a\":\"March to June and September to November for clear Kanchenjunga views. Avoid monsoon July to August.\"},{\"q\":\"Is toy train included?\",\"a\":\"Toy train is optional at ₹1,000 extra — we help you book it on ground.\"},{\"q\":\"What is the cancellation policy?\",\"a\":\"₹2,000 advance to confirm. Full refund if cancelled 10+ days before. 50% refund for 5-9 days.\"}]",
+      "type": "calculator",
+      "pricing": "[[4999,7999,13499],[6999,10999,17999],[8999,13999,22999]]",
+      "itinerary": "[]",
+      "tierDetails": "[]",
+      "durLabels": "[\"3D/2N\",\"4D/3N\",\"5D/4N\"]",
+      "durSubLabels": "[]",
+      "createdAt": "2026-05-29T05:29:22.761Z",
+      "updatedAt": "2026-10-08T20:27:06.730Z",
+      "packages": [
+        {
+          "slug": "universal-d1-t1",
+          "label": "3D/2N · Unlabelled legacy column 1",
+          "days": 3,
+          "nights": 2,
+          "priceAdult": 4999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t2",
+          "label": "3D/2N · Unlabelled legacy column 2",
+          "days": 3,
+          "nights": 2,
+          "priceAdult": 7999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d1-t3",
+          "label": "3D/2N · Unlabelled legacy column 3",
+          "days": 3,
+          "nights": 2,
+          "priceAdult": 13499,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t1",
+          "label": "4D/3N · Unlabelled legacy column 1",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 6999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t2",
+          "label": "4D/3N · Unlabelled legacy column 2",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 10999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d2-t3",
+          "label": "4D/3N · Unlabelled legacy column 3",
+          "days": 4,
+          "nights": 3,
+          "priceAdult": 17999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t1",
+          "label": "5D/4N · Unlabelled legacy column 1",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 8999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t2",
+          "label": "5D/4N · Unlabelled legacy column 2",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 13999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        },
+        {
+          "slug": "universal-d3-t3",
+          "label": "5D/4N · Unlabelled legacy column 3",
+          "days": 5,
+          "nights": 4,
+          "priceAdult": 22999,
+          "priceOnRequest": false,
+          "status": "published",
+          "itinerary": "[]",
+          "accommodation": "",
+          "image": "",
+          "notes": "",
+          "inclusions": "[\"NJP pickup and drop\",\"All local cab transfers\",\"Hotel or guesthouse stay\",\"Breakfast daily\",\"Tiger Hill sunrise trip\",\"All sightseeing and entry tickets\"]",
+          "exclusions": "[\"Train or flight to NJP\",\"Toy train ticket — ₹1,000 optional add-on\",\"Personal expenses\",\"Meals beyond breakfast\"]"
+        }
+      ]
+    },
+    "config": {
+      "version": 1,
+      "maxPeople": 50,
+      "defaultPackageSlug": null,
+      "durations": [
+        {
+          "id": "duration-1",
+          "label": "3D/2N",
+          "sub": "",
+          "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80"
+        },
+        {
+          "id": "duration-2",
+          "label": "4D/3N",
+          "sub": "",
+          "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80"
+        },
+        {
+          "id": "duration-3",
+          "label": "5D/4N",
+          "sub": "",
+          "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80"
+        }
+      ],
+      "tiers": [],
+      "offers": [
+        {
+          "packageSlug": "universal-d1-t1",
+          "durationId": "duration-1",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d1-t2",
+          "durationId": "duration-1",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d1-t3",
+          "durationId": "duration-1",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d2-t1",
+          "durationId": "duration-2",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d2-t2",
+          "durationId": "duration-2",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d2-t3",
+          "durationId": "duration-2",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d3-t1",
+          "durationId": "duration-3",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d3-t2",
+          "durationId": "duration-3",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        },
+        {
+          "packageSlug": "universal-d3-t3",
+          "durationId": "duration-3",
+          "tierId": null,
+          "comparison": null,
+          "rules": [
+            {
+              "min": 4,
+              "max": 5,
+              "adjustmentBps": -500
+            },
+            {
+              "min": 6,
+              "max": 50,
+              "adjustmentBps": -1000
+            }
+          ],
+          "rounding": "total",
+          "stays": [],
+          "promo": null
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,57 @@
+import { chromium } from '@playwright/test'
+import fs from 'node:fs'
+const executablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+const browser = await chromium.launch({ ...(fs.existsSync(executablePath) ? { executablePath } : {}), headless: true })
+const results = []
+fs.mkdirSync('artifacts/universal-trip', { recursive: true })
+try {
+  for (const [device, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 844]]) for (const slug of ['jibhi', 'darjeeling', 'andaman']) {
+    const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 })
+    const errors = []; page.on('pageerror', e => errors.push(e.message))
+    await page.goto(`http://127.0.0.1:3097/?slug=${slug}`, { waitUntil: 'networkidle' })
+    await page.evaluate(() => document.fonts.ready)
+    await page.screenshot({ path: `artifacts/universal-trip/${slug}-${device}.png`, fullPage: true })
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)
+    const brokenImages = await page.locator('img').evaluateAll(images => images.filter(i => !i.complete || !i.naturalWidth).length)
+    if (overflow || errors.length) throw new Error(JSON.stringify({ slug, device, overflow, errors, brokenImages }))
+    results.push({ slug, device, overflow, errors, brokenImages })
+    await page.close()
+  }
+  const reference = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+  await reference.goto('http://127.0.0.1:3097/?reference', { waitUntil: 'networkidle' })
+  await reference.screenshot({ path: 'artifacts/universal-trip/andaman-reference-desktop.png', fullPage: true }); await reference.close()
+  const interactive = await browser.newPage({ viewport: { width: 390, height: 844 } })
+  await interactive.goto('http://127.0.0.1:3097/?slug=jibhi&interactive', { waitUntil: 'networkidle' })
+  await interactive.getByRole('button', { name: /4D\/3N/ }).click()
+  await interactive.getByRole('button', { name: /Deluxe/ }).click()
+  await interactive.getByLabel('Number of people').fill('4')
+  await interactive.getByText('₹56,996', { exact: true }).first().waitFor()
+  const sticky = interactive.getByRole('button', { name: 'Enquire', exact: true })
+  const stickyBox = await sticky.boundingBox()
+  if (!stickyBox || stickyBox.y < 0 || stickyBox.y + stickyBox.height > 845) throw new Error('Mobile enquiry action is outside the viewport.')
+  await sticky.click(); await interactive.getByRole('dialog').waitFor()
+  await interactive.getByRole('button', { name: 'Close', exact: true }).click()
+  await interactive.screenshot({ path: 'artifacts/universal-trip/jibhi-mobile-interactive.png', fullPage: true })
+  await interactive.evaluate(() => scrollTo(0, 0))
+  await interactive.screenshot({ path: 'artifacts/universal-trip/jibhi-mobile-viewport.png', fullPage: false })
+  await interactive.close()
+  results.push({ interactive: 'duration + tier + traveller quote + mobile sticky enquiry + modal', passed: true })
+  for (const [device, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 844]]) {
+    const page = await browser.newPage({ viewport: { width, height } })
+    const errors = []; page.on('pageerror', e => errors.push(e.message))
+    await page.goto('http://127.0.0.1:3097/?slug=jibhi&builder', { waitUntil: 'networkidle' })
+    await page.getByRole('button', { name: /Packages & Itinerary/ }).click()
+    await page.getByRole('heading', { name: 'Durations, experiences & offers' }).waitFor()
+    await page.screenshot({ path: `artifacts/universal-trip/builder-${device}.png`, fullPage: true })
+    await page.getByRole('button', { name: /Review & Publish/ }).click()
+    await page.getByText('Full universal customer preview', { exact: true }).click()
+    await page.getByRole('heading', { name: 'Jibhi Valley Escape', exact: true, level: 1 }).waitFor()
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)
+    if (overflow || errors.length) throw new Error(JSON.stringify({ builder: device, overflow, errors }))
+    await page.screenshot({ path: `artifacts/universal-trip/builder-review-${device}.png`, fullPage: true })
+    results.push({ builder: device, preview: true, overflow, errors })
+    await page.close()
+  }
+  fs.writeFileSync('artifacts/universal-trip/browser-checks.json', JSON.stringify(results, null, 2))
+  console.log(JSON.stringify(results, null, 2))
+} finally { await browser.close() }

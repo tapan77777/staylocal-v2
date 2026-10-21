@@ -1,11 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
 import { prisma } from '@/lib/prisma'
+import { adminAccess } from '@/lib/admin-access'
+import { adminError } from '@/lib/admin-errors'
+import { validateExperienceInput } from '@/lib/content-validation'
 
 export async function POST(req: NextRequest) {
-  const session = await getServerSession()
-  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const body = await req.json()
-  const exp = await prisma.experience.create({ data: body })
-  return NextResponse.json(exp)
+  const access = await adminAccess('content', req)
+  if (!access.ok) return access.response
+  let body: unknown
+  try { body = await req.json() } catch {
+    return NextResponse.json({ error: 'Invalid JSON body.' }, { status: 400 })
+  }
+  const result = validateExperienceInput(body)
+  if (!result.ok) return NextResponse.json({ error: result.error }, { status: 400 })
+  try {
+    const experience = await prisma.experience.create({ data: result.data })
+    return NextResponse.json(experience)
+  } catch (error) { return adminError(error) }
 }

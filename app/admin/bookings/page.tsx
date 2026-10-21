@@ -5,7 +5,7 @@ import { requireAdmin } from '@/lib/requireAdmin'
 export const dynamic = 'force-dynamic'
 
 export default async function AdminBookings({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
-  await requireAdmin()
+  await requireAdmin('admin')
   const { status } = await searchParams
   const allowed = ['pending', 'confirmed', 'cancelled']
   const safeStatus = status && allowed.includes(status) ? status : undefined

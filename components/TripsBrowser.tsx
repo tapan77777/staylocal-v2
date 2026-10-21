@@ -13,6 +13,7 @@ interface Trip {
   duration: string
   difficulty: string
   price: number
+  priceOnRequest?: boolean
   image: string
   gallery: string
   route: string
@@ -69,6 +70,7 @@ function matchesPrice(trip: Trip, bucket: string): boolean {
   const [lo, hi] = bucket.split('-')
   const low = lo ? parseInt(lo, 10) : 0
   const high = hi ? parseInt(hi, 10) : Infinity
+  if (trip.priceOnRequest) return false
   return trip.price >= low && trip.price <= high
 }
 

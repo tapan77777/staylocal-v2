@@ -14,6 +14,7 @@ interface Props {
   priceOnRequest?: boolean
   initialPeople?: number
   initialMessage?: string
+  universalSelection?: { packageSlug: string; promoCode: string }
 }
 
 export default function BookingModal({
@@ -26,6 +27,7 @@ export default function BookingModal({
   priceOnRequest = false,
   initialPeople = 2,
   initialMessage = '',
+  universalSelection,
 }: Props) {
   const [form, setForm] = useState({
     name: '',
@@ -38,6 +40,20 @@ export default function BookingModal({
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [done, setDone] = useState(false)
+  const [liveEstimate, setLiveEstimate] = useState(estimatedPrice)
+  const [quoteBusy, setQuoteBusy] = useState(false)
+  const [quoteError, setQuoteError] = useState('')
+  useEffect(() => {
+    if (!universalSelection) return
+    const controller = new AbortController()
+    setQuoteBusy(true); setLiveEstimate(null); setQuoteError('')
+    void fetch(`/api/trips/${encodeURIComponent(tripSlug)}/quote`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...universalSelection, people: form.people }), signal: controller.signal })
+      .then(async r => { const data = await r.json(); if (!r.ok) throw new Error(data.error || 'Could not refresh estimate.'); return data })
+      .then(data => { if (!controller.signal.aborted) setLiveEstimate(data.total) })
+      .catch(e => { if (!controller.signal.aborted) setQuoteError(e.message) })
+      .finally(() => { if (!controller.signal.aborted) setQuoteBusy(false) })
+    return () => controller.abort()
+  }, [universalSelection?.packageSlug, universalSelection?.promoCode, tripSlug, form.people])
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -54,7 +70,7 @@ export default function BookingModal({
       const res = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, tripSlug, packageId }),
+        body: JSON.stringify({ ...form, tripSlug, packageId, ...(universalSelection ? { universalSelection } : {}) }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok || !data.success) {
@@ -77,10 +93,11 @@ export default function BookingModal({
     }
   }
 
-  const estimateLine = priceOnRequest && packageLabel
+  const displayEstimate = universalSelection ? liveEstimate : estimatedPrice
+  const estimateLine = quoteBusy ? 'Refreshing estimate…' : priceOnRequest && packageLabel
     ? `${packageLabel} • Price on request — we'll send a confirmed quote`
-    : typeof estimatedPrice === 'number' && packageLabel
-      ? `${packageLabel} • Est. ${formatInr(estimatedPrice)} for ${initialPeople} ${initialPeople === 1 ? 'traveller' : 'travellers'}`
+    : typeof displayEstimate === 'number' && packageLabel
+      ? `${packageLabel} • Est. ${formatInr(displayEstimate)} for ${universalSelection ? form.people : initialPeople} ${(universalSelection ? form.people : initialPeople) === 1 ? 'traveller' : 'travellers'}`
       : packageLabel || null
 
   return (
@@ -219,15 +236,15 @@ export default function BookingModal({
               style={{ ...inp, resize: 'none' }}
             />
 
-            {error && (
+            {(error || quoteError) && (
               <p style={{ fontSize: 13, color: '#b91c1c', background: '#fef2f2', padding: '10px 12px', borderRadius: 10 }}>
-                {error}
+                {error || quoteError}
               </p>
             )}
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || quoteBusy || !!quoteError}
               style={{
                 background: 'var(--green)',
                 color: '#fff',
