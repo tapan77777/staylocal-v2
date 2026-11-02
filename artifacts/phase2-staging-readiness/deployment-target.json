@@ -1,0 +1,18 @@
+{
+  "linkedProjectId": "prj_nBpytWrr3c0XzBDLVxX57OCI7lBz",
+  "linkedProjectName": "staylocal-v2",
+  "team": "tapan77777s-projects",
+  "nodeVersion": "24.x",
+  "framework": "nextjs",
+  "remoteBuildCommand": "framework default: npm run build or next build",
+  "previewDeployments": [],
+  "production": {
+    "id": "dpl_BCdxSHnkJrD8wE1T2229J7e9VnLJ",
+    "name": "staylocal-v2",
+    "url": "staylocal-v2-6x1wv9y5x-tapan77777s-projects.vercel.app",
+    "target": "production",
+    "readyState": "READY",
+    "createdAt": 1792571286484
+  },
+  "stagingConfigAppliedRemotely": false
+}

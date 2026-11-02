@@ -1,8 +1,12 @@
 'use client'
 import { useState } from 'react'
+import { isDedicatedTrek } from '@/lib/discovery'
 import Link from 'next/link'
 
 interface Trip {
+  productKind?: 'TREK' | 'TOUR' | null
+  publicPath?: string
+  enquiryOnly?: boolean
   id: number
   slug: string
   title: string
@@ -12,6 +16,7 @@ interface Trip {
   duration: string
   difficulty: string
   price: number
+  priceBasis?: string
   priceOnRequest?: boolean
   image: string
   gallery: string
@@ -21,10 +26,11 @@ interface Trip {
 
 interface Props {
   trip: Trip
-  size?: 'default' | 'wide'
+  size?: 'default' | 'wide' | 'fluid'
 }
 
 export default function TripCard({ trip, size = 'default' }: Props) {
+  const enquiryOnly = isDedicatedTrek(trip) && trip.enquiryOnly
   const images: string[] = (() => {
     try {
       const parsed = JSON.parse(trip.gallery)
@@ -46,20 +52,22 @@ export default function TripCard({ trip, size = 'default' }: Props) {
     setImgIdx(i => (i + 1) % images.length)
   }
 
-  const minWidth = size === 'wide' ? 300 : 272
-  const maxWidth = size === 'wide' ? 320 : 288
+  const minWidth = size === 'fluid' ? 0 : size === 'wide' ? 300 : 272
+  const maxWidth = size === 'fluid' ? '100%' : size === 'wide' ? 320 : 288
 
   return (
+    <article style={{ position: 'relative', minWidth, maxWidth, width: size === 'fluid' ? '100%' : undefined }}>
     <Link
-      href={`/trip/${trip.slug}`}
+      href={trip.publicPath || `/trip/${trip.slug}`}
       className="group lift"
-      aria-label={`${trip.title} — ${trip.duration}, ${trip.priceOnRequest ? 'price on request' : `from ₹${trip.price.toLocaleString('en-IN')} per person`}`}
+      aria-label={`${trip.title} — ${trip.duration}, ${enquiryOnly ? 'Enquire for dates & pricing' : trip.priceOnRequest ? 'price on request' : `from ₹${trip.price.toLocaleString('en-IN')} per person`}`}
       style={{
         textDecoration: 'none',
         color: 'inherit',
         display: 'block',
         minWidth,
         maxWidth,
+        width: size === 'fluid' ? '100%' : undefined,
         background: '#fff',
         borderRadius: 20,
         border: '1px solid var(--border)',
@@ -80,6 +88,8 @@ export default function TripCard({ trip, size = 'default' }: Props) {
           <img
             src={images[imgIdx]}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="card-img"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -122,53 +132,7 @@ export default function TripCard({ trip, size = 'default' }: Props) {
           {trip.category}
         </span>
 
-        {images.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="Previous image"
-              style={navBtn('left')}
-            >
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <path d="M6.2 1.5 3 5l3.2 3.5" stroke="#1a1a1a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              aria-label="Next image"
-              style={navBtn('right')}
-            >
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <path d="M3.8 1.5 7 5l-3.2 3.5" stroke="#1a1a1a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <div
-              style={{
-                position: 'absolute',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                bottom: 10,
-                display: 'flex',
-                gap: 4,
-              }}
-            >
-              {images.map((_, i) => (
-                <span
-                  key={i}
-                  style={{
-                    width: i === imgIdx ? 14 : 5,
-                    height: 5,
-                    borderRadius: 999,
-                    background: i === imgIdx ? '#fff' : 'rgba(255,255,255,0.55)',
-                    transition: 'width 0.25s',
-                  }}
-                />
-              ))}
-            </div>
-          </>
-        )}
+
       </div>
 
       {/* Body */}
@@ -200,7 +164,7 @@ export default function TripCard({ trip, size = 'default' }: Props) {
 
         <div style={{ display: 'flex', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
           <span style={tag}>{trip.duration}</span>
-          {trip.difficulty && <span style={tag}>{trip.difficulty}</span>}
+          {isDedicatedTrek(trip) && trip.difficulty && <span style={tag}>{trip.difficulty}</span>}
         </div>
 
         <div
@@ -222,7 +186,7 @@ export default function TripCard({ trip, size = 'default' }: Props) {
                 color: 'var(--text-muted)',
               }}
             >
-              {trip.priceOnRequest ? 'Pricing' : 'Starting from'}
+              {enquiryOnly ? 'Enquiries' : trip.priceOnRequest ? 'Pricing' : 'Starting from'}
             </p>
             <p
               style={{
@@ -234,9 +198,9 @@ export default function TripCard({ trip, size = 'default' }: Props) {
                 marginTop: 2,
               }}
             >
-              {trip.priceOnRequest ? 'Price on request' : `₹${trip.price.toLocaleString('en-IN')}`}
+              {enquiryOnly ? 'Enquire for dates & pricing' : trip.priceOnRequest ? 'Price on request' : `₹${trip.price.toLocaleString('en-IN')}`}
               <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 11, fontWeight: 500, color: 'var(--text-muted)', marginLeft: 6 }}>
-                {trip.priceOnRequest ? '' : '/ person'}
+                {enquiryOnly || trip.priceOnRequest ? '' : '/ person'}
               </span>
             </p>
           </div>
@@ -255,6 +219,8 @@ export default function TripCard({ trip, size = 'default' }: Props) {
         </div>
       </div>
     </Link>
+    {images.length > 1 && <div style={{ position: 'absolute', top: 16, right: 12, display: 'flex', gap: 6 }}><button type="button" onClick={prev} aria-label={`Previous image of ${trip.title}`} style={galleryButton}>‹</button><button type="button" onClick={next} aria-label={`Next image of ${trip.title}`} style={galleryButton}>›</button></div>}
+    </article>
   )
 }
 
@@ -268,22 +234,4 @@ const tag: React.CSSProperties = {
   fontWeight: 500,
 }
 
-function navBtn(side: 'left' | 'right'): React.CSSProperties {
-  return {
-    position: 'absolute',
-    top: '50%',
-    left: side === 'left' ? 10 : undefined,
-    right: side === 'right' ? 10 : undefined,
-    transform: 'translateY(-50%)',
-    width: 30,
-    height: 30,
-    borderRadius: 999,
-    background: 'rgba(255,255,255,0.95)',
-    border: 'none',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
-  }
-}
+const galleryButton: React.CSSProperties = { width: 44, height: 44, borderRadius: '50%', border: '1px solid #ddd', background: '#ffffffee', color: '#183d2d', fontSize: 24, cursor: 'pointer' }

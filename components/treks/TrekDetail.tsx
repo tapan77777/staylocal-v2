@@ -1,0 +1,40 @@
+import Link from 'next/link'
+import type { TrekRecord } from '@/lib/treks/schema'
+import { departureIsEnquirable, routeIsVerified, todayInIndia } from '@/lib/treks/schema'
+import { formatInr } from '@/lib/pricing'
+import { trekStructuredData, safeJsonLd } from '@/lib/treks/seo'
+import TrekPhoto from './TrekPhoto'
+import TrailOverview from './TrailOverview'
+import ElevationProfile from './ElevationProfile'
+import TrekEnquiryForm from './TrekEnquiryForm'
+import TrekCard from './TrekCard'
+import s from './Treks.module.css'
+export default function TrekDetail({ trek, related = [], initialDeparture, preview = false }: { trek: TrekRecord; related?: TrekRecord[]; initialDeparture?: string; preview?: boolean }) {
+  const c = trek.content, p = c.preparation, verified = routeIsVerified(c)
+  preview = preview || c.fixture
+  const facts = [['Duration', `${c.durationDays} days`], ['Difficulty', c.difficulty || 'To be confirmed'], ['Trail distance', verified && c.distanceKm !== null ? `${c.distanceKm} km` : 'To be confirmed'], ['Maximum altitude', verified && c.maxAltitudeM !== null ? `${c.maxAltitudeM.toLocaleString('en-IN')} m` : 'To be confirmed'], ['Basecamp', c.basecamp || 'To be confirmed'], ['Pickup → Drop', [c.pickup, c.drop].filter(Boolean).join(' → ') || 'To be confirmed']]
+  return <article className={`${s.page} ${s.detailPage}`}>
+    {!preview && !c.fixture && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(trekStructuredData(trek)) }} />}
+    {c.fixture && <p className={s.fixture}>LOCAL DESIGN FIXTURE · Review content and illustrative imagery only. Any test values are not an offer. Not a real trekking product.</p>}
+    {preview && <p className={s.previewNotice}>Unpublished editor preview · enquiries disabled · route data shown only when marked reviewed.</p>}
+    <nav className={s.breadcrumbs} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/treks">Treks</Link><span>/</span><span>{trek.title}</span></nav>
+    <header className={s.detailHero}><TrekPhoto photo={c.hero} eager /><div className={s.shade} /><div className={s.detailHeroCopy}><p className={s.heroEyebrow}>{c.region} · {trek.destination}</p><h1>{trek.title || 'Your trek story'}</h1><p>{trek.summary}</p><div className={s.heroHighlights}>{c.highlights.map((h, i) => <span key={i}>{h}</span>)}</div></div></header>
+    <div className={s.detailContainer}><dl className={s.quickFacts}>{facts.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+      <nav className={s.sectionLinks} aria-label="On this trek"><a href="#trail">Trail & itinerary</a><a href="#departures">Dates & price</a><a href="#preparation">Prepare & stay informed</a><a href="#gallery">Photos & questions</a></nav>
+      <div className={s.detailGrid}><div className={s.mainColumn}>
+        <section className={s.detailSection}><p className={s.eyebrow}>The journey, in a few words</p><h2>A little perspective changes everything.</h2><p className={s.prose}>{c.description}</p>{c.suitability && <div className={s.softNote}><strong>Is this your kind of trek?</strong><p>{c.suitability}</p></div>}</section>
+        <TrailOverview content={c} />
+        <section className={s.detailSection} aria-label="Stage elevations"><ElevationProfile content={c} /></section>
+        <section id="departures" className={s.detailSection}><p className={s.eyebrow}>03 · Dates & plans</p><h2>Make room for the mountains.</h2><p className={s.prose}>These statuses are maintained by the operator. They are not live seat counts. Availability and the final quote are confirmed when we reply.</p>
+          {c.enquiryOnly ? <div className={s.softNote}><strong>Enquire for dates &amp; pricing</strong><p>Contact us to confirm arrangements. No departure or price is confirmed by this page.</p></div> : trek.departures.length ? <div className={s.departures}>{trek.departures.map(d => <article key={d.id || d.key}><div><strong>{d.startDate} <span>→ {d.endDate}</span></strong><small>{d.startDate < todayInIndia() ? 'PAST DEPARTURE' : d.status}{d.capacity ? ` · group capacity ${d.capacity}` : ''}</small>{d.notes && <p>{d.notes}</p>}</div><div><strong>{(d.priceAdult ?? trek.basePrice ?? trek.startingPrice) !== null ? formatInr((d.priceAdult ?? trek.basePrice ?? trek.startingPrice)!) : 'On request'}</strong><small>/ person</small>{departureIsEnquirable(d) && !preview && <Link href={`?departure=${encodeURIComponent(d.id || '')}#trek-enquiry`}>Enquire ↗</Link>}</div></article>)}</div> : <div className={s.softNote}><strong>Dates are being confirmed.</strong><p>Ask us about a suitable departure or your preferred dates. No batch availability is implied.</p></div>}
+        </section>
+        <section className={`${s.detailSection} ${s.inclusionGrid}`}><div><h2>Included, clearly.</h2><ul>{c.inclusions.map((v, i) => <li key={i}>{v}</li>)}</ul></div><div><h2>Plan separately.</h2><ul>{c.exclusions.map((v, i) => <li key={i}>{v}</li>)}</ul></div></section>
+        <section id="preparation" className={s.detailSection}><p className={s.eyebrow}>04 · Come prepared</p><h2>Know the demands.<br />Enjoy the journey.</h2><div className={s.preparationGrid}>{[['Fitness & difficulty', p.fitness], ['Weather & seasons', p.weather], ['Altitude considerations', p.altitude], ['Terrain', p.terrain], ['Emergency arrangements', p.emergency], ['Operator safety information', p.safety]].map(([title, copy]) => <section key={title}><h3>{title}</h3><p className={s.prose}>{copy || 'Operator details have not been supplied yet.'}</p></section>)}</div><h3 className={s.subheading}>What to pack</h3><ul className={s.packing}>{p.packing.map((v, i) => <li key={i}>{v}</li>)}</ul>{p.operatorVerified && <p className={s.caption}>Operator review: {p.reviewedBy} · {p.reviewedOn}. Route and weather conditions can change; review arrangements before departure.</p>}<p className={s.prose}>Best seasons: {c.seasons.join(' · ') || 'Confirm with us'}</p><Link href="/cancellation" className={s.textLink}>Read cancellation & refund information ↗</Link></section>
+        <section id="gallery" className={s.detailSection}><p className={s.eyebrow}>05 · A sense of place</p><h2>Between the trail notes.</h2><div className={s.gallery}>{c.gallery.map((photo, i) => <figure key={`${photo.src}-${i}`}><div><TrekPhoto photo={photo} sizes="(max-width: 600px) 45vw, 350px" /></div>{photo.caption && <figcaption>{photo.caption}</figcaption>}</figure>)}</div>{!c.gallery.length && <p className={s.prose}>More photographs will be added when available.</p>}</section>
+        <section className={s.detailSection}><h2>Good questions, honest answers.</h2>{c.faqs.map((f, i) => <details key={i} className={s.faq}><summary>{f.q}</summary><p className={s.prose}>{f.a}</p></details>)}{!c.faqs.length && <p className={s.prose}>Have a question about this trek? Send us an enquiry.</p>}</section>
+        {related.length > 0 && <section className={s.detailSection}><p className={s.eyebrow}>Keep exploring</p><h2>Another trail, another story.</h2><div className={s.trekRows}>{related.map(t => <TrekCard key={t.id} trek={t} />)}</div></section>}
+      </div><aside className={s.enquiryColumn}><TrekEnquiryForm trek={trek} initialDeparture={initialDeparture} preview={preview} /></aside></div>
+    </div>
+    {!preview && <div className={s.mobileEnquiry}><div>{!c.enquiryOnly && <small>Starting / person</small>}<strong>{c.enquiryOnly ? 'Enquire for dates & pricing' : trek.startingPrice !== null ? formatInr(trek.startingPrice) : 'On request'}</strong></div><a href="#trek-enquiry">Enquire about this trek ↗</a></div>}
+  </article>
+}

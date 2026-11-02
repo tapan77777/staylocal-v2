@@ -1,0 +1,18 @@
+{
+  "verdict": "NOT_VERIFIED",
+  "stagingVsLocalSameDatabase": true,
+  "stagingVsLocalSameRole": true,
+  "stagingVsLocalSamePassword": true,
+  "stagingDatabaseFingerprint": "03c3aaa84f6655379b96d6dd7e427e680b1481d2bcb6effd9e51d7ec9b4891a0",
+  "isStagingLoopback": false,
+  "stagingHasAuthSecret": false,
+  "stagingKeys": [
+    "DATABASE_URL"
+  ],
+  "vercelPreviewDeployments": 0,
+  "vercelPreviewConfiguredVariables": [],
+  "productionSecretValuesAvailableForComparison": false,
+  "productionFingerprint": null,
+  "stagingVsProductionDatabaseComparison": null,
+  "reason": "Production-scoped env pull returned empty secret values. No production identity or credential comparison is established; local staging matches local default remote credentials."
+}

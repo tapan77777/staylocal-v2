@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from 'react'
+import { useEffect, useRef, type ReactNode, type CSSProperties } from 'react'
 
 interface Props {
   children: ReactNode
@@ -11,20 +11,18 @@ interface Props {
 
 export default function Reveal({ children, delay = 0, as = 'div', className, style }: Props) {
   const ref = useRef<HTMLElement | null>(null)
-  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const node = ref.current
     if (!node) return
-    if (typeof IntersectionObserver === 'undefined') {
-      setVisible(true)
-      return
-    }
+    if (typeof IntersectionObserver === 'undefined' || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
+    node.classList.add('is-pending')
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            setVisible(true)
+            node.classList.remove('is-pending')
+            node.classList.add('is-visible')
             io.unobserve(e.target)
           }
         })
@@ -32,14 +30,14 @@ export default function Reveal({ children, delay = 0, as = 'div', className, sty
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     )
     io.observe(node)
-    return () => io.disconnect()
+    return () => { io.disconnect(); node.classList.remove('is-pending') }
   }, [])
 
   const Tag = as as 'div'
   return (
     <Tag
       ref={ref as React.RefObject<HTMLDivElement>}
-      className={`reveal${visible ? ' is-visible' : ''}${className ? ` ${className}` : ''}`}
+      className={`reveal${className ? ` ${className}` : ''}`}
       style={{ ...style, ['--reveal-delay' as string]: `${delay}ms` }}
     >
       {children}

@@ -19,7 +19,7 @@ const tips = [
   ['One last look', 'Check the details as a traveller would. Publish only when you are happy with every part.', 'Draft packages remain private.', 'Saving a draft does not publish the trip.'],
 ]
 
-export default function TripForm({ trip }: { trip?: TripBuilderRecord }) {
+export default function TripForm({ trip, productKind }: { trip?: TripBuilderRecord; productKind?: 'TOUR' }) {
   const router = useRouter()
   const [state, setState] = useState(() => initialBuilder(trip))
   const [step, setStep] = useState(0)
@@ -108,7 +108,7 @@ export default function TripForm({ trip }: { trip?: TripBuilderRecord }) {
     try {
       const response = await fetch(trip ? `/api/admin/trips/${trip.id}` : '/api/admin/trips', {
         method: trip ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(builderPayload(state, status, trip, status === 'published' && confirmed)),
+        body: JSON.stringify({ ...builderPayload(state, status, trip, status === 'published' && confirmed), ...(!trip && productKind ? { productKind } : {}) }),
       })
       if (!response.ok) { const data = await response.json().catch(() => ({})); setError(data.error || 'Could not save. Your changes are still here. Please retry.'); return }
       dirtyRef.current = false; setDirty(false); router.push('/admin/trips'); router.refresh()

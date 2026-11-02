@@ -1,6 +1,5 @@
-import { publicTripPrices } from '@/lib/public-trip-prices'
+import { getPublicCatalogue } from '@/lib/public-catalogue'
 import type { Metadata } from 'next'
-import { prisma } from '@/lib/prisma'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import TripsBrowser from '@/components/TripsBrowser'
@@ -9,7 +8,7 @@ import { brand } from '@/lib/config'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: `All trips — ${brand.name}`,
+  title: 'All trips across India',
   description:
     'Browse all our thoughtfully planned trips across India. Filter by destination, duration, and budget.',
   alternates: { canonical: `${brand.siteUrl}/trips` },
@@ -25,32 +24,10 @@ export const metadata: Metadata = {
 type SP = Promise<{ q?: string; category?: string; duration?: string; price?: string; sort?: string }>
 
 export default async function TripsPage({ searchParams }: { searchParams: SP }) {
-  const trips = await prisma.trip.findMany({
-    where: { status: 'published' },
-    orderBy: { createdAt: 'desc' },
-  })
-
+  const data = await getPublicCatalogue()
   const sp = await searchParams
 
-  const pricedTrips = await publicTripPrices(trips)
-  const data = pricedTrips.map(t => ({
-    id: t.id,
-    slug: t.slug,
-    title: t.title,
-    subtitle: t.subtitle,
-    location: t.location,
-    category: t.category,
-    duration: t.duration,
-    difficulty: t.difficulty,
-    price: t.price,
-    priceOnRequest: t.priceOnRequest,
-    image: t.image,
-    gallery: t.gallery,
-    route: t.route,
-    status: t.status,
-  }))
-
-  const categories = Array.from(new Set(trips.map(t => t.category).filter(Boolean))).sort()
+  const categories = Array.from(new Set(data.map(t => t.category).filter(Boolean))).sort()
 
   return (
     <>
@@ -81,7 +58,7 @@ export default async function TripsPage({ searchParams }: { searchParams: SP }) 
           </p>
         </div>
       </section>
-      <main style={{ maxWidth: 1200, margin: '0 auto', padding: '28px 20px 56px' }}>
+      <main id="main-content" style={{ maxWidth: 1200, margin: '0 auto', padding: '28px 20px 56px' }}>
         <TripsBrowser
           trips={data}
           categories={categories}

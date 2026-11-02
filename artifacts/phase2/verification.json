@@ -1,0 +1,30 @@
+{
+  "typescript": "passed",
+  "tests": {
+    "files": 26,
+    "passed": 369
+  },
+  "productionBuild": {
+    "webpack": "passed",
+    "turbopack": "CSS worker spawning/binding: Operation not permitted; sandbox and escalated retry failed"
+  },
+  "lint": {
+    "fullErrors": 21,
+    "fullWarnings": 35,
+    "newTrekSourcesErrors": 0,
+    "newTrekSourcesWarnings": 1
+  },
+  "browser": {
+    "checks": 18,
+    "screenshots": 20,
+    "viewportWidths": [
+      360,
+      390,
+      1440
+    ]
+  },
+  "productionWrites": false,
+  "deployment": false,
+  "migrationApplied": "isolated disposable database only",
+  "localPreview": "http://localhost:3120/treks"
+}

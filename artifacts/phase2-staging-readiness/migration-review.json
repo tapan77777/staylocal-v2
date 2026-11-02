@@ -1,0 +1,17 @@
+{
+  "migration": "prisma/upgrades/20261102_trek_system.sql",
+  "sha256": "804ffea17c4294d01be1b0242fe33d6c7f08c171f4359d7b508b8abeb4b20ffc",
+  "matchesAcceptedSchemaDiff": true,
+  "modifiesExistingScalarColumns": false,
+  "updatesExistingRecords": false,
+  "transactional": true,
+  "idempotent": false,
+  "appliedThisRun": false,
+  "modelsAdded": [
+    "TripClassification",
+    "TrekContent",
+    "TrekDeparture",
+    "TrekEnquiry"
+  ],
+  "notes": "FK creation can acquire brief locks on referenced existing tables; staging rehearsal and timeouts required."
+}

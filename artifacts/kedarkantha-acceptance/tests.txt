@@ -1,0 +1,13 @@
+
+> staylocal-v2@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/tapannaik/Desktop/Projects/staylocal-v2
+
+
+ Test Files  26 passed (26)
+      Tests  375 passed (375)
+   Start at  17:28:37
+   Duration  2.84s (transform 2.27s, setup 0ms, import 5.03s, tests 2.79s, environment 2.35s)
+

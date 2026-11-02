@@ -1,0 +1,181 @@
+
+> staylocal-v2@0.1.0 lint
+> eslint .
+
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/app/admin/trips/page.tsx
+  36:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/app/api/admin/trips/route.ts
+  41:42  warning  '_id' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/check-mobile.mjs
+  28:19  warning  'style' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/AndamanPage.tsx
+  122:9   warning  'bufferPrice' is assigned a value but never used                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  123:9   warning  'discountPct' is assigned a value but never used                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  156:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  377:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  513:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/BookingModal.tsx
+  49:5  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/BookingModal.tsx:49:5
+  47 |     if (!universalSelection) return
+  48 |     const controller = new AbortController()
+> 49 |     setQuoteBusy(true); setLiveEstimate(null); setQuoteError('')
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  50 |     void fetch(`/api/trips/${encodeURIComponent(tripSlug)}/quote`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...universalSelection, people: form.people }), signal: controller.signal })
+  51 |       .then(async r => { const data = await r.json(); if (!r.ok) throw new Error(data.error || 'Could not refresh estimate.'); return data })
+  52 |       .then(data => { if (!controller.signal.aborted) setLiveEstimate(data.total) })  react-hooks/set-state-in-effect
+  56:6  warning  React Hook useEffect has a missing dependency: 'universalSelection'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/CuratedTrips.tsx
+  297:51  warning  Do not use `window.location.assign()` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination                   @next/next/no-location-assign-relative-destination
+  318:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  474:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/DestinationsCarousel.tsx
+  143:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/Hero.tsx
+  67:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/TravelByStyle.tsx
+  96:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/TripCard.tsx
+  86:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/TrekMediaField.tsx
+  23:99  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/TripForm.tsx
+   37:6   warning  React Hook useEffect has a missing dependency: 'trip'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+   86:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/TripForm.tsx:86:5
+  84 |     if (trip || !form.slug) return
+  85 |     const controller = new AbortController()
+> 86 |     setSlugStatus('Checking availability…')
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  87 |     const timer = setTimeout(async () => {
+  88 |       try {
+  89 |         const response = await fetch(`/api/admin/trips/check-slug?slug=${encodeURIComponent(form.slug)}`, { signal: controller.signal })                    react-hooks/set-state-in-effect
+  165:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @next/next/no-img-element
+  184:55  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @next/next/no-img-element
+  200:12  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/TripForm.tsx:200:12
+  198 |   try {
+  199 |     const initialQuotes = Object.fromEntries(eligibleOffers(config, state.packages).map(({ pkg }) => [pkg.slug, quoteOffer(config, state.packages, pkg.slug, Math.min(2, config.maxPeople))]))
+> 200 |     return <details><summary>Full universal customer preview</summary><UniversalTrip trip={{ ...state.form, packages: state.packages }} config={config} initialQuotes={initialQuotes} preview /></details>
+      |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  201 |   } catch { return <p>Fix offer pricing before previewing.</p> }
+  202 | }
+  203 |  react-hooks/error-boundaries
+  200:21  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/TripForm.tsx:200:21
+  198 |   try {
+  199 |     const initialQuotes = Object.fromEntries(eligibleOffers(config, state.packages).map(({ pkg }) => [pkg.slug, quoteOffer(config, state.packages, pkg.slug, Math.min(2, config.maxPeople))]))
+> 200 |     return <details><summary>Full universal customer preview</summary><UniversalTrip trip={{ ...state.form, packages: state.packages }} config={config} initialQuotes={initialQuotes} preview /></details>
+      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  201 |   } catch { return <p>Fix offer pricing before previewing.</p> }
+  202 | }
+  203 |                                                                                                                                      react-hooks/error-boundaries
+  200:71  error    Error: Avoid constructing JSX within try/catch
+
+React does not immediately render components when JSX is rendered, so any errors from this component will not be caught by the try/catch. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/TripForm.tsx:200:71
+  198 |   try {
+  199 |     const initialQuotes = Object.fromEntries(eligibleOffers(config, state.packages).map(({ pkg }) => [pkg.slug, quoteOffer(config, state.packages, pkg.slug, Math.min(2, config.maxPeople))]))
+> 200 |     return <details><summary>Full universal customer preview</summary><UniversalTrip trip={{ ...state.form, packages: state.packages }} config={config} initialQuotes={initialQuotes} preview /></details>
+      |                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid constructing JSX within try/catch
+  201 |   } catch { return <p>Fix offer pricing before previewing.</p> }
+  202 | }
+  203 |            react-hooks/error-boundaries
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/admin/builder/PhotoEditor.tsx
+  55:7  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/trip/CalculatorTrip.tsx
+  200:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  296:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  364:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  514:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/trip/EnquiryTrip.tsx
+  209:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  263:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  417:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/trip/PackagePicker.tsx
+  75:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/trip/UniversalTrip.tsx
+   28:5    error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/trip/UniversalTrip.tsx:28:5
+  26 |     if (!current) return
+  27 |     const controller = new AbortController()
+> 28 |     setBusy(true); setError(''); setQuote(null)
+     |     ^^^^^^^ Avoid calling setState() directly within an effect
+  29 |     if (preview) {
+  30 |       try { setQuote(quoteOffer(config, trip.packages, current.pkg.slug, people, promoCode)) } catch (e) { setError((e as Error).message) }
+  31 |       setBusy(false); return  react-hooks/set-state-in-effect
+   39:6    warning  React Hook useEffect has a missing dependency: 'current'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+   55:41   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+   97:52   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+  101:192  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+  106:144  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/lib/legacy-universal.ts
+   1:31  warning  'UniversalConfig' is defined but never used  @typescript-eslint/no-unused-vars
+  16:24  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  17:64  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  18:67  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  19:16  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/scripts/universal-backfill.ts
+  12:119  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  37:35   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  45:123  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:116  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:171  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:68   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/staging-tests/admin.spec.ts
+    9:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   10:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   11:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  127:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  148:90  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 56 problems (21 errors, 35 warnings)
+

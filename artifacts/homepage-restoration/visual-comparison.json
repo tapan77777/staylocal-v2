@@ -1,0 +1,69 @@
+{
+  "revision": "7305285",
+  "reference": "Historical Git component tree with public read-only snapshot, production CSS/fonts and Next link/navigation shims; reference is not a deployed build",
+  "differences": [
+    "Treks/Tours navigation and visible category links",
+    "Four unavailable founder experience cards excluded; three working originals retained",
+    "Authoritative published package summaries and matched curated idea links",
+    "Optional session welcome, suppressed for comparison",
+    "Reveal animation progressively enhanced so non-JS content stays visible"
+  ],
+  "comparisons": [
+    {
+      "device": "desktop",
+      "original": {
+        "width": 1440,
+        "height": 760,
+        "heading": "Your next great Indian adventure starts here."
+      },
+      "restored": {
+        "width": 1440,
+        "height": 760,
+        "heading": "Your next great Indian adventure starts here."
+      },
+      "meanAbsoluteChannelDelta": 0.318,
+      "scale": "0–255; includes intentional navigation changes; not an exact-pixel release gate"
+    },
+    {
+      "device": "mobile",
+      "original": {
+        "width": 390,
+        "height": 658.3125,
+        "heading": "Your next great Indian adventure starts here."
+      },
+      "restored": {
+        "width": 390,
+        "height": 658.3125,
+        "heading": "Your next great Indian adventure starts here."
+      },
+      "meanAbsoluteChannelDelta": 0,
+      "scale": "0–255; includes intentional navigation changes; not an exact-pixel release gate"
+    }
+  ],
+  "exactHistoricalFiles": [
+    {
+      "file": "components/Hero.tsx",
+      "byteIdenticalToGit7305285": true
+    },
+    {
+      "file": "components/WhySection.tsx",
+      "byteIdenticalToGit7305285": true
+    },
+    {
+      "file": "components/FounderSection.tsx",
+      "byteIdenticalToGit7305285": true
+    },
+    {
+      "file": "components/EnquiryForm.tsx",
+      "byteIdenticalToGit7305285": true
+    },
+    {
+      "file": "components/TravelByStyle.tsx",
+      "byteIdenticalToGit7305285": true
+    },
+    {
+      "file": "components/HowItWorks.tsx",
+      "byteIdenticalToGit7305285": true
+    }
+  ]
+}

@@ -33,6 +33,7 @@ export const packageInputSchema = z.strictObject({
 export const daySchema = z.strictObject({ day: z.string().trim().min(1).max(120), title: z.string().trim().min(1).max(300), desc: z.string().max(10_000) })
 export const faqSchema = z.strictObject({ q: z.string().trim().min(1).max(2000), a: z.string().trim().min(1).max(10_000) })
 export const writeMetadataSchema = z.strictObject({
+  productKind: z.enum(['TREK', 'TOUR']).optional(),
   expectedUpdatedAt: z.iso.datetime().optional(),
   removedPackageIds: z.array(z.number().int().positive()).max(100).default([]),
   publishConfirmed: z.boolean().default(false),
@@ -42,8 +43,8 @@ export const writeMetadataSchema = z.strictObject({
 export function splitWriteMetadata(input: unknown) {
   const record = z.record(z.string(), z.unknown()).safeParse(input)
   if (!record.success) return { ok: false as const, error: 'Body must be an object.' }
-  const { expectedUpdatedAt, removedPackageIds, publishConfirmed, universal, ...body } = record.data
-  const metadata = writeMetadataSchema.safeParse({ expectedUpdatedAt, removedPackageIds, publishConfirmed, universal })
+  const { expectedUpdatedAt, removedPackageIds, publishConfirmed, universal, productKind, ...body } = record.data
+  const metadata = writeMetadataSchema.safeParse({ expectedUpdatedAt, removedPackageIds, publishConfirmed, universal, productKind })
   if (!metadata.success) return { ok: false as const, error: 'Invalid save confirmation or edit version. Reload the builder.' }
   return { ok: true as const, body, metadata: metadata.data }
 }

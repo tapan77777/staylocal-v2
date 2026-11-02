@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { brand, waLink } from '@/lib/config'
 
 const EXPLORE = [
+  { href: '/treks', label: 'Treks' },
+  { href: '/tours', label: 'Tours' },
   { href: '/trips', label: 'All trips' },
   { href: '/#destinations', label: 'Destinations' },
   { href: '/#how-it-works', label: 'How booking works' },

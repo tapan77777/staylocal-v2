@@ -1,3 +1,4 @@
+import { getClassifications } from '@/lib/treks/store'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import { requireAdmin } from '@/lib/requireAdmin'
@@ -8,6 +9,7 @@ export default async function AdminTrips() {
   await requireAdmin()
   const trips = await prisma.trip.findMany({ orderBy: { createdAt: 'desc' } })
 
+  const kinds = new Map((await getClassifications(trips.map(t => t.id))).map(c => [c.tripId, c.kind]))
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
@@ -37,7 +39,7 @@ export default async function AdminTrips() {
                     )}
                   </td>
                   <td style={td}>
-                    <p style={{ fontWeight: 600 }}>{trip.title}</p>
+                    <p style={{ fontWeight: 600 }}>{trip.title}</p><small>{kinds.get(trip.id) ?? 'Legacy · unclassified'}</small>
                     <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{trip.location}</p>
                   </td>
                   <td style={td}>{trip.category}</td>
@@ -50,7 +52,7 @@ export default async function AdminTrips() {
                   <td style={td}>
                     <Link href={`/admin/trips/${trip.id}/edit`} style={{ fontSize: 13, color: 'var(--green)', textDecoration: 'none', fontWeight: 600 }}>Edit</Link>
                     {' · '}
-                    <Link href={`/trip/${trip.slug}`} target="_blank" style={{ fontSize: 13, color: 'var(--text-secondary)', textDecoration: 'none' }}>View</Link>
+                    <Link href={kinds.get(trip.id) === 'TREK' ? `/treks/${trip.slug}` : `/trip/${trip.slug}`} target="_blank" style={{ fontSize: 13, color: 'var(--text-secondary)', textDecoration: 'none' }}>View</Link>
                   </td>
                 </tr>
               ))}

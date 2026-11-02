@@ -1,3 +1,5 @@
+import { trekSystemEnabled } from '@/lib/treks/flags'
+import { saveTrekEnquiry } from '@/lib/treks/enquiry'
 import { NextRequest, NextResponse } from 'next/server'
 import { adminAccess } from '@/lib/admin-access'
 import { adminError } from '@/lib/admin-errors'
@@ -29,6 +31,14 @@ export async function POST(req: NextRequest) {
   if (!trip || trip.status !== 'published') {
     return NextResponse.json({ error: 'This trip is not available for enquiry.' }, { status: 400 })
   }
+
+  if (trekSystemEnabled()) {
+    try {
+      const kind = await prisma.tripClassification.findUnique({ where: { tripId: trip.id } })
+      if (kind?.kind === 'TREK') return NextResponse.json(await saveTrekEnquiry(trip.id, data, (payload as Record<string, unknown>).trekDepartureId))
+      if ((payload as Record<string, unknown>).trekDepartureId !== undefined) return NextResponse.json({ error: 'A trek departure cannot be attached to a tour enquiry.' }, { status: 400 })
+    } catch (error) { return adminError(error) }
+  } else if ((payload as Record<string, unknown>).trekDepartureId !== undefined) return NextResponse.json({ error: 'Trek enquiries are temporarily unavailable.' }, { status: 503 })
 
   let packageId: number | null = null
   let packageLabel = ''

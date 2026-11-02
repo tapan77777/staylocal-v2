@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState, useTransition } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import TripCard from './TripCard'
+import { durationDays } from '@/lib/trip-duration'
 
 interface Trip {
   id: number
@@ -49,16 +50,10 @@ const PRICE_BUCKETS = [
   { key: '50000-', label: '₹50k+' },
 ]
 
-function durationDays(d: string): number {
-  const m = d.match(/(\d+)\s*D/i)
-  if (m) return parseInt(m[1], 10)
-  const n = d.match(/(\d+)/)
-  return n ? parseInt(n[1], 10) : 0
-}
 
 function matchesDuration(trip: Trip, bucket: string): boolean {
   if (!bucket) return true
-  const d = durationDays(trip.duration)
+  const d = durationDays(trip.duration) ?? 0
   if (bucket === 'short') return d > 0 && d <= 3
   if (bucket === 'mid') return d >= 4 && d <= 6
   if (bucket === 'long') return d >= 7
@@ -109,7 +104,7 @@ export default function TripsBrowser({ trips, categories, initial }: Props) {
     })
     if (filters.sort === 'price_asc') out = [...out].sort((a, b) => a.price - b.price)
     else if (filters.sort === 'price_desc') out = [...out].sort((a, b) => b.price - a.price)
-    else if (filters.sort === 'duration_asc') out = [...out].sort((a, b) => durationDays(a.duration) - durationDays(b.duration))
+    else if (filters.sort === 'duration_asc') out = [...out].sort((a, b) => (durationDays(a.duration) ?? 0) - (durationDays(b.duration) ?? 0))
     return out
   }, [trips, filters])
 
@@ -276,7 +271,7 @@ export default function TripsBrowser({ trips, categories, initial }: Props) {
                 }}
               >
                 {filtered.map(t => (
-                  <TripCard key={t.id} trip={t} />
+                  <TripCard key={t.id} trip={t} size="fluid" />
                 ))}
               </div>
             )}

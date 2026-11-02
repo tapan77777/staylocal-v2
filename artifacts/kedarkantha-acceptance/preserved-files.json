@@ -1,0 +1,46 @@
+[
+  {
+    "file": "app/page.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "components/Hero.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "components/FounderSection.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "components/WelcomePopup.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "components/WelcomePopup.module.css",
+    "unchanged": true
+  },
+  {
+    "file": "app/tours/page.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "lib/pricing.ts",
+    "unchanged": true
+  },
+  {
+    "file": "lib/universal-trip.ts",
+    "unchanged": true
+  },
+  {
+    "file": "components/trip/CalculatorTrip.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "components/AndamanPage.tsx",
+    "unchanged": true
+  },
+  {
+    "file": "lib/auth.ts",
+    "unchanged": true
+  }
+]

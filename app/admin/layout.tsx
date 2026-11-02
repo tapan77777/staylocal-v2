@@ -16,7 +16,7 @@ const NAV = [
 function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const { data: session } = useSession()
-  const builderPage = /^\/admin\/trips\/(?:new|[^/]+\/edit)$/.test(pathname)
+  const builderPage = /^\/admin\/trips\/(?:new|[^/]+\/(?:edit|preview))$/.test(pathname)
 
   if (pathname === '/admin/login') return <>{children}</>
 

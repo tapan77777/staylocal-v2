@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react'
 import { brand, waLink } from '@/lib/config'
 
 const LINKS = [
-  { href: '/trips', label: 'Explore trips' },
-  { href: '/#destinations', label: 'Destinations' },
+  { href: '/', label: 'Home' },
+  { href: '/treks', label: 'Treks' },
+  { href: '/tours', label: 'Tours' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -25,23 +26,21 @@ export default function Navbar() {
   }, [open])
 
   useEffect(() => {
-    if (!transparentCapable) {
-      setScrolled(true)
-      return
-    }
+    if (!transparentCapable) return
     const onScroll = () => setScrolled(window.scrollY > 60)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [transparentCapable])
 
-  const solid = scrolled || open
+  const solid = !transparentCapable || scrolled || open
   const navColor = solid ? '#1a1a1a' : '#fff'
   const brandDark = solid ? '#1a1a1a' : '#fff'
   const brandGreen = solid ? 'var(--green)' : '#8BE4C0'
 
   return (
     <nav
+      aria-label="Main navigation"
       style={{
         background: solid ? 'rgba(255,255,255,0.94)' : 'transparent',
         backdropFilter: solid ? 'saturate(1.4) blur(10px)' : undefined,

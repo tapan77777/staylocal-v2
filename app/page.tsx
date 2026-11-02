@@ -1,6 +1,8 @@
-import { publicTripPrices } from '@/lib/public-trip-prices'
-import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
+import { getPublicCatalogue } from '@/lib/public-catalogue'
+import WelcomePopup from '@/components/WelcomePopup'
+import DiscoveryLinks from '@/components/DiscoveryLinks'
+import { brand } from '@/lib/config'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import SearchBar from '@/components/SearchBar'
@@ -15,25 +17,10 @@ import Footer from '@/components/Footer'
 
 export const dynamic = 'force-dynamic'
 
-const homeTitle = 'StayLocal — Discover India Beyond the Ordinary'
-const homeDescription =
-  'Discover authentic India with local insights, thoughtfully planned trips, and personal travel support from StayLocal.'
-
-export const metadata: Metadata = {
-  title: { absolute: homeTitle },
-  description: homeDescription,
-  openGraph: {
-    title: homeTitle,
-    description: homeDescription,
-    url: '/',
-    type: 'website',
-    locale: 'en_IN',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: homeTitle,
-    description: homeDescription,
-  },
+export const metadata = {
+  title: { absolute: 'StayLocal Trips — Treks, Tours & Travel Experiences' },
+  description: 'Explore Himalayan treks, curated India tours and memorable group adventures with StayLocal. Discover authentic experiences and plan your next trip.',
+  alternates: { canonical: `${brand.siteUrl}/` },
 }
 
 function regionOf(location: string, category: string): string {
@@ -53,23 +40,13 @@ function regionOf(location: string, category: string): string {
 }
 
 export default async function Home() {
-  const [trips, experiences] = await Promise.all([
-    prisma.trip.findMany({ where: { status: 'published' }, orderBy: { createdAt: 'desc' } }),
-    prisma.experience.findMany({ where: { status: 'published' }, orderBy: { createdAt: 'desc' } }),
-  ])
-
-  const pricedTrips = await publicTripPrices(trips)
-  const tripList = pricedTrips.map(t => ({
-    id: t.id, slug: t.slug, title: t.title, subtitle: t.subtitle,
-    location: t.location, category: t.category, duration: t.duration,
-    difficulty: t.difficulty, price: t.price, priceOnRequest: t.priceOnRequest, image: t.image,
-    gallery: t.gallery, route: t.route, status: t.status,
-  }))
-
-  const expList = experiences.map(e => ({
-    id: e.id, slug: e.slug, title: e.title, location: e.location,
-    category: e.category, description: e.description, visited: e.visited,
-  }))
+  const tripList = await getPublicCatalogue()
+  // Only existing published package destinations may be linked from the story.
+  // This keeps the three working original cards and excludes the four broken ones.
+  const experiences = await prisma.experience.findMany({
+    where: { status: 'published', slug: { in: tripList.map(trip => trip.slug) } },
+    orderBy: { createdAt: 'desc' },
+  })
 
   const tripDropdown = tripList.map(t => ({ slug: t.slug, title: t.title }))
 
@@ -89,17 +66,19 @@ export default async function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <SearchBar />
+        <DiscoveryLinks />
         <Discover trips={tripList} destinationTrips={destinationTrips} />
         <TravelByStyle />
         <WhySection />
         <HowItWorks />
-        <FounderSection experiences={expList} />
+        <FounderSection experiences={experiences} />
         <EnquiryForm trips={tripDropdown} />
       </main>
       <Footer />
+      <WelcomePopup />
       <PlannerSheet destinations={plannerDestinations} />
     </>
   )

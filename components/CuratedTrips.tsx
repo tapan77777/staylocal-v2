@@ -10,6 +10,8 @@ type CuratedTrip = {
   title: string
   location: string
   duration: string
+  packageSlug?: string
+  priceOnRequest?: boolean
   priceFrom: number
   badge: string
   image: string
@@ -184,12 +186,20 @@ function buildWaMessage(t: CuratedTrip) {
   return [
     `Hi StayLocal! I'd love a curated trip to *${t.title}*.`,
     `Duration: ${t.duration}`,
-    `Indicative price per person: from ${formatInr(t.priceFrom)} (flights excluded, final price confirmed after enquiry).`,
+    `Indicative price per person: from ${t.priceOnRequest ? 'Price on request' : formatInr(t.priceFrom)} (flights excluded, final price confirmed after enquiry).`,
     `Could you share a tailored itinerary and quote?`,
   ].join('\n')
 }
 
-export default function CuratedTrips() {
+interface PublishedIdea { slug: string; title: string; location: string; duration: string; price: number; priceOnRequest?: boolean }
+
+export default function CuratedTrips({ trips = [] }: { trips?: PublishedIdea[] }) {
+  // Preserve the inspiration cards, but use the authoritative summary and existing
+  // detail URL when an idea corresponds to a published package.
+  const curated = CURATED.map(idea => {
+    const published = trips.find(trip => trip.slug === idea.key)
+    return published ? { ...idea, title: published.title, location: published.location, duration: published.duration, priceFrom: published.price, priceOnRequest: published.priceOnRequest, packageSlug: published.slug } : idea
+  })
   const scrollRef = useRef<HTMLDivElement | null>(null)
   const pausedRef = useRef(false)
   const visibleRef = useRef(true)
@@ -260,7 +270,7 @@ export default function CuratedTrips() {
                 maxWidth: 560,
               }}
             >
-              Eight small-group ideas we love right now. Prices are indicative, per person,
+              Trip ideas and published journeys we love. Prices are indicative, per person,
               twin sharing — excluding flights, and confirmed after we understand your dates
               and preferences.
             </p>
@@ -279,12 +289,12 @@ export default function CuratedTrips() {
         onTouchEnd={() => { pausedRef.current = false }}
         aria-label="Curated trips carousel"
       >
-        {CURATED.map((t, i) => (
+        {curated.map((t, i) => (
           <Reveal key={t.key} delay={i * 60} style={{ flexShrink: 0 }}>
             <button
               type="button"
               data-curated-card
-              onClick={() => setOpen(t)}
+              onClick={() => { if (t.packageSlug) window.location.assign(`/trip/${t.packageSlug}`); else setOpen(t) }}
               className="lift"
               aria-label={`Open ${t.title} details`}
               style={{
@@ -358,7 +368,7 @@ export default function CuratedTrips() {
                   <span style={{ display: 'flex', flexDirection: 'column' }}>
                     <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.65)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>From</span>
                     <span style={{ fontFamily: 'var(--font-playfair)', fontSize: 20, fontWeight: 700, color: '#fff' }}>
-                      {formatInr(t.priceFrom)}
+                      {t.priceOnRequest ? 'Price on request' : formatInr(t.priceFrom)}
                     </span>
                     <span style={{ fontSize: 10.5, color: 'rgba(255,255,255,0.6)' }}>per person · indicative</span>
                   </span>

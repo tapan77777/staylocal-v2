@@ -54,7 +54,7 @@ export default function Discover({ trips, destinationTrips }: Props) {
     <>
       <CategoryCircles active={cat} onChange={setCat} />
       <FeaturedCarousel trips={filtered} activeCategory={cat} />
-      <CuratedTrips />
+      <CuratedTrips trips={trips} />
       <DestinationsCarousel trips={destinationTrips} />
     </>
   )

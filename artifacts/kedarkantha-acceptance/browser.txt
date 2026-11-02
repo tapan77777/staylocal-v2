@@ -1,0 +1,15 @@
+PASS independent authenticated fixture isolation and disabled external uploads
+PASS empty title fails client validation without a write
+PASS out-of-range altitude rejected; unknown facts remain empty
+PASS all six proposed days authored in UI; unpaired coordinate rejected and removed
+PASS invalid price and reversed departure dates rejected; no prices or departures retained
+PASS all seven sections saved through real UI as an explicitly marked, unpriced, departure-free draft
+PASS edit, save and reload retain draft data
+PASS client publication readiness, server review confirmation, fixture promotion and stale editing fail closed; no publication
+PASS desktop/390px/360px preview, keyboard itinerary, truthful map fallback, gallery images and disabled enquiry
+PASS public draft/JSON/private-preview isolation, Kashmir sitemap and legacy API fixture exclusion
+PASS direct draft enquiry rejected without writing Booking
+PASS horizontal listing cards, GET filters, empty state and no-JavaScript draft preview
+PASS existing labelled local fixture enquiry uses server departure pricing and shared snapshot (Kedarkantha stays draft)
+PASS tour records/packages/public URLs unchanged; published ID set unchanged; Kedarkantha remains draft
+{"checks":14,"screenshots":25,"draft":{"id":16,"slug":"kedarkantha-acceptance-draft-1d11aa","title":"Kedarkantha — acceptance draft (not offered)","status":"draft","preview":"http://localhost:3120/admin/trips/16/preview","edit":"http://localhost:3120/admin/trips/16/edit","hasPrice":false,"departures":0,"operatorVerified":false}}

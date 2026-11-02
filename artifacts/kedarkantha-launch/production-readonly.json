@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-02T12:30:24.675Z",
+  "readOnly": true,
+  "databaseWriteAttempted": false,
+  "migrationApplied": false,
+  "backupStatus": "UNVERIFIED",
+  "backupReason": "No current production-linked backup/restore evidence or database-provider control-plane credential has been established.",
+  "projectId": "prj_nBpytWrr3c0XzBDLVxX57OCI7lBz",
+  "projectName": "staylocal-v2",
+  "productionDeployment": {
+    "id": "dpl_BCdxSHnkJrD8wE1T2229J7e9VnLJ",
+    "target": "production",
+    "state": "READY",
+    "url": "staylocal-v2-6x1wv9y5x-tapan77777s-projects.vercel.app"
+  },
+  "productionVariablePresent": true,
+  "productionVariableType": "sensitive",
+  "productionDatabaseIdentity": null,
+  "databaseIdentityStatus": "UNVERIFIED",
+  "databaseIdentityReason": "Production DATABASE_URL is sensitive and the read interface returned no usable connection value. No fallback database was contacted."
+}

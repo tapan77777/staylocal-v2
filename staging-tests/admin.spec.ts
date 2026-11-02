@@ -103,7 +103,7 @@ test('authenticated roles, wizard, trip lifecycle, ownership and booking transit
   expect((await write(request, '/api/admin/trips', 'POST', fixture(slug))).status()).toBe(401)
   expect((await editor.request.get(`${base}/api/bookings`)).status()).toBe(403)
   const page = await editor.newPage()
-  await page.goto(`${base}/admin/trips/new`)
+  await page.goto(`${base}/admin/trips/new?kind=tour`)
   await page.getByLabel(/Trip title/).fill('Unsaved staging wizard')
   await page.getByRole('button', { name: /Photos/ }).click()
   await page.getByRole('button', { name: /Basics/ }).click()

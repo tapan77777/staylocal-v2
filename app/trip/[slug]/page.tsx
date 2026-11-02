@@ -1,8 +1,10 @@
-import { publicTripPrices } from '@/lib/public-trip-prices'
+import { publicTripSummary } from '@/lib/public-trip-summary'
 import UniversalTrip from '@/components/trip/UniversalTrip'
 import { loadUniversal, legacyPackages } from '@/lib/universal-store'
 import { quoteOffer, eligibleOffers, publicUniversal } from '@/lib/universal-trip'
 import type { Metadata } from 'next'
+import { getClassifications } from '@/lib/treks/store'
+import { permanentRedirect } from 'next/navigation'
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Navbar from '@/components/Navbar'
@@ -16,18 +18,18 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const trip = await prisma.trip.findUnique({ where: { slug } })
+  const trip = await prisma.trip.findUnique({ where: { slug }, include: { packages: { where: { status: 'published' }, orderBy: { sortOrder: 'asc' } } } })
   if (!trip || trip.status !== 'published') {
     return { title: 'Trip not found', robots: { index: false } }
   }
 
 
 
-  const [pricedTrip] = await publicTripPrices([trip])
-  const title = `${trip.title} — ${trip.duration} in ${trip.location}`
+  const pricedTrip = publicTripSummary(trip, await loadUniversal(trip))
+  const title = `${trip.title} — ${[pricedTrip.durationRange, trip.location].filter(Boolean).join(' in ')}`
   const description =
     trip.subtitle ||
-    `${trip.title}: ${trip.duration} trip in ${trip.location}. ${pricedTrip.priceOnRequest ? 'Price on request.' : `Starting from ₹${pricedTrip.price.toLocaleString('en-IN')} per person.`}`
+    `${trip.title}: ${pricedTrip.durationRange} trip in ${trip.location}. ${pricedTrip.priceOnRequest ? 'Price on request.' : `Starting from ₹${pricedTrip.price.toLocaleString('en-IN')} per person.`}`
   const url = `${brand.siteUrl}/trip/${trip.slug}`
   const image = trip.image || undefined
 
@@ -58,6 +60,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
     include: { packages: { where: { status: 'published' }, orderBy: { sortOrder: 'asc' } } },
   })
   if (!trip || trip.status !== 'published') return notFound()
+  if ((await getClassifications([trip.id]))[0]?.kind === 'TREK') permanentRedirect(`/treks/${trip.slug}`)
 
   const universal = await loadUniversal(trip)
   if (universal) {

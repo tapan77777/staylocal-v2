@@ -1,0 +1,14 @@
+{
+  "focusedTests": 68,
+  "files": 10,
+  "webpackProductionBuild": "passed (includes TypeScript)",
+  "additionalSchemaMigrationRequired": false,
+  "originalTrekMigrationChanged": false,
+  "productionDatabaseIdentity": "unverified",
+  "productionBackup": "unverified",
+  "productionDataChanges": false,
+  "migrationApplied": false,
+  "deployed": false,
+  "published": false,
+  "enquiryOnlyContact": "existing WhatsApp action; no invented price or Booking"
+}

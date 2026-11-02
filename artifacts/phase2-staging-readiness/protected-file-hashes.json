@@ -1,0 +1,8 @@
+{
+  ".env.local": "45ba549afcfb2c85a25edfd08f5546092f7b84b2cb78c661186a860c013c63d2",
+  ".env.staging": "e718d776c9a6735cd41a66b38e17af779ebe6fa7abd6b6096f638ab2e11131a3",
+  ".vercel/project.json": "31d796398f29b471055938e6ed4a2957f36288cb3acc6935e7488b5db3c47d4c",
+  "prisma/upgrades/20261102_trek_system.sql": "804ffea17c4294d01be1b0242fe33d6c7f08c171f4359d7b508b8abeb4b20ffc",
+  "lib/pricing.ts": "d0de81f4c736ebcde198fcd6eb973badd9a0b12d075f711bccaf74303a65d77d",
+  "lib/universal-trip.ts": "0ba7a8fb6dba3fe8cbc40370ada8cce1b9e187e342397f64111db9b0aee22771"
+}

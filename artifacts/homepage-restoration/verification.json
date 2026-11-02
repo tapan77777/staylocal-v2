@@ -1,0 +1,148 @@
+{
+  "welcomeActions": [
+    {
+      "action": "Explore Treks",
+      "passed": true
+    },
+    {
+      "action": "Explore Tours",
+      "passed": true
+    },
+    {
+      "action": "Close welcome popup",
+      "passed": true
+    },
+    {
+      "action": "Escape",
+      "passed": true
+    },
+    {
+      "action": "Backdrop",
+      "passed": true
+    }
+  ],
+  "welcomeSession": "passed: initial visit, focus trap, dismissal, reload, navigation, fresh session",
+  "layoutShiftGuard": "hero x and width unchanged on opening at desktop and mobile",
+  "target": "http://127.0.0.1:3116",
+  "reviewedAt": "2026-11-02T10:25:27.798Z",
+  "dataSource": "Current configured published catalogue, read-only; no production writes",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "StayLocal — Indian journeys, thoughtfully planned",
+      "canonical": "https://staylocal-v2.vercel.app"
+    },
+    {
+      "path": "/treks",
+      "status": 200,
+      "title": "Himalayan treks &amp; mountain adventures · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/treks"
+    },
+    {
+      "path": "/tours",
+      "status": 200,
+      "title": "Domestic tours &amp; holidays in India · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/tours"
+    },
+    {
+      "path": "/trips",
+      "status": 200,
+      "title": "All trips across India · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/trips"
+    },
+    {
+      "path": "/trip/kashmir-valleys-lakes-mountain-escapes",
+      "status": 200,
+      "title": "Kashmir: Valleys, Lakes &amp; Mountain Escapes — 5 days in Kashmir, Jammu &amp; Kashmir · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/trip/kashmir-valleys-lakes-mountain-escapes"
+    },
+    {
+      "path": "/trip/darjeeling",
+      "status": 200,
+      "title": "Darjeeling Escape — 3–5 days in Darjeeling, West Bengal · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/trip/darjeeling"
+    },
+    {
+      "path": "/trip/andaman",
+      "status": 200,
+      "title": "Andaman Islands — 4–8 days in Port Blair · Havelock · Neil Island · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/trip/andaman"
+    },
+    {
+      "path": "/trip/jibhi",
+      "status": 200,
+      "title": "Jibhi Valley Escape — 3–5 days in Himachal Pradesh · StayLocal",
+      "canonical": "https://staylocal-v2.vercel.app/trip/jibhi"
+    },
+    {
+      "path": "/trip/staylocal-nonexistent-trip",
+      "status": 404,
+      "title": "StayLocal — Thoughtfully planned trips across India",
+      "canonical": "https://staylocal-v2.vercel.app"
+    }
+  ],
+  "checks": [
+    {
+      "name": "home",
+      "device": "desktop",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "brokenImages": [],
+      "screenshot": "home-desktop.png"
+    },
+    {
+      "name": "treks",
+      "device": "desktop",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "brokenImages": [],
+      "screenshot": "treks-desktop.png"
+    },
+    {
+      "name": "tours",
+      "device": "desktop",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "brokenImages": [],
+      "screenshot": "tours-desktop.png"
+    },
+    {
+      "name": "home",
+      "device": "mobile",
+      "width": 390,
+      "overflow": false,
+      "errors": [],
+      "brokenImages": [],
+      "screenshot": "home-mobile.png"
+    },
+    {
+      "name": "treks",
+      "device": "mobile",
+      "width": 390,
+      "overflow": false,
+      "errors": [],
+      "brokenImages": [],
+      "screenshot": "treks-mobile.png"
+    },
+    {
+      "name": "tours",
+      "device": "mobile",
+      "width": 390,
+      "overflow": false,
+      "errors": [],
+      "brokenImages": [],
+      "screenshot": "tours-mobile.png"
+    }
+  ],
+  "narrowMobile320px": "passed",
+  "noJavaScript": "passed",
+  "enquiryUi": "passed with intercepted response; no persistence test",
+  "sitemap": {
+    "publishedTrips": 4,
+    "allPresent": true
+  }
+}

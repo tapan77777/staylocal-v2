@@ -1,3 +1,4 @@
+import { trekSystemEnabled } from '@/lib/treks/flags'
 import { saveUniversal } from '@/lib/universal-write'
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
@@ -35,6 +36,8 @@ export async function PUT(req: NextRequest, { params }: Context) {
       if (!envelope.metadata.expectedUpdatedAt || existingTrip.updatedAt.toISOString() !== envelope.metadata.expectedUpdatedAt) {
         throw new AdminError('This trip has changed or the edit version is missing. Reload before saving; your local values are still here.', 409)
       }
+      if (trekSystemEnabled() && (await tx.tripClassification.findUnique({ where: { tripId: id } }))?.kind === 'TREK') throw new AdminError('Use the Trek Builder to edit this dedicated trek.', 409)
+      if (envelope.metadata.productKind !== undefined) throw new AdminError('Existing records require reviewed classification, not an editor type switch.', 409)
       const validated = validateTripInput(body, existingTrip)
       if (!validated.ok) throw new AdminError(validated.error, 400)
       // Preserve untouched JSON exactly, including legacy fields not represented

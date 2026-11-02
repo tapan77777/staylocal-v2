@@ -17,33 +17,37 @@ model User {
 }
 
 model Trip {
-  id          Int      @id @default(autoincrement())
-  slug        String   @unique
-  title       String
-  subtitle    String   @default("")
-  location    String
-  category    String
-  duration    String
-  difficulty  String   @default("Easy")
-  price       Int
-  status      String   @default("draft")
-  image       String   @default("")
-  gallery     String   @default("[]")
-  route       String   @default("")
-  highlights  String   @default("[]")
-  included    String   @default("[]")
-  notIncluded String   @default("[]")
-  faqs        String   @default("[]")
-  type        String   @default("calculator")
-  pricing     String   @default("[]")
-  itinerary   String   @default("[]")
-  tierDetails String   @default("[]")
-  durLabels    String   @default("[]")
-  durSubLabels String   @default("[]")
-  createdAt    DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  packages    TripPackage[]
-  experience  TripExperience?
+  id             Int                 @id @default(autoincrement())
+  slug           String              @unique
+  title          String
+  subtitle       String              @default("")
+  location       String
+  category       String
+  duration       String
+  difficulty     String              @default("Easy")
+  price          Int
+  status         String              @default("draft")
+  image          String              @default("")
+  gallery        String              @default("[]")
+  route          String              @default("")
+  highlights     String              @default("[]")
+  included       String              @default("[]")
+  notIncluded    String              @default("[]")
+  faqs           String              @default("[]")
+  type           String              @default("calculator")
+  pricing        String              @default("[]")
+  itinerary      String              @default("[]")
+  tierDetails    String              @default("[]")
+  durLabels      String              @default("[]")
+  durSubLabels   String              @default("[]")
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  packages       TripPackage[]
+  experience     TripExperience?
+  classification TripClassification?
+  trekContent    TrekContent?
+  trekDepartures TrekDeparture[]
+  trekEnquiries  TrekEnquiry[]
 }
 
 // Additive opt-in configuration. Existing Trip/TripPackage scalar columns stay intact.
@@ -56,26 +60,28 @@ model TripExperience {
 }
 
 model TripPackage {
-  id            Int      @id @default(autoincrement())
-  tripId        Int
-  trip          Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
-  slug          String
-  label         String
-  days          Int
-  nights        Int
-  priceAdult    Int
-  priceBasis    String   @default("per adult, twin sharing")
-  priceOnRequest Boolean @default(false)
-  image         String   @default("")
-  sortOrder     Int      @default(0)
-  status        String   @default("draft")
-  itinerary     String   @default("[]")
-  accommodation String   @default("")
-  inclusions    String   @default("[]")
-  exclusions    String   @default("[]")
-  notes         String   @default("")
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id             Int      @id @default(autoincrement())
+  tripId         Int
+  trip           Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  slug           String
+  label          String
+  days           Int
+  nights         Int
+  priceAdult     Int
+  priceBasis     String   @default("per adult, twin sharing")
+  priceOnRequest Boolean  @default(false)
+  image          String   @default("")
+  sortOrder      Int      @default(0)
+  status         String   @default("draft")
+  itinerary      String   @default("[]")
+  accommodation  String   @default("")
+  inclusions     String   @default("[]")
+  exclusions     String   @default("[]")
+  notes          String   @default("")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  trekContent TrekContent?
 
   @@unique([tripId, slug])
   @@index([tripId, sortOrder])
@@ -95,17 +101,73 @@ model Experience {
 }
 
 model Booking {
-  id             Int      @id @default(autoincrement())
+  id             Int          @id @default(autoincrement())
   name           String
   phone          String
-  email          String   @default("")
+  email          String       @default("")
   tripSlug       String
-  people         Int      @default(2)
-  month          String   @default("")
-  message        String   @default("")
-  status         String   @default("pending")
+  people         Int          @default(2)
+  month          String       @default("")
+  message        String       @default("")
+  status         String       @default("pending")
   packageId      Int?
-  packageLabel   String   @default("")
+  packageLabel   String       @default("")
   estimatedPrice Int?
-  createdAt      DateTime @default(now())
+  createdAt      DateTime     @default(now())
+  trekEnquiry    TrekEnquiry?
+}
+
+// Sidecar classification: absent = unreviewed legacy. No Trip scalar migration.
+enum ProductKind {
+  TREK
+  TOUR
+}
+
+model TripClassification {
+  tripId    Int         @id
+  trip      Trip        @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  kind      ProductKind
+  updatedAt DateTime    @updatedAt
+
+  @@index([kind])
+}
+
+model TrekContent {
+  tripId    Int         @id
+  trip      Trip        @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  packageId Int         @unique
+  package   TripPackage @relation(fields: [packageId], references: [id], onDelete: Restrict)
+  config    Json
+  updatedAt DateTime    @updatedAt
+}
+
+model TrekDeparture {
+  id         String        @id @default(cuid())
+  tripId     Int
+  trip       Trip          @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  key        String
+  startDate  DateTime      @db.Date
+  endDate    DateTime      @db.Date
+  status     String        @default("PLANNED")
+  priceAdult Int?
+  capacity   Int?
+  notes      String        @default("")
+  updatedAt  DateTime      @updatedAt
+  enquiries  TrekEnquiry[]
+
+  @@unique([tripId, key])
+  @@index([tripId, startDate])
+}
+
+model TrekEnquiry {
+  bookingId      Int            @id
+  booking        Booking        @relation(fields: [bookingId], references: [id], onDelete: Restrict)
+  tripId         Int
+  trip           Trip           @relation(fields: [tripId], references: [id], onDelete: Restrict)
+  departureId    String?
+  departure      TrekDeparture? @relation(fields: [departureId], references: [id], onDelete: Restrict)
+  departureLabel String         @default("")
+  priceAdult     Int
+
+  @@index([tripId])
 }

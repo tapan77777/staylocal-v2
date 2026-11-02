@@ -1,0 +1,173 @@
+{
+  "title": "Pine Ridge Trek \u2014 design fixture",
+  "slug": "pine-ridge-trek-design-fixture",
+  "summary": "A fictional forest-to-ridge journey for testing StayLocal\u2019s trail documentation. Not a real trekking offer.",
+  "destination": "Fictional valley \u00b7 local preview",
+  "startingPrice": 6800,
+  "status": "draft",
+  "publishConfirmed": false,
+  "departures": [
+    {
+      "key": "fixture-spring",
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-12",
+      "status": "CONFIRMED",
+      "priceAdult": 7200,
+      "capacity": 12,
+      "notes": "Simulated confirmed batch for integration testing only."
+    },
+    {
+      "key": "fixture-full",
+      "startDate": "2027-04-10",
+      "endDate": "2027-04-12",
+      "status": "FULL",
+      "priceAdult": null,
+      "capacity": 12,
+      "notes": "Simulated full batch. No enquiry action is offered."
+    },
+    {
+      "key": "fixture-planned",
+      "startDate": "2027-05-10",
+      "endDate": "2027-05-12",
+      "status": "PLANNED",
+      "priceAdult": null,
+      "capacity": null,
+      "notes": "Simulated planning status, not confirmed availability."
+    }
+  ],
+  "content": {
+    "version": 1,
+    "fixture": true,
+    "region": "Simulated Himalayan region",
+    "description": "This is a clearly labelled design fixture for reviewing the trekking experience. The stage names, numerical measurements, prices and departure dates are artificial software-test values. They must never be used for navigation, preparation or travel decisions.\nThe page demonstrates how genuine operator documentation will appear once supplied and reviewed. No Indiahikes text, route or imagery is used.",
+    "durationDays": 3,
+    "difficulty": "Moderate",
+    "maxAltitudeM": 3200,
+    "distanceKm": 12.5,
+    "basecamp": "Fixture village",
+    "pickup": "Fixture meeting point",
+    "drop": "Fixture return point",
+    "seasons": [
+      "Spring",
+      "Autumn"
+    ],
+    "suitability": "Simulated suitability description for the builder and public-layout review. A real operator must assess and document actual fitness and terrain requirements.",
+    "hero": {
+      "src": "/images/himalayan-peaks.jpg",
+      "alt": "Mountain valley used as illustrative imagery in this fictional test page",
+      "caption": "Illustrative photograph for a fictional local UI fixture; not this trail or campsite."
+    },
+    "gallery": [
+      {
+        "src": "/images/mountain-trail.jpg",
+        "alt": "Mountain ridge used only for interface testing",
+        "caption": "Illustrative photograph for a fictional local UI fixture; not this trail or campsite."
+      },
+      {
+        "src": "/images/himalayan-peaks.jpg",
+        "alt": "Mountain valley illustrating a second gallery item, not this fictional trail",
+        "caption": "Illustrative photograph for a fictional local UI fixture; not this trail or campsite."
+      }
+    ],
+    "highlights": [
+      "Fictional trail notes",
+      "Artificial stage measurements",
+      "Local review only"
+    ],
+    "routeOverview": "Fixture village \u2192 Forest clearing \u2192 Upper ridge. This is an invented sequence for UI testing, not a real trail. No GPS coordinates are supplied, so the page must show its honest textual fallback.",
+    "stages": [
+      {
+        "id": "fixture-day-1",
+        "title": "Meet the valley \u2014 fixture stage",
+        "description": "A synthetic first stage to test route selection and itinerary expansion. This does not document a real path.",
+        "campsite": "Fixture village",
+        "mode": "WALK",
+        "distanceKm": 3,
+        "walkingHours": 2,
+        "altitudeM": 2200,
+        "latitude": null,
+        "longitude": null,
+        "photos": [
+          {
+            "src": "/images/mountain-trail.jpg",
+            "alt": "Illustrative fixture day photograph; no campsite claim",
+            "caption": "Illustrative photograph for a fictional local UI fixture; not this trail or campsite."
+          }
+        ]
+      },
+      {
+        "id": "fixture-day-2",
+        "title": "Through the forest \u2014 fixture stage",
+        "description": "Artificial walking time, distance and elevation help exercise the profile and stage facts. No route or navigation advice is implied.",
+        "campsite": "Forest clearing",
+        "mode": "WALK",
+        "distanceKm": 5,
+        "walkingHours": 5,
+        "altitudeM": 2850,
+        "latitude": null,
+        "longitude": null,
+        "photos": []
+      },
+      {
+        "id": "fixture-day-3",
+        "title": "A ridge, a pause, a return \u2014 fixture stage",
+        "description": "The final fictional stage is a software test, not a summit claim. A genuine itinerary will require operator documentation.",
+        "campsite": "Upper ridge",
+        "mode": "WALK",
+        "distanceKm": 4.5,
+        "walkingHours": 4,
+        "altitudeM": 3200,
+        "latitude": null,
+        "longitude": null,
+        "photos": []
+      }
+    ],
+    "routeVerification": {
+      "verified": true,
+      "source": "Artificial UI fixture measurements, not surveyed or geographical facts.",
+      "reviewedOn": "2026-11-02"
+    },
+    "inclusions": [
+      "Simulated stay arrangement \u2014 test data",
+      "Simulated guide arrangement \u2014 test data"
+    ],
+    "exclusions": [
+      "All real travel; this fixture is not a product",
+      "No actual transport, permit or accommodation is offered"
+    ],
+    "preparation": {
+      "fitness": "Fixture field: genuine fitness requirements must be supplied by the operating team. This text is not a training recommendation.",
+      "weather": "Fixture field: no actual weather or seasonal conditions are asserted.",
+      "packing": [
+        "Fixture checklist item: operator-provided equipment list required",
+        "Fixture checklist item: confirm genuine requirements before travel"
+      ],
+      "altitude": "Fixture field: the displayed numerical heights are artificial. This is not altitude or medical advice.",
+      "terrain": "Fixture field: no actual trail, surface or technical grade is documented.",
+      "emergency": "Fixture field: no emergency response service or evacuation guarantee is offered. A genuine operator plan must replace this text.",
+      "safety": "Fixture field: simulated review information for testing publication gates only. It is not an operational safety plan.",
+      "operatorVerified": true,
+      "reviewedBy": "Local fixture reviewer \u2014 simulated operator",
+      "reviewedOn": "2026-11-02"
+    },
+    "faqs": [
+      {
+        "q": "Can I book this trek?",
+        "a": "No. This is a fictional local interface fixture. Test enquiries are saved only in the isolated review database."
+      },
+      {
+        "q": "Why is there no geographic route map?",
+        "a": "No verified coordinates were provided. The page presents the authored stage sequence instead of inventing a GPS route."
+      },
+      {
+        "q": "Are the elevations and dates real?",
+        "a": "No. Every measurement, date and price on this example is artificial test data."
+      }
+    ],
+    "seo": {
+      "title": "Pine Ridge Trek \u2014 clearly labelled local UI fixture",
+      "description": "Fictional local example for reviewing the Trek Builder, route documentation and enquiry flow. Not a real trekking product.",
+      "socialImage": ""
+    }
+  }
+}

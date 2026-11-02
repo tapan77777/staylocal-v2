@@ -1,0 +1,142 @@
+[
+  {
+    "conname": "TrekContent_config_not_null",
+    "definition": "NOT NULL config"
+  },
+  {
+    "conname": "TrekContent_packageId_fkey",
+    "definition": "FOREIGN KEY (\"packageId\") REFERENCES \"TripPackage\"(id) ON UPDATE CASCADE ON DELETE RESTRICT"
+  },
+  {
+    "conname": "TrekContent_packageId_not_null",
+    "definition": "NOT NULL \"packageId\""
+  },
+  {
+    "conname": "TrekContent_pkey",
+    "definition": "PRIMARY KEY (\"tripId\")"
+  },
+  {
+    "conname": "TrekContent_tripId_fkey",
+    "definition": "FOREIGN KEY (\"tripId\") REFERENCES \"Trip\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+  },
+  {
+    "conname": "TrekContent_tripId_not_null",
+    "definition": "NOT NULL \"tripId\""
+  },
+  {
+    "conname": "TrekContent_updatedAt_not_null",
+    "definition": "NOT NULL \"updatedAt\""
+  },
+  {
+    "conname": "TrekDeparture_capacity_check",
+    "definition": "CHECK (((capacity IS NULL) OR ((capacity >= 1) AND (capacity <= 200))))"
+  },
+  {
+    "conname": "TrekDeparture_dates_check",
+    "definition": "CHECK ((\"endDate\" >= \"startDate\"))"
+  },
+  {
+    "conname": "TrekDeparture_endDate_not_null",
+    "definition": "NOT NULL \"endDate\""
+  },
+  {
+    "conname": "TrekDeparture_id_not_null",
+    "definition": "NOT NULL id"
+  },
+  {
+    "conname": "TrekDeparture_key_not_null",
+    "definition": "NOT NULL key"
+  },
+  {
+    "conname": "TrekDeparture_notes_not_null",
+    "definition": "NOT NULL notes"
+  },
+  {
+    "conname": "TrekDeparture_pkey",
+    "definition": "PRIMARY KEY (id)"
+  },
+  {
+    "conname": "TrekDeparture_price_check",
+    "definition": "CHECK (((\"priceAdult\" IS NULL) OR (\"priceAdult\" > 0)))"
+  },
+  {
+    "conname": "TrekDeparture_startDate_not_null",
+    "definition": "NOT NULL \"startDate\""
+  },
+  {
+    "conname": "TrekDeparture_status_check",
+    "definition": "CHECK ((status = ANY (ARRAY['PLANNED'::text, 'CONFIRMED'::text, 'FULL'::text, 'CLOSED'::text, 'CANCELLED'::text])))"
+  },
+  {
+    "conname": "TrekDeparture_status_not_null",
+    "definition": "NOT NULL status"
+  },
+  {
+    "conname": "TrekDeparture_tripId_fkey",
+    "definition": "FOREIGN KEY (\"tripId\") REFERENCES \"Trip\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+  },
+  {
+    "conname": "TrekDeparture_tripId_not_null",
+    "definition": "NOT NULL \"tripId\""
+  },
+  {
+    "conname": "TrekDeparture_updatedAt_not_null",
+    "definition": "NOT NULL \"updatedAt\""
+  },
+  {
+    "conname": "TrekEnquiry_bookingId_fkey",
+    "definition": "FOREIGN KEY (\"bookingId\") REFERENCES \"Booking\"(id) ON UPDATE CASCADE ON DELETE RESTRICT"
+  },
+  {
+    "conname": "TrekEnquiry_bookingId_not_null",
+    "definition": "NOT NULL \"bookingId\""
+  },
+  {
+    "conname": "TrekEnquiry_departureId_fkey",
+    "definition": "FOREIGN KEY (\"departureId\") REFERENCES \"TrekDeparture\"(id) ON UPDATE CASCADE ON DELETE RESTRICT"
+  },
+  {
+    "conname": "TrekEnquiry_departureLabel_not_null",
+    "definition": "NOT NULL \"departureLabel\""
+  },
+  {
+    "conname": "TrekEnquiry_pkey",
+    "definition": "PRIMARY KEY (\"bookingId\")"
+  },
+  {
+    "conname": "TrekEnquiry_priceAdult_not_null",
+    "definition": "NOT NULL \"priceAdult\""
+  },
+  {
+    "conname": "TrekEnquiry_price_check",
+    "definition": "CHECK ((\"priceAdult\" > 0))"
+  },
+  {
+    "conname": "TrekEnquiry_tripId_fkey",
+    "definition": "FOREIGN KEY (\"tripId\") REFERENCES \"Trip\"(id) ON UPDATE CASCADE ON DELETE RESTRICT"
+  },
+  {
+    "conname": "TrekEnquiry_tripId_not_null",
+    "definition": "NOT NULL \"tripId\""
+  },
+  {
+    "conname": "TripClassification_kind_not_null",
+    "definition": "NOT NULL kind"
+  },
+  {
+    "conname": "TripClassification_pkey",
+    "definition": "PRIMARY KEY (\"tripId\")"
+  },
+  {
+    "conname": "TripClassification_tripId_fkey",
+    "definition": "FOREIGN KEY (\"tripId\") REFERENCES \"Trip\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+  },
+  {
+    "conname": "TripClassification_tripId_not_null",
+    "definition": "NOT NULL \"tripId\""
+  },
+  {
+    "conname": "TripClassification_updatedAt_not_null",
+    "definition": "NOT NULL \"updatedAt\""
+  }
+]

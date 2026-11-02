@@ -1,0 +1,82 @@
+[
+  {
+    "page": "builder-section-1",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 16
+  },
+  {
+    "page": "builder-section-2",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 16
+  },
+  {
+    "page": "builder-section-3",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 16
+  },
+  {
+    "page": "builder-section-4",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 16
+  },
+  {
+    "page": "builder-section-5",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 15
+  },
+  {
+    "page": "builder-section-6",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 15
+  },
+  {
+    "page": "builder-section-7",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 17
+  },
+  {
+    "page": "builder-seo",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 17
+  },
+  {
+    "page": "draft-preview-360",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 23
+  },
+  {
+    "page": "listing-360",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ],
+    "passedRules": 14
+  }
+]

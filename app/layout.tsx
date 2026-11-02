@@ -14,8 +14,9 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
-const defaultTitle = `${brand.name} — Thoughtfully planned trips across India`
-const defaultDescription = brand.description
+const defaultTitle = 'StayLocal Trips — Treks, Tours & Travel Experiences'
+const sharingTitle = 'StayLocal Trips — Explore More. Travel Differently.'
+const defaultDescription = 'Explore Himalayan treks, curated India tours and memorable group adventures with StayLocal. Discover authentic experiences and plan your next trip.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(brand.siteUrl),
@@ -27,16 +28,18 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: {
     siteName: brand.name,
-    title: defaultTitle,
+    title: sharingTitle,
     description: defaultDescription,
     url: '/',
     locale: 'en_IN',
     type: 'website',
+    images: [{ url: '/images/himalayan-peaks.jpg', alt: 'Himalayan mountain peaks' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: defaultTitle,
+    title: sharingTitle,
     description: defaultDescription,
+    images: ['/images/himalayan-peaks.jpg'],
   },
   robots: {
     index: true,

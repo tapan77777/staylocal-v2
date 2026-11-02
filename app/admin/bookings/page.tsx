@@ -1,3 +1,5 @@
+import { trekSystemEnabled } from '@/lib/treks/flags'
+import { formatInr } from '@/lib/pricing'
 import { prisma } from '@/lib/prisma'
 import BookingActions from '@/components/admin/BookingActions'
 import { requireAdmin } from '@/lib/requireAdmin'
@@ -13,6 +15,9 @@ export default async function AdminBookings({ searchParams }: { searchParams: Pr
     where: safeStatus ? { status: safeStatus } : {},
     orderBy: { createdAt: 'desc' }
   })
+
+  const selections = trekSystemEnabled() ? await prisma.trekEnquiry.findMany({ where: { bookingId: { in: bookings.map(b => b.id) } } }) : []
+  const trekSelections = new Map(selections.map(s => [s.bookingId, s]))
 
   const statuses = ['all', 'pending', 'confirmed', 'cancelled']
 
@@ -42,7 +47,7 @@ export default async function AdminBookings({ searchParams }: { searchParams: Pr
                   <td style={td}>{b.name}</td>
                   <td style={td}>{b.phone}</td>
                   <td style={td}>{b.email || '—'}</td>
-                  <td style={td}>{b.tripSlug}</td>
+                  <td style={td}>{b.tripSlug}{trekSelections.has(b.id) && <><small style={{ display: 'block', marginTop: 5 }}>{trekSelections.get(b.id)!.departureLabel}</small><small style={{ display: 'block', marginTop: 4 }}>{formatInr(trekSelections.get(b.id)!.priceAdult)} / person · {b.estimatedPrice !== null ? `${formatInr(b.estimatedPrice)} estimated total` : 'quote pending'}</small></>}</td>
                   <td style={td}>{b.people}</td>
                   <td style={td}>{b.month || '—'}</td>
                   <td style={td}>

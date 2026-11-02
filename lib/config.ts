@@ -3,7 +3,7 @@ export const brand = {
   tagline: 'Thoughtfully planned trips across India.',
   description:
     'StayLocal plans small-group and private trips across India with transparent pricing, clear itineraries, and personal support from enquiry to departure.',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://staylocal-v2.vercel.app',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://staylocal.buddytechlabs.com',
   established: 2024,
   whatsapp: {
     number: '919178628894',

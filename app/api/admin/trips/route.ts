@@ -1,3 +1,4 @@
+import { trekSystemEnabled } from '@/lib/treks/flags'
 import { saveUniversal } from '@/lib/universal-write'
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
@@ -17,6 +18,8 @@ export async function POST(req: NextRequest) {
   }
   const envelope = splitWriteMetadata(body)
   if (!envelope.ok) return NextResponse.json({ error: envelope.error }, { status: 400 })
+  if (envelope.metadata.productKind === 'TREK') return NextResponse.json({ error: 'Create treks through the Trek Builder.' }, { status: 409 })
+  if (envelope.metadata.productKind && !trekSystemEnabled()) return NextResponse.json({ error: 'Classification storage requires the reviewed upgrade.' }, { status: 503 })
   body = envelope.body
   const result = validateTripInput(body)
   if (!result.ok) return NextResponse.json({ error: result.error }, { status: 400 })
@@ -38,6 +41,7 @@ export async function POST(req: NextRequest) {
           data: packages.data.map(({ id: _id, ...p }) => ({ ...p, tripId: created.id })),
         })
       }
+      if (envelope.metadata.productKind === 'TOUR') await tx.tripClassification.create({ data: { tripId: created.id, kind: 'TOUR' } })
       await saveUniversal(tx, created, envelope.metadata.universal, (access.session.user as { role: string }).role)
       return tx.trip.findUnique({ where: { id: created.id }, include: { packages: { orderBy: { sortOrder: 'asc' } } } })
     })

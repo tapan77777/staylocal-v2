@@ -1,0 +1,41 @@
+.dialog {
+  margin: auto;
+  width: min(580px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  padding: 40px 32px 24px;
+  border: 1px solid #e7e9df;
+  border-radius: 24px;
+  background: #fafaf5;
+  color: #173a2c;
+  box-shadow: 0 32px 100px #001b1640;
+  text-align: center;
+}
+.dialog::backdrop { background: #06251e80; backdrop-filter: blur(5px); }
+.close { position: absolute; right: 8px; top: 8px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: #486459; font-size: 28px; cursor: pointer; }
+.eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #438069; margin-bottom: 16px; }
+.dialog h2 { max-width: 440px; margin: 0 auto 14px; font: 600 36px/1.15 var(--font-playfair), Georgia, serif; letter-spacing: -.7px; }
+.intro { max-width: 380px; margin: auto; font-size: 14px; line-height: 1.7; color: #64776c; }
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 26px 0 20px; text-align: left; }
+.options a { display: flex; flex-direction: column; padding: 23px 20px 20px; border: 1px solid #cbdacc; border-radius: 16px; text-decoration: none; color: #1b513a; }
+.treks { background: linear-gradient(145deg, #e4efdf, #f0f5e9); }
+.tours { background: linear-gradient(145deg, #e0eeea, #eff5ef); }
+.options svg { width: 60px; height: 44px; margin-bottom: 24px; }
+.optionHint { font-size: 10px; color: #5f7c68; margin-bottom: 7px; }
+.options strong { font-size: 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 5px; }
+.everything { width: 100%; min-height: 48px; border: 1px solid #c6d2c7; border-radius: 999px; background: white; color: #1d5d43; cursor: pointer; font: 600 14px var(--font-dm-sans), sans-serif; }
+.everything span { margin-left: 10px; }
+.note { font-size: 11px; line-height: 1.6; color: #7a897e; margin-top: 15px; }
+.dialog a:focus-visible, .dialog button:focus-visible { outline: 3px solid #2d8765; outline-offset: 3px; }
+@media(max-width: 480px) {
+  .dialog { padding: 42px 20px 22px; border-radius: 20px; }
+  .dialog h2 { font-size: 30px; }
+  .intro { font-size: 13px; }
+  .options { gap: 10px; }
+  .options a { padding: 19px 13px; }
+  .options strong { font-size: 14px; }
+}
+@media(prefers-reduced-motion: no-preference) {
+  .dialog[open] { animation: welcome-in 180ms ease-out; }
+  @keyframes welcome-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}

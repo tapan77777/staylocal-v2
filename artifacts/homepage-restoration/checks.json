@@ -1,0 +1,129 @@
+{
+  "tests": {
+    "files": 21,
+    "passed": 346
+  },
+  "typecheck": "passed",
+  "webpackProductionBuild": "passed",
+  "defaultTurbopackBuild": "attempted and retried outside sandbox; blocked by existing local CSS worker port-binding restriction",
+  "fullLint": {
+    "errors": 21,
+    "warnings": 34,
+    "errorLocations": [
+      {
+        "file": "components/BookingModal.tsx",
+        "line": 49,
+        "rule": "react-hooks/set-state-in-effect"
+      },
+      {
+        "file": "components/admin/TripForm.tsx",
+        "line": 86,
+        "rule": "react-hooks/set-state-in-effect"
+      },
+      {
+        "file": "components/admin/TripForm.tsx",
+        "line": 200,
+        "rule": "react-hooks/error-boundaries"
+      },
+      {
+        "file": "components/admin/TripForm.tsx",
+        "line": 200,
+        "rule": "react-hooks/error-boundaries"
+      },
+      {
+        "file": "components/admin/TripForm.tsx",
+        "line": 200,
+        "rule": "react-hooks/error-boundaries"
+      },
+      {
+        "file": "components/trip/UniversalTrip.tsx",
+        "line": 28,
+        "rule": "react-hooks/set-state-in-effect"
+      },
+      {
+        "file": "lib/legacy-universal.ts",
+        "line": 16,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "lib/legacy-universal.ts",
+        "line": 17,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "lib/legacy-universal.ts",
+        "line": 18,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "lib/legacy-universal.ts",
+        "line": 19,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "scripts/universal-backfill.ts",
+        "line": 12,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "scripts/universal-backfill.ts",
+        "line": 37,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "scripts/universal-backfill.ts",
+        "line": 45,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "scripts/universal-backfill.ts",
+        "line": 46,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "scripts/universal-backfill.ts",
+        "line": 46,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "scripts/universal-backfill.ts",
+        "line": 47,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "staging-tests/admin.spec.ts",
+        "line": 9,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "staging-tests/admin.spec.ts",
+        "line": 10,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "staging-tests/admin.spec.ts",
+        "line": 11,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "staging-tests/admin.spec.ts",
+        "line": 127,
+        "rule": "@typescript-eslint/no-explicit-any"
+      },
+      {
+        "file": "staging-tests/admin.spec.ts",
+        "line": 148,
+        "rule": "@typescript-eslint/no-explicit-any"
+      }
+    ],
+    "allErrorFilesByteIdenticalToGitHead": true
+  },
+  "changedFileLint": {
+    "files": 30,
+    "errors": 0,
+    "warnings": 4
+  },
+  "whitespace": "passed",
+  "deployment": "not performed",
+  "productionWrites": "none"
+}

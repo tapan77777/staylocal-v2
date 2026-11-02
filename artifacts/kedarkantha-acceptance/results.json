@@ -1,0 +1,201 @@
+{
+  "target": "http://localhost:3120",
+  "database": "isolated loopback fixture database",
+  "publishedAnyRecord": false,
+  "screenshots": [
+    "create-choice-desktop.png",
+    "builder-01-1440.png",
+    "builder-02-1440.png",
+    "builder-03-1440.png",
+    "builder-04-1440.png",
+    "builder-05-1440.png",
+    "builder-06-1440.png",
+    "builder-07-1440.png",
+    "builder-01-360.png",
+    "builder-02-360.png",
+    "builder-03-360.png",
+    "builder-04-360.png",
+    "builder-05-360.png",
+    "builder-06-360.png",
+    "builder-07-360.png",
+    "publication-blocked-desktop.png",
+    "kedarkantha-preview-1440.png",
+    "kedarkantha-hero-1440.png",
+    "kedarkantha-preview-390.png",
+    "kedarkantha-hero-390.png",
+    "kedarkantha-preview-360.png",
+    "kedarkantha-hero-360.png",
+    "listing-390.png",
+    "listing-360.png",
+    "listing-empty-360.png"
+  ],
+  "checks": [
+    "independent authenticated fixture isolation and disabled external uploads",
+    "empty title fails client validation without a write",
+    "out-of-range altitude rejected; unknown facts remain empty",
+    "all six proposed days authored in UI; unpaired coordinate rejected and removed",
+    "invalid price and reversed departure dates rejected; no prices or departures retained",
+    "all seven sections saved through real UI as an explicitly marked, unpriced, departure-free draft",
+    "edit, save and reload retain draft data",
+    "client publication readiness, server review confirmation, fixture promotion and stale editing fail closed; no publication",
+    "desktop/390px/360px preview, keyboard itinerary, truthful map fallback, gallery images and disabled enquiry",
+    "public draft/JSON/private-preview isolation, Kashmir sitemap and legacy API fixture exclusion",
+    "direct draft enquiry rejected without writing Booking",
+    "horizontal listing cards, GET filters, empty state and no-JavaScript draft preview",
+    "existing labelled local fixture enquiry uses server departure pricing and shared snapshot (Kedarkantha stays draft)",
+    "tour records/packages/public URLs unchanged; published ID set unchanged; Kedarkantha remains draft"
+  ],
+  "accessibility": [
+    {
+      "page": "builder-section-1",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 16
+    },
+    {
+      "page": "builder-section-2",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 16
+    },
+    {
+      "page": "builder-section-3",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 16
+    },
+    {
+      "page": "builder-section-4",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 16
+    },
+    {
+      "page": "builder-section-5",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 15
+    },
+    {
+      "page": "builder-section-6",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 15
+    },
+    {
+      "page": "builder-section-7",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 17
+    },
+    {
+      "page": "builder-seo",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 17
+    },
+    {
+      "page": "draft-preview-360",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 23
+    },
+    {
+      "page": "listing-360",
+      "violations": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passedRules": 14
+    }
+  ],
+  "performance": [
+    {
+      "view": "draft-preview-1440",
+      "lcp": 48,
+      "cls": 0,
+      "domContentLoadedMs": 39.89999997615814,
+      "resources": 39,
+      "transferBytes": 446748
+    },
+    {
+      "view": "draft-preview-390",
+      "lcp": 32,
+      "cls": 0,
+      "domContentLoadedMs": 24.90000009536743,
+      "resources": 38,
+      "transferBytes": 364572
+    },
+    {
+      "view": "draft-preview-360",
+      "lcp": 28,
+      "cls": 0,
+      "domContentLoadedMs": 21.5,
+      "resources": 38,
+      "transferBytes": 364576
+    },
+    {
+      "view": "public-listing-390",
+      "profile": "unthrottled localhost, warm server",
+      "domContentLoadedMs": 33,
+      "resources": 16,
+      "transferBytes": 292381
+    },
+    {
+      "view": "public-listing-360",
+      "profile": "unthrottled localhost, warm server",
+      "domContentLoadedMs": 9.299999952316284,
+      "resources": 16,
+      "transferBytes": 1726
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "status": 200
+    },
+    {
+      "href": "/treks",
+      "status": 200
+    },
+    {
+      "href": "/cancellation",
+      "status": 200
+    },
+    {
+      "href": "/privacy",
+      "status": 200
+    }
+  ],
+  "draft": {
+    "id": 16,
+    "slug": "kedarkantha-acceptance-draft-1d11aa",
+    "title": "Kedarkantha — acceptance draft (not offered)",
+    "status": "draft",
+    "preview": "http://localhost:3120/admin/trips/16/preview",
+    "edit": "http://localhost:3120/admin/trips/16/edit",
+    "hasPrice": false,
+    "departures": 0,
+    "operatorVerified": false
+  },
+  "browserErrors": [],
+  "legacyTourSnapshotUnchanged": true
+}
