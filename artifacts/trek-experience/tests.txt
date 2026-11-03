@@ -1,0 +1,13 @@
+
+> staylocal-v2@0.1.0 test
+> vitest run __tests__/trek-api.test.ts __tests__/trek-enquiry-only.test.tsx __tests__/trek-options.test.tsx __tests__/trek-sitemap.test.ts __tests__/trek-store-compatibility.test.ts __tests__/trek-system.test.tsx __tests__/trek-ui.test.tsx __tests__/pricing.test.ts __tests__/public-catalogue.test.ts __tests__/trip-api.test.ts
+
+
+ RUN  v4.1.11 /Users/tapannaik/Desktop/Projects/staylocal-v2
+
+
+ Test Files  10 passed (10)
+      Tests  70 passed (70)
+   Start at  00:58:30
+   Duration  913ms (transform 820ms, setup 0ms, import 1.93s, tests 300ms, environment 413ms)
+

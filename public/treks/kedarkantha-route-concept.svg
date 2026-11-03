@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">StayLocal Kedarkantha route story — design concept</title><desc id="desc">Original illustrative route sequence from Sankri towards Juda Ka Talab, a proposed base camp and Kedarkantha. Not a surveyed map, not to scale and not for navigation. All placements are artistic.</desc>
+<defs>
+ <linearGradient id="paper" x2="0" y2="1"><stop stop-color="#e5eddf"/><stop offset="1" stop-color="#f8efd7"/></linearGradient>
+ <linearGradient id="mountain" x2="0.8" y2="1"><stop stop-color="#527263"/><stop offset="1" stop-color="#9aab91"/></linearGradient>
+ <pattern id="grain" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M3 14h1m32 37h1m24-30h1M12 70h1" stroke="#a2ad90" stroke-opacity=".24" stroke-width="2"/></pattern>
+ <g id="pine"><path d="M0 0-19 35h10l-19 28h18l-24 30h68L10 63h18L9 35h10Z" fill="#335d4d"/><path d="M0 77v30" stroke="#715f41" stroke-width="5"/></g>
+ <g id="tent"><path d="m-24 22 25-45 29 45Z" fill="#cf9562" stroke="#f6eed9" stroke-width="3"/><path d="m1-23 5 45H-20Z" fill="#f2c88e"/><path d="m1-10 10 32H-8Z" fill="#5c674b"/></g>
+ <g id="village"><path d="M0 22h74v45H0Z" fill="#f4e7c8" stroke="#637252" stroke-width="3"/><path d="m-8 22 44-30 54 30Z" fill="#916b50"/><path d="M16 40h14v27H16m32-28h14v14H48" fill="#657e68"/></g>
+</defs>
+<rect width="1600" height="1000" fill="url(#paper)"/><rect width="1600" height="1000" fill="url(#grain)"/>
+<path d="M0 350 140 206l90 100L420 100l190 230L830 73l190 232 140-164 200 229 150-155 90 130V590H0Z" fill="#c3d1bf"/>
+<path d="m480 570 170-260 110 102 173-306 150 261 80-64 195 301 105-107 137 164v198H520Z" fill="url(#mountain)"/>
+<path d="m822 302 111-196 112 195-79-44-30 35-31-49Z" fill="#f5f4e4"/>
+<path d="m500 564 149-254 111 102-65-11-48-44-40 84Z" fill="#e5e9d7"/>
+<path d="M0 700Q230 500 510 671t470 58q360-270 620-75v346H0Z" fill="#adb997"/>
+<path d="M0 829q260-184 470-24t540-40q350-124 590 80v155H0Z" fill="#cdd0a7"/>
+<path d="M-20 917q300-105 500-30t450 3q450-160 700 0v110H0Z" fill="#e1dbb3"/>
+<path d="M273 788C440 778 422 601 606 655S724 483 907 541s138-214 285-278" fill="none" stroke="#f9f1d6" stroke-width="17" stroke-linecap="round"/>
+<path d="M273 788C440 778 422 601 606 655S724 483 907 541s138-214 285-278" fill="none" stroke="#976d43" stroke-width="5" stroke-dasharray="5 14" stroke-linecap="round"/>
+<ellipse cx="603" cy="652" rx="79" ry="28" fill="#6d9f98" stroke="#e4e9ca" stroke-width="7"/>
+<use href="#village" x="220" y="706"/><use href="#village" x="300" y="727" transform="rotate(3 300 727)"/>
+<use href="#tent" x="886" y="518"/><use href="#tent" x="940" y="538"/>
+<g opacity=".84"><use href="#pine" x="120" y="620"/><use href="#pine" x="164" y="655"/><use href="#pine" x="411" y="611"/><use href="#pine" x="455" y="651"/><use href="#pine" x="702" y="620"/><use href="#pine" x="755" y="655"/><use href="#pine" x="1270" y="600"/><use href="#pine" x="1325" y="645"/><use href="#pine" x="1380" y="602"/></g>
+<g fill="#153e2c" stroke="#fbf5df" stroke-width="5"><circle cx="273" cy="788" r="15"/><circle cx="603" cy="652" r="15"/><circle cx="907" cy="541" r="15"/><circle cx="1192" cy="263" r="15"/></g>
+<g font-family="Georgia,serif" fill="#234b35"><text x="255" y="860" font-size="35">Sankri</text><text x="493" y="719" font-size="31">Juda Ka Talab</text><text x="903" y="590" font-size="31">Proposed base camp</text><text x="1140" y="222" font-size="35">Kedarkantha</text></g>
+<g font-family="Arial,sans-serif" fill="#436049"><text x="63" y="80" font-size="20" letter-spacing="5">STAYLOCAL · TRAIL STORIES</text><text x="63" y="134" font-size="41" font-family="Georgia,serif">A different way up.</text><text x="63" y="178" font-size="19">Proposed sequence · return towards Sankri · six-day draft</text></g>
+<rect x="35" y="928" width="1530" height="51" rx="12" fill="#f8f2dd"/><text x="65" y="960" font-family="Arial,sans-serif" font-size="20" fill="#675638">DESIGN CONCEPT ONLY · Artistic placement, not surveyed or to scale · Not for navigation · Operator review pending</text>
+</svg>

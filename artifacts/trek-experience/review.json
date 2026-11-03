@@ -1,0 +1,40 @@
+{
+  "localOnly": true,
+  "productionChanges": false,
+  "published": false,
+  "screenshots": [
+    "admin-1-1440.png",
+    "admin-2-1440.png",
+    "admin-3-1440.png",
+    "admin-4-1440.png",
+    "admin-5-1440.png",
+    "admin-6-1440.png",
+    "admin-7-1440.png",
+    "admin-1-360.png",
+    "admin-2-360.png",
+    "admin-3-360.png",
+    "admin-4-360.png",
+    "admin-5-360.png",
+    "admin-6-360.png",
+    "admin-7-360.png",
+    "card-1440.png",
+    "map-zoom-1440.png",
+    "detail-1440.png",
+    "card-390.png",
+    "map-zoom-390.png",
+    "detail-390.png",
+    "card-360.png",
+    "map-zoom-360.png",
+    "detail-360.png",
+    "public-listing-empty-360.png"
+  ],
+  "checks": [
+    "updated existing isolated Kedarkantha draft; no duplicate, prices, dates, operator confirmation or publication",
+    "all seven existing builder sections and private option-cost editor render at desktop/360px without overflow",
+    "horizontal cards, original map zoom/Escape, synchronized itinerary, gallery and disabled draft enquiry at desktop/390px/360px",
+    "private preview noindex; fixture absent from public route/listing/sitemap and rejected by enquiries; all legacy tours unchanged"
+  ],
+  "previewUrl": "http://localhost:3120/admin/trips/16/preview",
+  "draftId": 16,
+  "browserErrors": []
+}

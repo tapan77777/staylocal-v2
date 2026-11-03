@@ -5,6 +5,9 @@ import TrailOverview from '@/components/treks/TrailOverview'
 import { trekWriteSchema } from '@/lib/treks/schema'
 import fixture from './fixtures/trek-system.json'
 import TrekBuilder from '@/components/admin/TrekBuilder'
+import TrekOptionsEditor from '@/components/admin/TrekOptionsEditor'
+import { useState } from 'react'
+import { pricingOptionSchema, type PrivatePricing } from '@/lib/treks/schema'
 vi.mock('next/navigation', () => ({ useRouter: () => ({ replace: vi.fn(), refresh: vi.fn() }), usePathname: () => '/treks' }))
 afterEach(cleanup)
 describe('route and itinerary selection', () => {
@@ -43,8 +46,25 @@ describe('enquiry-only Trek Builder setting', () => {
     expect(price.disabled).toBe(true)
     expect(price.value).toBe('')
     fireEvent.click(screen.getByRole('button', { name: /^Preview$/ }))
-    expect(screen.getByRole('heading', { name: 'Enquire for dates & pricing' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Enquire for pricing' })).toBeTruthy()
     expect((screen.getByRole('button', { name: 'Enquiries disabled in preview' }) as HTMLButtonElement).disabled).toBe(true)
     expect(screen.queryByRole('link', { name: /Enquire on WhatsApp/ })).toBeNull()
+  })
+})
+describe('package option commercial confirmation', () => {
+  it('clears public confirmation on price edits, keeps costs separate and can remove an unsaved option', () => {
+    function Editor() {
+      const [options, setOptions] = useState([pricingOptionSchema.parse({ key: 'sankri', label: 'Sankri to Sankri', status: 'published', sellingPrice: 7200, priceVerified: true })])
+      const [costs, setCosts] = useState<PrivatePricing>([{ optionKey: 'sankri', operatorNetRate: 4000 }])
+      return <TrekOptionsEditor options={options} costs={costs} savedKeys={[]} departures={[]} onChange={(next, privateCosts) => { setOptions(next); setCosts(privateCosts) }}/>
+    }
+    render(<Editor/>)
+    expect(screen.getByText('Margin: ₹3,200 per person')).toBeTruthy()
+    fireEvent.change(screen.getByLabelText('Public selling price / person (INR)'), { target: { value: '7300' } })
+    expect((screen.getByLabelText('This public selling price is confirmed.') as HTMLInputElement).checked).toBe(false)
+    expect((screen.getByLabelText('Operator net rate / person (INR)') as HTMLInputElement).value).toBe('4000')
+    expect(screen.getByText('Margin: ₹3,300 per person')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: 'Remove unsaved option' }))
+    expect(screen.queryByLabelText('Public selling price / person (INR)')).toBeNull()
   })
 })

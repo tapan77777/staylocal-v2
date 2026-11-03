@@ -5,7 +5,7 @@
   "scripts": {
     "db:upgrade:packages": "prisma db execute --schema prisma/schema.prisma --file prisma/upgrades/20261020_trip_packages.sql",
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",

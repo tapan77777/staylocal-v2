@@ -1,0 +1,5 @@
+PASS updated existing isolated Kedarkantha draft; no duplicate, prices, dates, operator confirmation or publication
+PASS all seven existing builder sections and private option-cost editor render at desktop/360px without overflow
+PASS horizontal cards, original map zoom/Escape, synchronized itinerary, gallery and disabled draft enquiry at desktop/390px/360px
+PASS private preview noindex; fixture absent from public route/listing/sitemap and rejected by enquiries; all legacy tours unchanged
+{"checks":4,"screenshots":24,"preview":"http://localhost:3120/admin/trips/16/preview"}

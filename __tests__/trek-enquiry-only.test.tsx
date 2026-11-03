@@ -33,7 +33,7 @@ describe('explicit enquiry-only publication', () => {
 describe('enquiry-only public presentation', () => {
   it('renders the exact message and a real WhatsApp link, without a broken quote form', () => {
     const html = renderToStaticMarkup(<TrekEnquiryForm trek={trek} />)
-    expect(html).toContain('Enquire for dates &amp; pricing')
+    expect(html).toContain('Enquire for pricing')
     expect(html).toContain('https://wa.me/919178628894?text=')
     expect(html).toContain('Enquire on WhatsApp')
     expect(html).not.toContain('<form')
@@ -48,7 +48,7 @@ describe('enquiry-only public presentation', () => {
     const card = renderToStaticMarkup(<TrekCard trek={stale} />)
     const detail = renderToStaticMarkup(<TrekDetail trek={stale} />)
     for (const html of [card, detail]) {
-      expect(html).toContain('Enquire for dates &amp; pricing')
+      expect(html).toContain('Enquire for pricing')
       expect(html).not.toContain('₹')
       expect(html).not.toContain('2027-03-10')
     }

@@ -1,0 +1,255 @@
+{
+  "title": "Kedarkantha Summit Trek",
+  "slug": "kedarkantha-design-preview",
+  "summary": "A proposed six-day journey from Sankri towards Juda Ka Talab, a higher camp and Kedarkantha. Local design preview only; arrangements remain unconfirmed.",
+  "destination": "Sankri, Uttarakhand",
+  "startingPrice": null,
+  "status": "draft",
+  "publishConfirmed": false,
+  "departures": [],
+  "content": {
+    "version": 1,
+    "fixture": true,
+    "region": "Uttarakhand",
+    "description": "A slow approach through the mountains, time to settle into the trail and a summit attempt shaped by conditions. This is a provisional editorial outline supplied for interface review, not an operational itinerary or trekking offer. A named operator must verify the route, arrangements, preparation and safety information before publication.",
+    "durationDays": 6,
+    "difficulty": "Moderate",
+    "maxAltitudeM": 3810,
+    "distanceKm": null,
+    "basecamp": "Sankri \u00b7 proposed meeting base",
+    "pickup": "Dehradun \u00b7 provisional",
+    "drop": "Dehradun \u00b7 provisional",
+    "seasons": [],
+    "suitability": "Moderate is the proposed assessment. An operator must review the actual route, season and individual suitability. No fitness or summit assurance is made.",
+    "hero": {
+      "src": "/images/mountain-trail.jpg",
+      "alt": "Illustrative mountain forest landscape, not a verified Kedarkantha route photograph",
+      "caption": "Existing illustrative StayLocal asset \u00b7 not documentary evidence of this trek."
+    },
+    "gallery": [
+      {
+        "src": "/images/himalayan-peaks.jpg",
+        "alt": "Illustrative Himalayan peaks",
+        "caption": "Illustrative existing asset, not a verified Kedarkantha photograph."
+      },
+      {
+        "src": "/images/mountain-trail.jpg",
+        "alt": "Illustrative mountain forest landscape",
+        "caption": "Illustrative existing asset, not a verified campsite photograph."
+      }
+    ],
+    "highlights": [
+      "A proposed approach via Juda Ka Talab",
+      "Six days / five nights \u00b7 outline for review",
+      "A summit attempt, never a guarantee",
+      "Time for the trail, not just the destination"
+    ],
+    "routeOverview": "Proposed sequence: Dehradun \u2192 Sankri \u2192 Juda Ka Talab \u2192 Kedarkantha Base Camp \u2192 summit attempt and descent \u2192 Sankri \u2192 Dehradun. Distances, walking hours, campsite locations and coordinates are not verified.",
+    "stages": [
+      {
+        "id": "day-1",
+        "title": "Dehradun to Sankri",
+        "description": "Proposed arrival and road journey. The operator must confirm transport, meeting time and overnight arrangements.",
+        "campsite": "Sankri",
+        "mode": "TRAVEL",
+        "terrain": "Provisional: terrain and season-specific demands await operator assessment.",
+        "accommodation": "Accommodation/campsite arrangements not confirmed.",
+        "meals": "Meal coverage not confirmed.",
+        "distanceKm": null,
+        "walkingHours": null,
+        "altitudeM": null,
+        "latitude": null,
+        "longitude": null,
+        "photos": []
+      },
+      {
+        "id": "day-2",
+        "title": "Sankri to Juda Ka Talab",
+        "description": "A proposed forest approach towards Juda Ka Talab. The route, permissions, walking time and campsite require review.",
+        "campsite": "Juda Ka Talab \u00b7 proposed",
+        "mode": "WALK",
+        "terrain": "Provisional: terrain and season-specific demands await operator assessment.",
+        "accommodation": "Accommodation/campsite arrangements not confirmed.",
+        "meals": "Meal coverage not confirmed.",
+        "distanceKm": null,
+        "walkingHours": null,
+        "altitudeM": null,
+        "latitude": null,
+        "longitude": null,
+        "photos": [
+          {
+            "src": "/images/mountain-trail.jpg",
+            "alt": "Illustrative mountain forest landscape",
+            "caption": "Illustrative existing asset, not a verified campsite photograph."
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "title": "Juda Ka Talab to Kedarkantha Base Camp",
+        "description": "A proposed stage towards higher camp. Exact campsite, distance and elevation have not been verified.",
+        "campsite": "Base camp \u00b7 proposed",
+        "mode": "WALK",
+        "terrain": "Provisional: terrain and season-specific demands await operator assessment.",
+        "accommodation": "Accommodation/campsite arrangements not confirmed.",
+        "meals": "Meal coverage not confirmed.",
+        "distanceKm": null,
+        "walkingHours": null,
+        "altitudeM": null,
+        "latitude": null,
+        "longitude": null,
+        "photos": [
+          {
+            "src": "/images/mountain-trail.jpg",
+            "alt": "Illustrative mountain forest landscape",
+            "caption": "Illustrative existing asset, not a verified campsite photograph."
+          }
+        ]
+      },
+      {
+        "id": "day-4",
+        "title": "Summit attempt and descent",
+        "description": "A conditional summit attempt followed by descent. The day is illustrative; weather, group condition and the operator determine the actual plan.",
+        "campsite": "Descent camp \u00b7 unconfirmed",
+        "mode": "WALK",
+        "terrain": "Provisional: terrain and season-specific demands await operator assessment.",
+        "accommodation": "Accommodation/campsite arrangements not confirmed.",
+        "meals": "Meal coverage not confirmed.",
+        "distanceKm": null,
+        "walkingHours": null,
+        "altitudeM": null,
+        "latitude": null,
+        "longitude": null,
+        "photos": []
+      },
+      {
+        "id": "day-5",
+        "title": "Return to Sankri",
+        "description": "Proposed return towards Sankri. Descent route, walking time and accommodation remain to be confirmed.",
+        "campsite": "Sankri \u00b7 proposed",
+        "mode": "WALK",
+        "terrain": "Provisional: terrain and season-specific demands await operator assessment.",
+        "accommodation": "Accommodation/campsite arrangements not confirmed.",
+        "meals": "Meal coverage not confirmed.",
+        "distanceKm": null,
+        "walkingHours": null,
+        "altitudeM": null,
+        "latitude": null,
+        "longitude": null,
+        "photos": []
+      },
+      {
+        "id": "day-6",
+        "title": "Sankri to Dehradun",
+        "description": "Proposed onward travel to Dehradun. Arrival time, transport and onward connections are not guaranteed.",
+        "campsite": "Dehradun",
+        "mode": "TRAVEL",
+        "terrain": "Provisional: terrain and season-specific demands await operator assessment.",
+        "accommodation": "Accommodation/campsite arrangements not confirmed.",
+        "meals": "Meal coverage not confirmed.",
+        "distanceKm": null,
+        "walkingHours": null,
+        "altitudeM": null,
+        "latitude": null,
+        "longitude": null,
+        "photos": []
+      }
+    ],
+    "routeVerification": {
+      "verified": false,
+      "source": "Owner-supplied proposed outline \u00b7 operator verification pending",
+      "reviewedOn": null
+    },
+    "inclusions": [
+      "Draft only: included services are awaiting operator confirmation."
+    ],
+    "exclusions": [
+      "No transport, equipment, permits or other services have been priced or contracted in this preview."
+    ],
+    "preparation": {
+      "fitness": "PROVISIONAL \u2014 fitness information requires a named operator review before publication. No capability or safety guarantee is asserted.",
+      "weather": "PROVISIONAL \u2014 weather information requires a named operator review before publication. No capability or safety guarantee is asserted.",
+      "altitude": "PROVISIONAL \u2014 altitude information requires a named operator review before publication. No capability or safety guarantee is asserted.",
+      "terrain": "PROVISIONAL \u2014 terrain information requires a named operator review before publication. No capability or safety guarantee is asserted.",
+      "emergency": "PROVISIONAL \u2014 emergency information requires a named operator review before publication. No capability or safety guarantee is asserted.",
+      "safety": "PROVISIONAL \u2014 safety information requires a named operator review before publication. No capability or safety guarantee is asserted.",
+      "packing": [
+        "Draft checklist: operator to confirm equipment and season-specific requirements."
+      ],
+      "operatorVerified": false,
+      "reviewedBy": "",
+      "reviewedOn": null
+    },
+    "faqs": [
+      {
+        "q": "Are dates or prices confirmed?",
+        "a": "No. This local preview has no confirmed selling price, departure or seat availability. Ask StayLocal when the real trek is reviewed."
+      },
+      {
+        "q": "Can this illustration be used for navigation?",
+        "a": "No. It is an original StayLocal design concept, not surveyed, not to scale and not a GPS route."
+      },
+      {
+        "q": "Is the summit guaranteed?",
+        "a": "No summit or safety guarantee is made. The proposed itinerary requires operator review and may change with conditions."
+      }
+    ],
+    "seo": {
+      "title": "Kedarkantha Summit Trek \u00b7 private provisional preview",
+      "description": "Local design preview of a proposed six-day Kedarkantha trek. Not a published or bookable offer.",
+      "socialImage": "/images/himalayan-peaks.jpg"
+    },
+    "provisional": true,
+    "enquiryOnly": true,
+    "routeMap": {
+      "image": {
+        "src": "/treks/kedarkantha-route-concept.svg",
+        "alt": "Original StayLocal artistic concept showing the proposed Sankri, Juda Ka Talab, base camp and Kedarkantha sequence; not a navigation map",
+        "caption": "StayLocal original artwork. Artistic placements only; not surveyed or to scale."
+      },
+      "kind": "CONCEPT",
+      "source": "Original StayLocal SVG design concept",
+      "reviewedOn": null
+    },
+    "accommodation": "Provisional: village accommodation and camping arrangements need confirmation. No property, tent allocation or campsite booking is asserted.",
+    "meals": "Meal coverage, drinking-water arrangements and dietary support must be confirmed by the operator. No meal package is promised.",
+    "travelDetails": "Dehradun pickup/drop is proposed. Meeting location, reporting time, vehicle, road conditions and transport inclusion must be confirmed before travel.",
+    "pricingOptions": [
+      {
+        "key": "sankri-return",
+        "label": "Sankri to Sankri",
+        "description": "Proposed trail-only meeting arrangement. Exact services and selling price are not confirmed.",
+        "status": "draft",
+        "sellingPrice": null,
+        "priceVerified": false,
+        "pickup": "Sankri",
+        "drop": "Sankri",
+        "inclusions": [
+          "Draft: operator must specify included services."
+        ],
+        "exclusions": [
+          "Draft: exclusions and transport arrangements need confirmation."
+        ],
+        "departureKeys": []
+      },
+      {
+        "key": "dehradun-return",
+        "label": "Dehradun to Dehradun",
+        "description": "Proposed road-transfer and trek arrangement. Transport scope, selling price and dates remain unconfirmed.",
+        "status": "draft",
+        "sellingPrice": null,
+        "priceVerified": false,
+        "pickup": "Dehradun",
+        "drop": "Dehradun",
+        "inclusions": [
+          "Draft: operator must specify included services."
+        ],
+        "exclusions": [
+          "Draft: exclusions and transport arrangements need confirmation."
+        ],
+        "departureKeys": []
+      }
+    ]
+  },
+  "privatePricing": []
+}

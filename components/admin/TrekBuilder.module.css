@@ -81,3 +81,4 @@
   .saveBar>button { flex: 1; padding: 10px 7px; font-size: 11px; }
   .mediaField,.group { padding: 18px 13px; }
 }
+.privateCommercial { display:grid; gap:14px; padding:18px; background:#f0f1e7; border:1px dashed #819071; border-radius:8px; color:#45543b; font-size:12px; line-height:1.8; }

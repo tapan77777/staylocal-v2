@@ -1,0 +1,16 @@
+{
+  "app/page.tsx": true,
+  "app/layout.tsx": true,
+  "components/WelcomePopup.tsx": true,
+  "components/Hero.tsx": true,
+  "app/tours/page.tsx": true,
+  "components/DiscoveryLanding.tsx": true,
+  "components/TripCard.tsx": true,
+  "components/admin/TripForm.tsx": true,
+  "lib/pricing.ts": true,
+  "lib/universal-trip.ts": true,
+  "components/trip/CalculatorTrip.tsx": true,
+  "components/AndamanPage.tsx": true,
+  "app/api/bookings/route.ts": true,
+  "prisma/schema.prisma": true
+}

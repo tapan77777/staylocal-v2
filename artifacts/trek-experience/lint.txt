@@ -1,0 +1,11 @@
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/components/treks/RouteIllustration.tsx
+  11:210   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  11:1115  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tapannaik/Desktop/Projects/staylocal-v2/lib/treks/store.ts
+  42:141  warning  '_packageId' is defined but never used  @typescript-eslint/no-unused-vars
+  42:165  warning  '_dates' is defined but never used      @typescript-eslint/no-unused-vars
+
+✖ 4 problems (0 errors, 4 warnings)
+
