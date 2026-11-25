@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Local documentation (do not commit)
+/docs/codebase-handbook/
+/docs/trek_page_implementation/
+
 # vercel
 .vercel
 

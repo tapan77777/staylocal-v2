@@ -100,7 +100,7 @@ export async function saveTrek(input: unknown, id?: number): Promise<AdminTrekRe
       else await tx.trekDeparture.create({ data: { ...payload, tripId: trip.id } })
     }
     return trip.id
-  }, { isolationLevel: 'Serializable' })
+  }, { isolationLevel: 'Serializable', maxWait: 10_000, timeout: 30_000 })
   return (await readAdminTrek(tripId))!
 }
 function trekIdentity(t: TrekWrite) {

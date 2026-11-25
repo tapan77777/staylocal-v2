@@ -51,6 +51,18 @@ describe('enquiry-only Trek Builder setting', () => {
     expect(screen.queryByRole('link', { name: /Enquire on WhatsApp/ })).toBeNull()
   })
 })
+describe('Trek publication review', () => {
+  it('records review completion before the trek can be published', () => {
+    const input = trekWriteSchema.parse({ ...fixture, content: { ...fixture.content, fixture: false } })
+    render(<TrekBuilder initial={{ ...input, id: 10, packageId: 20, updatedAt: '2026-11-02T00:00:00.000Z' }} writeEnabled />)
+
+    fireEvent.click(screen.getByRole('button', { name: /FAQs & SEO/ }))
+    fireEvent.click(screen.getByRole('button', { name: 'Review complete' }))
+
+    expect((screen.getByRole('checkbox', { name: /I reviewed the route/ }) as HTMLInputElement).checked).toBe(true)
+    expect(screen.getByRole('status').textContent).toContain('Review complete')
+  })
+})
 describe('package option commercial confirmation', () => {
   it('clears public confirmation on price edits, keeps costs separate and can remove an unsaved option', () => {
     function Editor() {
