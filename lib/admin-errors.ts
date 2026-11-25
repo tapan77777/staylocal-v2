@@ -10,6 +10,10 @@ export function adminError(error: unknown) {
   if (code === 'P2002') return NextResponse.json({ error: 'This slug is already in use.' }, { status: 409 })
   if (code === 'P2025') return NextResponse.json({ error: 'The requested record was not found.' }, { status: 404 })
   if (code === 'P2034') return NextResponse.json({ error: 'Content changed during editing. Please reload and retry.' }, { status: 409 })
+  if (code === 'P2003') return NextResponse.json({ error: 'A related record is missing or protected. Reload and retry.' }, { status: 409 })
+  if (code === 'P2017') return NextResponse.json({ error: 'The trek content relationship is incomplete. Reload and retry.' }, { status: 409 })
+  if (code === 'P2028') return NextResponse.json({ error: 'The save took too long to finish. Please retry.' }, { status: 503 })
+  console.error('[admin] Unhandled mutation error', error)
   return NextResponse.json({ error: 'The operation could not be saved. Please retry.' }, { status: 500 })
 }
 

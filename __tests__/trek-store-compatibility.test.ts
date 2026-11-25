@@ -76,6 +76,11 @@ describe('migration and compatibility boundaries', () => {
     mocks.oldContent.mockResolvedValue({ updatedAt: new Date('2026-11-02'), trip: { classification: { kind: 'TREK' }, slug: input.slug } })
     await expect(saveTrek({ ...input, expectedUpdatedAt: '2026-01-01T00:00:00.000Z' }, 10)).rejects.toMatchObject({ status: 409 })
     expect(mocks.update).not.toHaveBeenCalled()
+    expect(mocks.transaction.mock.calls[0][1]).toEqual({
+      isolationLevel: 'Serializable',
+      maxWait: 10_000,
+      timeout: 30_000,
+    })
   })
   it('advertises lower confirmed departure prices without changing the base or using full-batch minima', () => {
     const departures = input.departures.map(d => ({ ...d, startDate: '2030-03-10', endDate: '2030-03-12' }))

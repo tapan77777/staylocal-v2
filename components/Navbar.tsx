@@ -42,10 +42,11 @@ export default function Navbar() {
     <nav
       aria-label="Main navigation"
       style={{
-        background: solid ? 'rgba(255,255,255,0.94)' : 'transparent',
-        backdropFilter: solid ? 'saturate(1.4) blur(10px)' : undefined,
-        WebkitBackdropFilter: solid ? 'saturate(1.4) blur(10px)' : undefined,
-        borderBottom: solid ? '1px solid var(--border)' : '1px solid transparent',
+        background: solid ? '#ffffff' : 'transparent',
+        backdropFilter: solid ? 'none' : undefined,
+        WebkitBackdropFilter: solid ? 'none' : undefined,
+        borderBottom: solid ? '1px solid #dfe5d8' : '1px solid transparent',
+        boxShadow: solid ? '0 3px 16px rgba(10, 20, 15, 0.08)' : 'none',
         position: transparentCapable ? 'fixed' : 'sticky',
         top: 0,
         left: 0,
